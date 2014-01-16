@@ -42,17 +42,20 @@ BlockSchema.path('title').validate(function(title) {
  * Statics
  */
 
-BlockSchema.statics.createTimestamped = function(block, cb) {
+BlockSchema.statics.customCreate = function(block, cb) {
 
   var That= this;
-  var now = Math.round(new Date().getTime() / 1000);
 
   var BlockSchema = mongoose.model('Block', BlockSchema);
-  var newBlock = new That();
-  newBlock.time = now;
 
-  Transaction.createFromArray(block.tx, function(err, inserted_txs) {
+  var newBlock = new That();
+
+  newBlock.time = block.time ? block.time : Math.round(new Date().getTime() / 1000);
+  newBlock.hash = block.hash;
+
+  Transaction.createFromArray(block.tx, newBlock.time, function(err, inserted_txs) {
     if (err) return cb(err);
+
     newBlock.save(function(err) {
       return cb(err, inserted_txs);
     });
