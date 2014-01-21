@@ -35,14 +35,14 @@
         <tr>
           <td>Start</td>
           <td class="text-right">
-            <a href="/#!/block/{{sync.start}}">{{sync.start}}</a>
+            <a href="/block/{{sync.start}}">{{sync.start}}</a>
             <span data-ng-show="sync.isStartGenesis"> (genesisBlock)</span>
           </td>
         </tr>
         <tr>
           <td>End</td>
           <td class="text-right">
-            <a href="/#!/block/{{sync.end}}">{{sync.end}}</a>
+            <a href="/block/{{sync.end}}">{{sync.end}}</a>
             <span data-ng-show="sync.isEndGenesis"> (genesisBlock)</span>
           </td>
         </tr>
@@ -71,11 +71,11 @@
         </tr>
         <tr>
           <td>Height</td>
-          <td class="text-right"><a href="/#!/block-index/{{txoutsetinfo.height}}">{{txoutsetinfo.height}}</a></td>
+          <td class="text-right"><a href="/block-index/{{txoutsetinfo.height}}">{{txoutsetinfo.height}}</a></td>
         </tr>
         <tr>
           <td>Best Block</td>
-          <td class="text-right"><a href="/#!/block/{{txoutsetinfo.bestblock}}">{{txoutsetinfo.bestblock}}</a></td>
+          <td class="text-right"><a href="/block/{{txoutsetinfo.bestblock}}">{{txoutsetinfo.bestblock}}</a></td>
         </tr>
         <tr>
           <td>Transactions</td>
@@ -111,7 +111,7 @@
         </tr>
         <tr>
           <td>Last block hash</td>
-          <td class="text-right"><a href="/#!/block/{{lastblockhash}}">{{lastblockhash}}</a></td>
+          <td class="text-right"><a href="/block/{{lastblockhash}}">{{lastblockhash}}</a></td>
         </tr>
         </tbody>
       </table>
@@ -144,7 +144,7 @@
           </tr>
           <tr>
             <td>Blocks</td>
-            <td class="text-right"><a href="/#!/block-index/{{info.blocks}}">{{info.blocks}}</a></td>
+            <td class="text-right"><a href="/block-index/{{info.blocks}}">{{info.blocks}}</a></td>
           </tr>
           <tr>
             <td>Time Offset</td>

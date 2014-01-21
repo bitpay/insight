@@ -11,8 +11,8 @@
         <p class="lead text-center m20v">{{pagination.current}}</p>
 
         <div class="m50v">
-          <a class="btn btn-default" href="#!/blocks-date/{{pagination.prev}}"><small>&larr; {{pagination.prev}}</small></a>
-          <a class="btn btn-primary" href="#!/blocks-date/{{pagination.next}}"><small>{{pagination.next}} &rarr;</small></a>
+          <a class="btn btn-default" href="/blocks-date/{{pagination.prev}}"><small>&larr; {{pagination.prev}}</small></a>
+          <a class="btn btn-primary" href="/blocks-date/{{pagination.next}}"><small>{{pagination.next}} &rarr;</small></a>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
         </thead>
         <tbody>
         <tr data-ng-repeat="block in blocks">
-          <td><a href="#!/block/{{block.hash}}">{{block.hash}}</a></td>
+          <td><a href="/block/{{block.hash}}">{{block.hash}}</a></td>
           <td>{{block.time * 1000 | date:'medium'}}</td>
         </tr>
         </tbody>

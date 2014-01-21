@@ -7,7 +7,7 @@
       <div class="col-md-6">
         <h3> New transactions </h3>
         <div class="panel fader" ng-repeat='tx in txs'>
-          <a class="abreviate" href="#!/tx/{{tx.txid}}">{{tx.txid}}
+          <a class="abreviate" href="/tx/{{tx.txid}}">{{tx.txid}}
             <span class="badge badge-success">{{human_since(tx.time)}}</span>
           </a>
         </div>
@@ -15,7 +15,7 @@
       <div class="col-md-6">
         <h3> New blocks </h3>
         <div class="panel fader" ng-repeat='b in blocks'>
-          <a href="#!/block/{{b.hash}}">{{b.hash}}
+          <a href="/block/{{b.hash}}">{{b.hash}}
             <span class="badge badge-success">{{human_since(b.time)}}</span>
           </a>
         </div>
