@@ -38,6 +38,6 @@ angular.module('insight').config(['$routeProvider',
 //Setting HTML5 Location Mode
 angular.module('insight').config(['$locationProvider',
   function($locationProvider) {
-    $locationProvider.hashPrefix('!');
+    $locationProvider.html5Mode(true).hashPrefix('!');
   }
 ]);
