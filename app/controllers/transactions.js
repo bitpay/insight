@@ -42,7 +42,9 @@ var getTransaction = function(txid, cb) {
       console.log(err);
       return cb(err);
     }
-    return cb(null, tx.info);
+    if (tx) {
+      return cb(null, tx.info);
+    }
   });
 };
 
