@@ -33,5 +33,6 @@ module.exports = function(app, historicSync) {
   app.get('/api/status', st.show);
 
   app.get('/api/sync', st.sync);
+  app.get('/*', index.render );
 
 };
