@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('insight.status').controller('StatusController',
-function($scope, $routeParams, $location, $rootScope, Global, Status, Sync, get_socket) {
+function($scope, $routeParams, $location, Global, Status, Sync, get_socket) {
   $scope.global = Global;
 
   $scope.getStatus = function(q) {
@@ -9,38 +9,33 @@ function($scope, $routeParams, $location, $rootScope, Global, Status, Sync, get_
       q: 'get' + q
     },
     function(d) {
-      $rootScope.infoError = null;
+      $scope.loaded = 1;
       angular.extend($scope, d);
     },
     function(e) {
-      if (e.status === 503) {
-        $rootScope.infoError = 'Backend Error. ' + e.data;
-      }
-      else {
-        $rootScope.infoError = 'Unknown error:' + e.data;
-      }
+      $scope.error =  'API ERROR: ' + e.data;
     });
   };
 
-  var on_sync_update = function(sync) {
+  var onSyncUpdate = function(sync) {
     $scope.sync = sync;
   };
 
   $scope.getSync = function() {
     Sync.get({},
     function(sync) {
-      on_sync_update(sync);
+      onSyncUpdate(sync);
     },
     function(e) {
-      $scope.sync = { error: 'Could not get sync information' + e };
+      var err = 'Could not get sync information' + e.toString();
+      $scope.sync = { error: err };
     });
   };
 
   var socket = get_socket($scope);
   socket.emit('subscribe', 'sync');
   socket.on('status', function(sync) {
-console.log('[status.js.55::] sync status update received!');
-    on_sync_update(sync);
+    onSyncUpdate(sync);
   });
 
 });
