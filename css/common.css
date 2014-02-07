@@ -1,0 +1,142 @@
+body {
+	font-family: ubuntu, helvetica, arial;
+	background-color: #373D42;
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: ubuntu, helvetica, arial;
+}
+
+h2 {
+	margin-top: 0;
+	font-weight: 100;
+	color: #8DC429;
+}
+
+p {
+	margin: 15px 0;
+}
+
+a {
+	color: #F4F4F4;
+}
+
+a:hover {
+	color: white;
+}
+
+pre {
+	padding: 10px 15px;
+	background: #111;
+	font-family: 'Ubuntu Mono', sans-serif;
+  	font-weight: 400;
+	font-size: 15px;
+	color: #C1C8CF;
+	line-height: 30px;
+	white-space: pre;
+	border: none;
+}
+
+.line-top {
+	border-top: 1px dashed #898989;
+	padding: 45px 0;
+	margin-top: 40px;
+}
+
+.m10v { margin:10px 0;}
+.m20v { margin:20px 0;}
+.m30v { margin:30px 0;}
+.m30b { margin-bottom:30px;}
+.m10h { margin:0 10px;}
+
+.bg-white {
+	background: white;
+	height: 90%;
+	padding: 5% 4%;
+	overflow: hidden;
+	position: relative;
+}
+
+.bg-white h3 {
+	color: #2C3E50;
+	margin-bottom: 20px;
+}
+
+.bg-white p {
+	font-weight: 100;
+	font-size: 20px;
+	color: #34495E;
+	line-height: 30px;
+}
+
+.white-lead {
+	padding-bottom: 30px;
+	margin: 57px auto;
+	width: 60%;
+}
+
+.btn {
+	border: 0;
+	display: inline-block;
+	font-weight: 100;
+	font-size: 25px;
+	color: #fff;
+	line-height: 30px;
+	padding: 16px; 
+	border-radius: 5px;
+	height: 63px;
+	width: 260px;
+}
+
+.btn-default {
+	background: #8DC429;
+}
+
+.btn-primary {
+	background: #373D42;
+}
+
+.btn-default:hover {
+	color: white;
+	background: #76A81B;
+}
+
+.btn-primary:hover {
+	color: white;
+	background: #272B2F;
+}
+
+.fi {
+	font-style: italic;
+}
+
+.col-md-4 small {
+	color: #8DC429;
+}
+
+.col-md-4 p {
+	margin: 0;
+}
+
+p.logo-footer {
+	font-weight: 700;
+	font-style: italic;
+	float: right;
+	font-size: 18px;
+}
+
+footer {
+	margin-top: 40px;
+	background: #111;
+	padding: 8px 0;
+}
+
+footer .container {
+	margin-bottom: 0;
+}
+
+footer p {
+	margin: 0;
+	color: #fff;
+}

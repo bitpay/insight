@@ -1,79 +1,305 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Insight </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:300,400,500,700,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+    <header class="bg-white text-center">
+        <a href="index.html" id="logo">
+            <img src="images/logo-container.svg" alt="Insight">
+        </a>
+        <div class="white-lead">
+            <h3 class="hidden-xs">Developers API Documentation</h3>
+            <p>The Insight REST API provides you with a convenient, powerful and simple way to read data from the bitcoin network and build your own services with it.</p>
+            <p>The REST API currently only supports JSON for the response formats.</p>
+            <p>The API is free to use.</p>
+        </div>
+        <a href="#started" class="btn btn-default m10h " id="cta"> <small class="glyphicon glyphicon-download-alt m10h"></small> Download</a>
+        <a href="#started" class="btn btn-primary m10h" id="cta"> <small class="glyphicon glyphicon-eye-open m10h"></small> View Online</a>
+    </header>   
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Insight : " />
+    <div class="container" style="margin-top: 40px;">
+        <h1 class="text-center">API RERFERENCE</h1>
+        <div class="row line-top">
+            <div class="col-md-4">
+                <h2>Blocks</h2>
+                <h4>Get Block</h4>
+                <small>URI:</small>
+                <p>/api/block/00000000009890591fba...</p>
+            </div>
+            <div class="col-md-8 m30b">
+                <small>Result:</small>
+                
+<pre>{
+  hash: "00000000009890591fbacf147ffc6c246fa7bad0f2c75a68e3e1ba48b1636d23",
+  confirmations: 37,
+  size: 1287,
+  height: 177951,
+  version: 2,
+  merkleroot: "4d549d51e0bca64030b7f3ab74fcc9a82f3de7bba5d6c3f9a8cb2028399fc590",
+  tx: [
+    "1b8354de2102f0f3f72f7e59fd3fdc0a406fa92675a78d7bb1f599067685385a",
+    "babe2d8b24649df7951e696a4b1686e28764d2d7bbf94d45f612ff598a14017d",
+    "0351d523fec44a04990b8f9513c44b358eac8b88d5df1074ed36d3ffef5f1582",
+    "09f1a8dd15a989377753690f2293e5509fa0763a26af661cf7b56eebc6999c59",
+    "04d972767c5500805ccd41961e2b538b5334af3e41635b2a2ec3750a3c96565a",
+    "df11424536f618ba511436702f97e886b83a1a0e7d1578a26160177274ca0a39"
+  ],
+  time: 1391192318,
+  nonce: 2374664549,
+  bits: "1c00ffff",
+  difficulty: 256,
+  chainwork: "0000000000000000000000000000000000000000000000000413951687599d9f",
+  previousblockhash: "000000000034a41747ec564a890d8192fbd2ec0bfa71667b81db145575cde08e",
+  nextblockhash: "0000000000868ef72603e45325fc0464a5424b7539c51f5905e0ffd2bafc7115",
+  reward: 50
+}</pre>
+                
+            </div>
+            <div class="col-md-4">
+                <h4>Get Block information by date</h4> 
+                <small>URI:</small>
+                <p>/api/blocks/?blockDate=yyyy-mm-dd</p>
+            </div>
+            <div class="col-md-8 m30b">
+<pre>{
+  blocks: [ Array information of blocks ],
+  length: 2636,
+  pagination: {
+    next: "2014-01-30",
+    prev: "2014-01-28",
+    current: "2014-01-29",
+    isToday: false
+  }
+}</pre>         
+            </div> 
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+            <div class="col-md-4">
+                <h4>Get hash of block by height</h4> 
+                <small>URI:</small>
+                <p>/api/block-index/0</p>
+            </div>
+            <div class="col-md-8">
+<pre>{
+  blockHash: "000000000933ea01ad0ee984209779baaec3ce..."
+}</pre>         
+            </div> 
+        </div>  <!-- end of row (blocks) -->
+        
+        <div class="row line-top">
+            <div class="col-md-4">
+                <h2>Transactions</h2>
+                <h4>Get Transaction</h4>
+                <small>URI:</small>
+                <p>/api/tx/0099d9342edab8a59fa4d84cb...</p>
+            </div>
+            <div class="col-md-8 m30b">
+                <small>Result:</small>              
+<pre>{
+  hex: "01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0d0358b702017e062f503253482fffffffff01108a082a010000002321029f58ed5b58f1941664d67bcc2ccb5b25c50cc2324ccc9643ff7f8271118c4609ac00000000",
+  txid: "0099d9342edab8a59fa4d84cb807cf599ce2210e5240bc39500d8f6b6f4779c0",
+  version: 1,
+  locktime: 0,
+  vin: [
+    {
+      coinbase: "0358b702017e062f503253482f",
+      sequence: 4294967295,
+      reward: 50,
+      n: 0
+    }
+  ],
+  vout: [
+    {
+      value: 50.0017,
+      n: 0,
+      scriptPubKey: {
+        asm: "029f58ed5b58f1941664d67bcc2ccb5b25c50cc2324ccc9643ff7f8271118c4609 OP_CHECKSIG",
+        hex: "21029f58ed5b58f1941664d67bcc2ccb5b25c50cc2324ccc9643ff7f8271118c4609ac",
+        reqSigs: 1,
+        type: "pubkey",
+        addresses: [
+          "mt3r2JMiWqGkHUiMqduo2HoHw5iAHMT7P9"
+        ]
+      }
+    }
+  ],
+  blockhash: "0000000000478e746e78012066a14db61ee9a447b35607a42b54d15060eb23d6",
+  confirmations: 10,
+  time: 1391201940,
+  blocktime: 1391201940,
+  isCoinBase: true,
+  valueIn: 50,
+  valueOut: 50.0017,
+  size: 108
+}</pre>         
+            </div>
+            <div class="col-md-4">
+                <h4>Get Transactions by BlockHash</h4>
+                <small>URI:</small>
+                <p>/api/txs/?block=0000000001a6b96db5e1af9f01458c5f0d...</p>
+            </div>
+            <div class="col-md-8 m30b">         
+<pre>{
+  pagesTotal: 2,
+  txs: [ Array of Transactions ]
+}</pre>         
+            </div>
+            <div class="col-md-4">
+                <h4>Get Transactions by String Address</h4>
+                <small>URI:</small>
+                <p>/api/txs/?address=mqxfgc12qXdm4ekLrCKPDYqamxUEt...</p>
+            </div>
+            <div class="col-md-8 m30b">         
+<pre>{
+  pagesTotal: 4,
+  txs: [ Array of Transactions ]
+}</pre>         
+            </div>
+        </div> <!-- end of row (transactions) -->
+        
+        <div class="row line-top">
+            <div class="col-md-4">
+                <h2>Address</h2>
+                <h4>Get Address</h4>
+                <small>URI:</small>
+                <p>/api/addr/mqxfgc12qXdm4ekLrCKPDYq...</p>
+            </div>
+            <div class="col-md-8 m30b">
+                <small>Result:</small>
+<pre>{
+  balanceSat: 5031766000,
+  totalReceivedSat: 5853132000,
+  totalSentSat: 821366000,
+  txApperances: 66,
+  transactions: [ Array of Transaction IDs ],
+  addrStr: "mqxfgc12qXdm4ekLrCKPDYqamxUEtK78Vg",
+  totalSent: 8.21366,
+  balance: 50.31766,
+  totalReceived: 58.53132
+}</pre>        
+            </div>
+        </div> <!-- end of row (Address) -->
 
-    <title>Insight</title>
-  </head>
+        <div class="row line-top">
+            <div class="col-md-4">
+                <h2>Application Status</h2>
+                <h4>Get Information</h4>
+                <small>URI:</small>
+                <p>/api/status?q=getInfo</p>
+            </div>
+            <div class="col-md-8 m30b">
+                <small>Result:</small>    
+<pre>{
+  info: {
+    version: 89900,
+    protocolversion: 70002,
+    walletversion: 60000,
+    balance: 0,
+    blocks: 178019,
+    timeoffset: -345,
+    connections: 9,
+    proxy: "",
+    difficulty: 1,
+    testnet: true,
+    keypoololdest: 1389273625,
+    keypoolsize: 101,
+    paytxfee: 0,
+    errors: "This is a pre-release test build - use at your own risk - do not use for mining or merchant applications"
+  }
+}</pre>       
+            </div>
+            <div class="col-md-4">
+                <h4>Get Difficulty</h4>
+                <small>URI:</small>
+                <p>/api/status?q=getDifficulty</p>
+            </div>
+            <div class="col-md-8 m30b">
+<pre>{
+  difficulty: 1
+}</pre>
+            </div>
+            <div class="col-md-4">
+                <h4>Get TxOutSetInfo</h4>
+                <small>URI:</small>
+                <p>/api/status?q=getTxOutSetInfo</p>
+            </div>
+            <div class="col-md-8 m30b">      
+<pre>{
+  txoutsetinfo: {
+    height: 178020,
+    bestblock: "00000000fc182ffd65fa397dbe0c60b1932bee4ccef407b36b7d6d9d5fdb5962",
+    transactions: 242191,
+    txouts: 421180,
+    bytes_serialized: 25490639,
+    hash_serialized: "68decf93d8c883a31c061fcd393966d36fbed07c05b4df739da85585cb70e077",
+    total_amount: 8900499.25420614
+  }
+}</pre>
+            </div>
+            <div class="col-md-4">
+                <h4>Get Last Block Hash</h4>
+                <small>URI:</small>
+                <p>/api/status?q=getLastBlockHash</p>
+            </div>
+            <div class="col-md-8 m30b">    
+<pre>{
+  lastblockhash: "00000000fc182ffd65fa397dbe0c60b1932bee4ccef407b36b7d6d9d5fdb5962"
+}</pre>
+            </div>
+        </div> <!-- end of row (Aplication Status) -->
 
-  <body>
+        <div class="row line-top">
+            <div class="col-md-4">
+                <h2>Server Information</h2>
+                <h4>Get information of Bitcoin synchronization</h4>
+                <small>URI:</small>
+                <p>/api/sync</p>
+            </div>
+            <div class="col-md-8 m30b">
+                <small>Result:</small>         
+<pre>{
+  status: "finished",
+  blockChainHeight: 178009,
+  syncPercentage: 100,
+  skippedBlocks: 0,
+  syncedBlocks: 178011,
+  error: null
+}</pre>      
+            </div>
+            <div class="col-md-4">
+                <h4>Get API Version</h4>
+                <small>URI:</small>
+                <p>/api/version</p>
+            </div>
+            <div class="col-md-8 m30b">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/bitpay/insight">View on GitHub</a>
+<pre>{
+  version: "0.0.1"
+}</pre>
+            </div>
+        </div> <!-- end of row (server information) -->
+    </div> <!-- end of container -->
 
-          <h1 id="project_title">Insight</h1>
-          <h2 id="project_tagline"></h2>
+    <footer>
+        <div class="copyright">
+            <div class="container">
+                <p class="pull-left">© 2014 GitHub, Inc.</p>
+                <p class="logo-footer"> insight </p>
+            </div>
+        </div>
+    </footer>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/bitpay/insight/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/bitpay/insight/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="insight" class="anchor" href="#insight"><span class="octicon octicon-link"></span></a>Insight</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Insight maintained by <a href="https://github.com/bitpay">bitpay</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" language="JavaScript"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/a.js"></script>
+</body>
 </html>
