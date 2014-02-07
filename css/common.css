@@ -28,7 +28,7 @@ a:hover {
 
 pre {
 	padding: 10px 15px;
-	background: #111;
+	background: #262A2E;
 	font-family: 'Ubuntu Mono', sans-serif;
   	font-weight: 400;
 	font-size: 15px;
@@ -36,6 +36,16 @@ pre {
 	line-height: 30px;
 	white-space: pre;
 	border: none;
+}
+
+/* Bitcoin is a powerfu: */
+
+.logo-header {
+	font-weight: 700;
+	font-style: italic;
+	font-size: 50px;
+	padding-bottom: 50px;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.40);
 }
 
 .line-top {
@@ -51,23 +61,26 @@ pre {
 .m10h { margin:0 10px;}
 
 .bg-white {
-	background: white;
+	background: #8DC429;
 	height: 90%;
 	padding: 5% 4%;
 	overflow: hidden;
 	position: relative;
+	border-bottom: 1px dashed white;
 }
 
 .bg-white h3 {
-	color: #2C3E50;
+	color: white;
 	margin-bottom: 20px;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.40);
 }
 
 .bg-white p {
 	font-weight: 100;
 	font-size: 20px;
-	color: #34495E;
+	color: white;
 	line-height: 30px;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.40);
 }
 
 .white-lead {
@@ -81,7 +94,7 @@ pre {
 	display: inline-block;
 	font-weight: 100;
 	font-size: 25px;
-	color: #fff;
+	color: ##8DC429;
 	line-height: 30px;
 	padding: 16px; 
 	border-radius: 5px;
@@ -90,7 +103,7 @@ pre {
 }
 
 .btn-default {
-	background: #8DC429;
+	background: white;
 }
 
 .btn-primary {
@@ -98,8 +111,7 @@ pre {
 }
 
 .btn-default:hover {
-	color: white;
-	background: #76A81B;
+	background: #f2f2f2;
 }
 
 .btn-primary:hover {
@@ -127,8 +139,9 @@ p.logo-footer {
 }
 
 footer {
+	border-top: 1px dashed white;
 	margin-top: 40px;
-	background: #111;
+	background: #212427;
 	padding: 8px 0;
 }
 
