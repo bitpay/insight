@@ -41,6 +41,7 @@ pre {
 /* Bitcoin is a powerfu: */
 
 .logo-header {
+	color: white;
 	font-weight: 700;
 	font-style: italic;
 	font-size: 50px;
@@ -141,7 +142,7 @@ p.logo-footer {
 footer {
 	border-top: 1px dashed white;
 	margin-top: 40px;
-	background: #212427;
+	background: #8DC429;
 	padding: 8px 0;
 }
 
