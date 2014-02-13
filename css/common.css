@@ -8,14 +8,20 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: ubuntu, helvetica, arial;
 }
 
+h1 {
+	margin: 2em 0 1em 0;
+}
+
 h2 {
 	margin-top: 0;
 	font-weight: 100;
 	color: #8DC429;
+	margin-bottom: 1em;
 }
 
 p {
 	margin: 15px 0;
+	color: #999999;
 }
 
 a {
@@ -38,25 +44,93 @@ pre {
 	border: none;
 }
 
+.carousel-control.right {
+	background-image: linear-gradient(to right,rgba(0,0,0,0.0001) 0,rgba(0,0,0,0.3) 100%);
+	background-image: -webkit-linear-gradient(left,color-stop(rgba(0,0,0,0.0001) 0),color-stop(rgba(0,0,0,0.3) 100%));
+}
+
+.carousel-control.left {
+	background-image: -webkit-linear-gradient(left,color-stop(rgba(0,0,0,0.3) 0),color-stop(rgba(0,0,0,0.0001) 100%));
+	background-image: linear-gradient(to right,rgba(0,0,0,0.3) 0,rgba(0,0,0,0.0001) 100%);
+}
+
+nav.navbar-default {
+	background-color: #8DC429;
+	padding: 1em 2em;
+	border: 0;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
 /* Bitcoin is a powerfu: */
 
+.slider {
+	margin-top: 1em;
+	border: 3px solid #fff;
+	border-radius: 5px;
+	-moz-box-shadow:    0px 0px 7px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.50);
+	box-shadow:         0px 0px 7px 0px rgba(0,0,0,0.50);
+}
+
+/* Rectangle 17: */
+.carousel-caption {
+	background: rgba(55,61,65,0.5);
+	text-align: left;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	padding: 0.1em 1.5em;
+}
+
+.bg-white .carousel-caption p {
+	color: #fff;
+	font-size: 1em;
+	line-height: 1.5em;
+	margin: 5px 0;
+}
+
+.bg-white .carousel-caption h4 {
+	margin-bottom: 5px;
+}
+
+.row {
+	padding: 0.5em 0;
+}
+
+.container {
+	width: 70%;
+}
+
+ul.features li {
+	background: #32383D;
+	padding: 0.1em 2em;
+	border-radius: 0.5em;
+	margin: 2em 0;
+}
+
+.icon {
+	color: #8DC429;
+	margin-top: 0.4em;
+	margin-right: 0.5em;
+	/*font-size: 3.5em !important;*/
+}
+
 .buttons {
-	margin: 2% 0;
+	margin: 11% 0;
 }
 
 .logo-header {
 	color: white;
 	font-weight: 700;
 	font-style: italic;
-	font-size: 50px;
-	margin-bottom: 4%;
-	text-shadow: 1px 1px 2px rgba(0,0,0,0.40);
+	font-size: 2em;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.30);
 }
 
 .line-top {
 	border-top: 1px dashed #898989;
-	padding: 45px 0;
-	margin-top: 40px;
+	margin-top: 5em;
 }
 
 .m10 { margin:10px;}
@@ -65,64 +139,63 @@ pre {
 .m30v { margin:30px 0;}
 .m30b { margin-bottom:30px;}
 .m10h { margin:0 10px;}
+.m20h { margin: 0 20px;}
+.m30h { margin: 0 30px;}
+.p30v { padding: 4em 0;}
+
 
 .bg-white {
-	background: #8DC429;
-	height: 90%;
-	padding: 4%;
-	overflow: hidden;
-	position: relative;
-	border-bottom: 1px dashed white;
+	background: #fff;
+	padding: 6% 4%;
 }
 
 .bg-white h3 {
-	color: white;
-	margin-bottom: 20px;
-	text-shadow: 1px 1px 2px rgba(0,0,0,0.40);
+	font-size: 1.8em;
+	color: #373D42;
+	margin-bottom: 1.6em;
 }
 
 .bg-white p {
 	font-weight: 100;
-	font-size: 20px;
-	color: white;
-	line-height: 30px;
-	text-shadow: 1px 1px 2px rgba(0,0,0,0.40);
+	font-size: 1.2em;
+	color: #373D42;
+	line-height: 2em;
 }
 
 .white-lead {
-	/* padding-bottom: 30px; */
-	margin: 6% auto;
-	width: 60%;
+    margin: em 0 0 0em;
+}
+
+.glyphicon { 
+	margin-right: 0.5em;
+	font-size: 0.8em;
+}
+
+nav a.btn {
+	padding: 0.3em 1em;
+	font-size: 1em;
 }
 
 .btn {
 	border: 0;
 	display: inline-block;
 	font-weight: 100;
-	font-size: 25px;
-	color: ##8DC429;
-	line-height: 30px;
-	padding: 16px; 
+	font-size: 1.5em;
+	padding: 0.5em 2.2em; 
 	border-radius: 5px;
-	height: 63px;
-	width: 260px;
 }
 
-.btn-default {
+.btn-default {background: white;}
+.btn-primary {background: #373D42;}
+.btn-success {background: #8DC429;}
+.btn-info {background: #709D1E;}
+
+.btn-default:hover {background: #f2f2f2;}
+.btn-primary:hover {background: #272B2F;}
+.btn-success:hover {background: #709D1E;}
+.btn-info:hover {
 	background: white;
-}
-
-.btn-primary {
-	background: #373D42;
-}
-
-.btn-default:hover {
-	background: #f2f2f2;
-}
-
-.btn-primary:hover {
-	color: white;
-	background: #272B2F;
+	color: #373D42;
 }
 
 .fi {
@@ -137,6 +210,13 @@ pre {
 	margin: 0;
 }
 
+a.view-more {
+	opacity: 0.3;
+	display: inline-block;
+}
+
+a.view-more:hover {opacity: 1;}
+
 p.logo-footer {
 	font-weight: 700;
 	font-style: italic;
@@ -145,10 +225,8 @@ p.logo-footer {
 }
 
 footer {
-	border-top: 1px dashed white;
-	margin-top: 40px;
-	background: #8DC429;
-	padding: 8px 0;
+	background: #262A2E;
+	padding: 0.8em 0;
 }
 
 footer .container {
