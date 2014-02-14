@@ -98,10 +98,6 @@ nav.navbar-default {
 	padding: 0.5em 0;
 }
 
-.container {
-	width: 70%;
-}
-
 ul.features li {
 	background: #32383D;
 	padding: 0.1em 2em;
@@ -117,7 +113,15 @@ ul.features li {
 }
 
 .buttons {
-	margin: 11% 0;
+	margin: 10% 0;
+}
+
+.hidden-lg .buttons {
+	margin: 8% 0;
+}
+
+.hidden-lg h3 {
+	font-size: 1.4em !important;
 }
 
 .logo-header {
@@ -152,7 +156,7 @@ ul.features li {
 .bg-white h3 {
 	font-size: 1.8em;
 	color: #373D42;
-	margin-bottom: 1.6em;
+	margin-bottom: 8%;
 }
 
 .bg-white p {
@@ -160,10 +164,6 @@ ul.features li {
 	font-size: 1.2em;
 	color: #373D42;
 	line-height: 2em;
-}
-
-.white-lead {
-    margin: em 0 0 0em;
 }
 
 .glyphicon { 
