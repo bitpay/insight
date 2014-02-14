@@ -4,12 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Insight </title>
-    <meta name="description" content="">
+    <meta name="description" content="An open-source bitcoin blockchain API">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:300,400,500,700,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/normalize.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript">
+      window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
+      window.analytics.load("spackxb01g");
+      window.analytics.page();
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -20,7 +26,7 @@
     <header class="bg-white">
       <div class="row">
         <div class="col-md-6 m30h">
-          <div id="carousel-example-generic" class="slider carousel slide" data-ride="carousel">
+          <div id="carousel-example-generic" class="slider carousel slide hidden-xs" data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
               <div class="item active">
@@ -77,9 +83,13 @@
           </div>
         </div> <!-- end of col-md-7 -->
         <div class="col-md-5">
-          <div class="white-lead">
-            <h3 class="hidden-xs">An open-source bitcoin blockchain API</h3>
+          <div class="white-lead visible-lg">
+            <h3>An open-source bitcoin blockchain API</h3>
             <p>The Insight REST API provides you with a convenient, powerful and simple way to read data from the bitcoin network and build your own services with it.</p>
+          </div>
+          <div class="white-lead hidden-lg">
+            <h3>An open-source bitcoin blockchain API</h3>
+            <small class="text-muted">The Insight REST API provides you with a convenient, powerful and simple way to read data from the bitcoin network and build your own services with it.</small>
           </div>
           <div class="buttons">
             <a href="http://live.bitcore.io" class="btn btn-success" id="cta"> Livenet</a>
@@ -98,7 +108,7 @@
         </li>
         <li>
           <h3><span class="icon glyphicon glyphicon-ok-sign"></span>API</h3>
-          <p>Complete REST and Websocket API for quering blocks, transactions, and addresses; and receiving live updates. (View documentation [https://github.com/bitpay/insight#api])</p>
+          <p>Complete REST and Websocket API for quering blocks, transactions, and addresses; and receiving live updates. (View documentation <a href="https://github.com/bitpay/insight#api">[https://github.com/bitpay/insight#api]</a>)</p>
         </li>
         <li>
           <h3><span class="icon glyphicon glyphicon-ok-sign"></span>Light</h3>
@@ -110,7 +120,7 @@
         </li>
         <li>
           <h3><span class="icon glyphicon glyphicon-ok-sign"></span>Open source</h3>
-          <p>Opensourced, written in nodejs and based on the powerful bitcore [http://bitcore.io] nodejs library.</p>
+          <p>Opensourced, written in nodejs and based on the powerful bitcore <a href="http://bitcore.io">[http://bitcore.io]</a>] nodejs library.</p>
         </li>
       </ul>
       
@@ -161,7 +171,7 @@ $ node insight.js</pre>
           <img src="./images/github-logo-negative.png" alt="" width="150">  
         </a>
       </div>
-    </div> <!-- end of container -->
+    </div> <!-- end of container xs -->
     
     <footer>
       <div class="container">
