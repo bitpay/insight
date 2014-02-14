@@ -4,3 +4,4 @@ db/
 node_modules/
 peerdb.json
 public/
+*.swp
