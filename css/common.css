@@ -8,15 +8,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: ubuntu, helvetica, arial;
 }
 
-h1 {
-	margin: 2em 0 1em 0;
-}
-
 h2 {
-	margin-top: 0;
-	font-weight: 100;
-	color: #8DC429;
-	margin-bottom: 1em;
+	margin: 2em 0 1em 0;
 }
 
 p {
@@ -113,7 +106,7 @@ ul.features li {
 }
 
 .buttons {
-	margin: 10% 0;
+	margin-top: 20px;
 }
 
 .hidden-lg .buttons {
@@ -153,10 +146,9 @@ ul.features li {
 	padding: 6% 4%;
 }
 
-.bg-white h3 {
+.bg-white h1 {
 	font-size: 1.8em;
 	color: #373D42;
-	margin-bottom: 8%;
 }
 
 .bg-white p {
@@ -187,7 +179,11 @@ nav a.btn {
 
 .btn-default {background: white;}
 .btn-primary {background: #373D42;}
-.btn-success {background: #8DC429;}
+.btn-success {
+  background: #8DC429;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
 .btn-info {background: #709D1E;}
 
 .btn-default:hover {background: #f2f2f2;}
