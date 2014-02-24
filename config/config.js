@@ -44,11 +44,12 @@ if (!dataDir) {
   if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Bitcoin/';
   if (isLinux) dataDir = process.env.HOME + '/.bitcoin/';
 }
-dataDir += ((process.env.INSIGHT_NETWORK || 'testnet')==='testnet'?'testnet3':'');
+dataDir += process.env.INSIGHT_NETWORK === 'testnet' ? 'testnet3' : '';
 
 module.exports = {
   root: rootPath,
   appName: 'Insight ' + env,
+  apiPrefix: '/api',
   port: port,
   leveldb: db,
   bitcoind: {

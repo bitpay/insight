@@ -21,10 +21,6 @@ module.exports = function(app, historicSync, peerSync) {
 
   app.set('showStackError', true);
 
-  //Set views path, template engine and default layout
-  app.set('views', config.root + '/app/views');
-  app.set('view engine', 'jade');
-
   // Compress JSON outputs
   app.set('json spaces', 0);
 
@@ -63,14 +59,16 @@ module.exports = function(app, historicSync, peerSync) {
     console.error(err.stack);
 
     //Error page
-    res.status(500).render('500', {
+    res.status(500).jsonp({
+      status: 500,
       error: err.stack
     });
   });
 
   //Assume 404 since no middleware responded
   app.use(function(req, res) {
-    res.status(404).render('404', {
+    res.status(404).jsonp({
+      status: 404,
       url: req.originalUrl,
       error: 'Not found'
     });
