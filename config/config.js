@@ -35,6 +35,8 @@ switch(process.env.NODE_ENV) {
     break;
 }
 
+var network = process.env.INSIGHT_NETWORK || 'testnet';
+
 var dataDir = process.env.BITCOIND_DATADIR;
 var isWin = /^win/.test(process.platform);
 var isMac = /^darwin/.test(process.platform);
@@ -44,7 +46,7 @@ if (!dataDir) {
   if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Bitcoin/';
   if (isLinux) dataDir = process.env.HOME + '/.bitcoin/';
 }
-dataDir += process.env.INSIGHT_NETWORK === 'testnet' ? 'testnet3' : '';
+dataDir += network === 'testnet' ? 'testnet3' : '';
 
 module.exports = {
   root: rootPath,
@@ -63,7 +65,7 @@ module.exports = {
     // DO NOT CHANGE THIS!
     disableAgent: true
   },
-  network: process.env.INSIGHT_NETWORK || 'testnet',
+  network: network,
   disableP2pSync: false,
   disableHistoricSync: false,
   poolMatchFile: './etc/minersPoolStrings.json',
