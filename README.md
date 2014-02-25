@@ -1,7 +1,8 @@
-# *insight API*
+# *insight*
 
 *insight* is an open-source bitcoin blockchain explorer with complete REST
-and websocket APIs. Insight runs in NodeJS and use LevelDB for storage.
+and websocket APIs. Insight runs in NodeJS, uses AngularJS for the
+front-end and LevelDB for storage.
 
 Check some screenshots and more details at [insight's project homepage](http://insight.bitcore.io).
 
@@ -105,6 +106,10 @@ To run insight locally for development with grunt:
 
 ```$ NODE_ENV=development grunt```
 
+To compile and minify the web application's assets:
+
+```$ grunt compile```
+
 To run the tests
 
 ```$ grunt test```
@@ -115,9 +120,7 @@ Contributions and suggestions are welcomed at [insight github repository](https:
 
 ## API
 
-By default, insight provides a REST API at /api. But it is configurable with the var `apiPrefix`.
-
-The end-points are:
+A REST API is provided at /api. The entry points are:
 
 
 ### Block
