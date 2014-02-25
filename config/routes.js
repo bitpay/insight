@@ -1,42 +1,49 @@
 'use strict';
 
+/**
+ * Module dependencies.
+ */
+var config = require('./config');
+
 module.exports = function(app) {
+
+  var apiPrefix = config.apiPrefix;
 
   //Block routes
   var blocks = require('../app/controllers/blocks');
-  app.get('/api/blocks', blocks.list);
+  app.get(apiPrefix + '/blocks', blocks.list);
 
 
-  app.get('/api/block/:blockHash', blocks.show);
+  app.get(apiPrefix + '/block/:blockHash', blocks.show);
   app.param('blockHash', blocks.block);
 
-  app.get('/api/block-index/:height', blocks.blockindex);
+  app.get(apiPrefix + '/block-index/:height', blocks.blockindex);
   app.param('height', blocks.blockindex);
 
   // Transaction routes
   var transactions = require('../app/controllers/transactions');
-  app.get('/api/tx/:txid', transactions.show);
+  app.get(apiPrefix + '/tx/:txid', transactions.show);
   app.param('txid', transactions.transaction);
-  app.get('/api/txs', transactions.list);
+  app.get(apiPrefix + '/txs', transactions.list);
 
   // Address routes
   var addresses = require('../app/controllers/addresses');
-  app.get('/api/addr/:addr', addresses.show);
-  app.get('/api/addr/:addr/utxo', addresses.utxo);
+  app.get(apiPrefix + '/addr/:addr', addresses.show);
+  app.get(apiPrefix + '/addr/:addr/utxo', addresses.utxo);
 
   // Status route
   var st = require('../app/controllers/status');
-  app.get('/api/status', st.show);
+  app.get(apiPrefix + '/status', st.show);
 
-  app.get('/api/sync', st.sync);
-  app.get('/api/peer', st.peer);
+  app.get(apiPrefix + '/sync', st.sync);
+  app.get(apiPrefix + '/peer', st.peer);
 
   // Currency
   var currency = require('../app/controllers/currency');
-  app.get('/api/currency', currency.index);
+  app.get(apiPrefix + '/currency', currency.index);
 
   //Home route
   var index = require('../app/controllers/index');
-  app.get('/api/version', index.version);
-  app.get('*', index.render);
+  app.get(apiPrefix + '/version', index.version);
+  app.get('/', index.render);
 };

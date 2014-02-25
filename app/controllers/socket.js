@@ -22,7 +22,7 @@ module.exports.broadcastTx = function(tx) {
       t = {
         txid: tx
       };
-    } 
+    }
     
     else {
       t = {
