@@ -61,7 +61,6 @@
     "express": "~3.4.7",
     "buffertools": "*",
     "should": "~2.1.1",
-    "view-helpers": "latest",
     "socket.io": "~0.9.16",
     "moment": "~2.5.0",
     "sinon": "~1.7.3",

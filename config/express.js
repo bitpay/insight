@@ -4,7 +4,6 @@
  * Module dependencies.
  */
 var express = require('express'),
-    helpers = require('view-helpers'),
     config = require('./config');
 
 module.exports = function(app, historicSync, peerSync) {
@@ -27,19 +26,13 @@ module.exports = function(app, historicSync, peerSync) {
   //Enable jsonp
   app.enable('jsonp callback');
 
-  app.use('/api/sync', setHistoric);
-  app.use('/api/peer', setPeer);
+  app.use(config.apiPrefix + '/sync', setHistoric);
+  app.use(config.apiPrefix + '/peer', setPeer);
   app.use(express.logger('dev'));
   app.use(express.json());
   app.use(express.urlencoded());
   app.use(express.methodOverride());
   app.use(express.compress());
-
-  // IMPORTANT: for html5mode, this line must to be before app.router
-  app.use(express.static(config.root + '/public'));
-
-  //dynamic helpers
-  app.use(helpers(config.appName));
 
   // manual helpers
   app.use(function(req, res, next) {
