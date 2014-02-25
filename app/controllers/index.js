@@ -1,11 +1,17 @@
 'use strict';
 
+var _getVersion = function() {
+  var pjson = require('../../package.json');
+  return pjson.version;
+};
+
 exports.render = function(req, res) {
-  res.render('index');
+  var version = _getVersion();
+  res.send('insight API v' + version);
 };
 
 exports.version = function(req, res) {
-  var pjson = require('../../package.json');
-  res.json({version: pjson.version});
+  var version = _getVersion();
+  res.json({ version: version });
 };
 
