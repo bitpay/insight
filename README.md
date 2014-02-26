@@ -1,8 +1,7 @@
-# *insight*
+# *insight API*
 
 *insight* is an open-source bitcoin blockchain explorer with complete REST
-and websocket APIs. Insight runs in NodeJS, uses AngularJS for the
-front-end and LevelDB for storage.
+and websocket APIs. Insight runs in NodeJS and use LevelDB for storage.
 
 Check some screenshots and more details at [insight's project homepage](http://insight.bitcore.io).
 
@@ -16,7 +15,7 @@ thru the RPC API, Peer-to-peer protocol and will even read its raw .dat files fo
 
 Configure bitcoind to listen to RPC calls and set `txindex` to true.
 The easiest way to do this is by copying `./etc/bitcoind/bitcoin.conf` to your
-bitcoin data directory (usually `"~/.bitcoin"` on Linux, `"%appdata%\Bitcoin\"` on Windows, 
+bitcoin data directory (usually `"~/.bitcoin"` on Linux, `"%appdata%\Bitcoin\"` on Windows,
 or `"~/Library/Application Support/Bitcoin"` on Mac OS X).
 
 bitcoind must be running and must have finished downloading the blockchain **before** running *insight*.
@@ -36,7 +35,7 @@ bitcoind must be running and must have finished downloading the blockchain **bef
   Install dependencies:
 
     $ npm install
-    
+
   Run the main application:
 
     $ node insight.js
@@ -48,7 +47,7 @@ bitcoind must be running and must have finished downloading the blockchain **bef
   Please note that the app will need to sync its internal database
   with the blockchain state, which may take some time. You can check
   sync progress from within the web interface.
-   
+
 
 ## Configuration
 
@@ -74,11 +73,11 @@ In case the network is changed (testnet to livenet or vice versa) levelDB databa
 
 The initial synchronization process scans the blockchain from the paired bitcoind server to update addresses and balances. *insight* needs one (and only one) trusted bitcoind node to run. This node must have finished downloading the blockchain befure running *insight*.
 
-While *insight* is synchronizing the website can be accessed (the sync process is embedded in the webserver), but there may be missing data or incorrect balances for addresses. The 'sync' status is shown on the top-right of all pages. 
+While *insight* is synchronizing the website can be accessed (the sync process is embedded in the webserver), but there may be missing data or incorrect balances for addresses. The 'sync' status is shown on the top-right of all pages.
 
 The blockchain can be read from bitcoind's raw `.dat` files or RPC interface. Reading the information from the `.dat` files is much faster so it's the recommended (and default) alternative. `.dat` files are scanned in the default location for each platform. In case a non-standard location is used, it needs to be defined (see the Configuration section). The synchronization type being used can be seen at the [Status page](http://localhost:3001/status).  As of February 2014, using `.dat` files the sync process takes 7 hrs. for livenet and 20 mins. for testnet.
 
-While synchronizing the blockchain, *insight* listens for new blocks and transactions relayed by the bitcoind node. Those are also stored on *insight*'s database. In case *insight* is shutdown for a period of time, restarting it will trigger a partial (historic) synchronization of the blockchain. Depending on the size of that synchronization task, a reverse RPC or forward `.dat` syncing strategy will be used. 
+While synchronizing the blockchain, *insight* listens for new blocks and transactions relayed by the bitcoind node. Those are also stored on *insight*'s database. In case *insight* is shutdown for a period of time, restarting it will trigger a partial (historic) synchronization of the blockchain. Depending on the size of that synchronization task, a reverse RPC or forward `.dat` syncing strategy will be used.
 
 If bitcoind is shutdown, *insight* needs to be stopped and restarted once bitcoind is restarted.
 
@@ -95,9 +94,9 @@ If bitcoind is shutdown, *insight* needs to be stopped and restarted once bitcoi
 
 ### DB storage requirement
 
-To store the blockchain and address related information, *insight* uses LevelDB. Two DBs are created: txs and blocks. By default these are stored on 
-  ```<insight root>/db``` 
-  
+To store the blockchain and address related information, *insight* uses LevelDB. Two DBs are created: txs and blocks. By default these are stored on
+  ```<insight root>/db```
+
 this can be changed on config/config.js. As of February 2014, storing the livenet blockchain takes ~30GB of disk space (2GB for the testnet).
 
 ## Development
@@ -105,10 +104,6 @@ this can be changed on config/config.js. As of February 2014, storing the livene
 To run insight locally for development with grunt:
 
 ```$ NODE_ENV=development grunt```
-
-To compile and minify the web application's assets:
-
-```$ grunt compile```
 
 To run the tests
 
@@ -120,7 +115,9 @@ Contributions and suggestions are welcomed at [insight github repository](https:
 
 ## API
 
-A REST API is provided at /api. The entry points are:
+By default, insight provides a REST API at /api, but this prefix is configurable from the var `apiPrefix` in the `config.js` file.
+
+The end-points are:
 
 
 ### Block

@@ -23,7 +23,7 @@ var getAddr = function(req, res, next) {
 exports.show = function(req, res, next) {
   var a = getAddr(req, res, next);
   
-  if (a) 
+  if (a)
     a.update(function(err) {
       if (err) {
         return common.handleErrors(err, res);
@@ -39,7 +39,7 @@ exports.show = function(req, res, next) {
 exports.utxo = function(req, res, next) {
   var a = getAddr(req, res, next);
   
-  if (a) 
+  if (a)
     a.getUtxo(function(err, utxo) {
       if (err)
         return common.handleErrors(err, res);

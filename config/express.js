@@ -4,26 +4,24 @@
  * Module dependencies.
  */
 var express = require('express'),
-    helpers = require('view-helpers'),
-    config = require('./config');
+    config = require('./config'),
+    path = require('path');
 
 module.exports = function(app, historicSync, peerSync) {
 
- //custom middleware
-  function setHistoric(req, res, next) {
+
+  //custom middleware
+  var setHistoric = function(req, res, next) {
     req.historicSync = historicSync;
     next();
-  }
-  function setPeer(req, res, next) {
+  };
+
+  var setPeer = function(req, res, next) {
     req.peerSync = peerSync;
     next();
-  }
+  };
 
   app.set('showStackError', true);
-
-  //Set views path, template engine and default layout
-  app.set('views', config.root + '/app/views');
-  app.set('view engine', 'jade');
 
   // Compress JSON outputs
   app.set('json spaces', 0);
@@ -31,19 +29,20 @@ module.exports = function(app, historicSync, peerSync) {
   //Enable jsonp
   app.enable('jsonp callback');
 
-  app.use('/api/sync', setHistoric);
-  app.use('/api/peer', setPeer);
+  app.use(config.apiPrefix + '/sync', setHistoric);
+  app.use(config.apiPrefix + '/peer', setPeer);
   app.use(express.logger('dev'));
   app.use(express.json());
   app.use(express.urlencoded());
   app.use(express.methodOverride());
   app.use(express.compress());
 
-  // IMPORTANT: for html5mode, this line must to be before app.router
-  app.use(express.static(config.root + '/public'));
+  if (process.env.INSIGHT_PUBLIC_PATH) {
+    var staticPath = path.normalize(config.rootPath + '/../../' + process.env.INSIGHT_PUBLIC_PATH);
 
-  //dynamic helpers
-  app.use(helpers(config.appName));
+    //IMPORTANT: for html5mode, this line must to be before app.router
+    app.use(express.static(staticPath));
+  }
 
   // manual helpers
   app.use(function(req, res, next) {
@@ -63,14 +62,16 @@ module.exports = function(app, historicSync, peerSync) {
     console.error(err.stack);
 
     //Error page
-    res.status(500).render('500', {
+    res.status(500).jsonp({
+      status: 500,
       error: err.stack
     });
   });
 
   //Assume 404 since no middleware responded
   app.use(function(req, res) {
-    res.status(404).render('404', {
+    res.status(404).jsonp({
+      status: 404,
       url: req.originalUrl,
       error: 'Not found'
     });

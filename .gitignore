@@ -27,7 +27,6 @@ npm-debug.log
 .nodemonignore
 
 .DS_Store
-public/lib/*
 db/txs/*
 db/txs
 db/testnet/txs/*
@@ -36,11 +35,5 @@ db/blocks/*
 db/blocks
 db/testnet/blocks/*
 db/testnet/blocks
-
-public/js/angularjs-all.js
-public/js/main.js
-public/js/vendors.js
-
-public/css/main.css
 
 README.html

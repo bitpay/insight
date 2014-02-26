@@ -1,12 +1,12 @@
 {
-  "name": "insight-bitcore",
+  "name": "insight-bitcore-api",
   "description": "An open-source bitcoin blockchain API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the bitcoin network and build your own services with it.",
   "version": "0.1.2",
   "author": {
     "name": "Ryan X Charles",
     "email": "ryan@bitpay.com"
   },
-  "repository": "git://github.com/bitpay/insight.git",
+  "repository": "git://github.com/bitpay/insight-api.git",
   "contributors": [
     {
       "name": "Matias Alejo Garcia",
@@ -30,9 +30,9 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/bitpay/insight/issues"
+    "url": "https://github.com/bitpay/insight-api/issues"
   },
-  "homepage": "https://github.com/bitpay/insight",
+  "homepage": "https://github.com/bitpay/insight-api",
   "license": "MIT",
   "keywords": [
     "insight",
@@ -41,7 +41,9 @@
     "riddle",
     "mystification",
     "puzzle",
-    "conundrum"
+    "conundrum",
+    "api",
+    "bitcore"
   ],
   "engines": {
     "node": "*"
@@ -59,11 +61,8 @@
     "commander": "*",
     "bignum": "*",
     "express": "~3.4.7",
-    "jade": "~1.0.2",
-    "lodash": "~2.4.1",
     "buffertools": "*",
     "should": "~2.1.1",
-    "view-helpers": "latest",
     "socket.io": "~0.9.16",
     "moment": "~2.5.0",
     "sinon": "~1.7.3",
@@ -73,7 +72,6 @@
     "xmlhttprequest": "~1.6.0"
   },
   "devDependencies": {
-    "bower": "~1.2.8",
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.11",
     "grunt-env": "~0.4.1",
@@ -82,10 +80,7 @@
     "grunt-concurrent": "~0.4.2",
     "grunt-nodemon": "~0.2.0",
     "grunt-mocha-test": "~0.8.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.3.2",
-    "should": "latest",
-    "grunt-css": "~0.5.4",
+    "should": "2.1.1",
     "grunt-markdown": "~0.5.0"
   }
 }
