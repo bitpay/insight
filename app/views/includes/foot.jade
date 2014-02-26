@@ -1,7 +1,17 @@
 #footer(data-ng-include="'/views/includes/footer.html'", role='navigation')
 
+.modal.fade#scanner-modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+        h4.modal-title Scan Code
+      .modal-body
+        #reader-div(style="width: 300px; height: 300px; margin: 0 auto;")
+      .modal-footer
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+
 script(type='text/javascript', src='/socket.io/socket.io.js')
 script(type='text/javascript', src='/js/vendors.min.js')
 script(type='text/javascript', src='/js/angularjs-all.min.js')
 script(type='text/javascript', src='/js/main.min.js')
-
