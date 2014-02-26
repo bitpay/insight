@@ -33,9 +33,12 @@ $(document).on('click', '*[data-action=launch-scanner]', function() {
   $('#scanner-modal').modal();
   $('#reader-div').html5_qrcode(function(data){
     // do something when code is read
-    $('#search').val( data );
+    var str = (data.indexOf('bitcoin:') === 0) ? data.substring(8) : data;
+
+    $('#search').val( str );
+    $('#search').focus();
+    $('#search').trigger({type: 'keypress', which: 13, keyCode: 13});
     $('#scanner-modal').modal('hide');
-    $('form[data-ng-submit="search()"]').submit();
 
   }, function(error){
     //show read errors 
