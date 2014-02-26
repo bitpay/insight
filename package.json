@@ -6,7 +6,7 @@
     "name": "Ryan X Charles",
     "email": "ryan@bitpay.com"
   },
-  "repository": "git://github.com/bitpay/insight.git",
+  "repository": "git://github.com/bitpay/insight-api.git",
   "contributors": [
     {
       "name": "Matias Alejo Garcia",
@@ -30,9 +30,9 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/bitpay/insight/issues"
+    "url": "https://github.com/bitpay/insight-api/issues"
   },
-  "homepage": "https://github.com/bitpay/insight",
+  "homepage": "https://github.com/bitpay/insight-api",
   "license": "MIT",
   "keywords": [
     "insight",
@@ -41,7 +41,9 @@
     "riddle",
     "mystification",
     "puzzle",
-    "conundrum"
+    "conundrum",
+    "api",
+    "bitcore"
   ],
   "engines": {
     "node": "*"

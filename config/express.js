@@ -4,19 +4,23 @@
  * Module dependencies.
  */
 var express = require('express'),
-    config = require('./config');
+    helpers = require('view-helpers'),
+    config = require('./config')
+    path = require('path');
 
 module.exports = function(app, historicSync, peerSync) {
 
- //custom middleware
-  function setHistoric(req, res, next) {
+
+  //custom middleware
+  var setHistoric = function(req, res, next) {
     req.historicSync = historicSync;
     next();
-  }
-  function setPeer(req, res, next) {
+  };
+
+  var setPeer = function(req, res, next) {
     req.peerSync = peerSync;
     next();
-  }
+  };
 
   app.set('showStackError', true);
 
@@ -33,6 +37,13 @@ module.exports = function(app, historicSync, peerSync) {
   app.use(express.urlencoded());
   app.use(express.methodOverride());
   app.use(express.compress());
+
+  if (process.env.INSIGHT_PUBLIC_PATH) {
+    var staticPath = path.normalize(config.rootPath + '/../../' + process.env.INSIGHT_PUBLIC_PATH);
+
+    //IMPORTANT: for html5mode, this line must to be before app.router
+    app.use(express.static(staticPath);
+  }
 
   // manual helpers
   app.use(function(req, res, next) {

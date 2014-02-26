@@ -85,7 +85,7 @@ require('./app/controllers/socket.js').init(expressApp, ios);
 
 //Start the app by listening on <port>
 server.listen(config.port, function(){
-    console.log('Express server listening on port %d in %s mode', server.address().port, process.env.NODE_ENV);
+    console.log('insight server listening on port %d in %s mode', server.address().port, process.env.NODE_ENV);
 });
 
 //expose app
