@@ -17,9 +17,9 @@ if (process.env.INSIGHT_NETWORK === 'livenet') {
 }
 else {
   env = 'testnet';
-  db = './db/testnet',
-  port = '3001',
-  b_port = '18332',
+  db = './db/testnet';
+  port = '3001';
+  b_port = '18332';
   p2p_port = '18333';
 }
 
@@ -71,8 +71,8 @@ module.exports = {
   poolMatchFile: './etc/minersPoolStrings.json',
 
   // Time to refresh the currency rate. In minutes
-  currencyRefresh: 10
-  , keys: {
+  currencyRefresh: 10,
+  keys: {
       segmentio: process.env.INSIGHT_SEGMENTIO_KEY
     }
 };

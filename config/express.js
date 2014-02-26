@@ -4,8 +4,7 @@
  * Module dependencies.
  */
 var express = require('express'),
-    helpers = require('view-helpers'),
-    config = require('./config')
+    config = require('./config'),
     path = require('path');
 
 module.exports = function(app, historicSync, peerSync) {
@@ -42,7 +41,7 @@ module.exports = function(app, historicSync, peerSync) {
     var staticPath = path.normalize(config.rootPath + '/../../' + process.env.INSIGHT_PUBLIC_PATH);
 
     //IMPORTANT: for html5mode, this line must to be before app.router
-    app.use(express.static(staticPath);
+    app.use(express.static(staticPath));
   }
 
   // manual helpers
