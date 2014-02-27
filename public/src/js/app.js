@@ -28,3 +28,22 @@ angular.module('insight.search', []);
 angular.module('insight.status', []);
 angular.module('insight.connection', []);
 angular.module('insight.currency', []);
+
+$(document).on('click', '*[data-action=launch-scanner]', function() {
+  $('#scanner-modal').modal();
+  $('#reader-div').html5_qrcode(function(data){
+    // do something when code is read
+    var str = (data.indexOf('bitcoin:') === 0) ? data.substring(8) : data;
+
+    $('#search').val( str );
+    $('#search').focus();
+    $('#scanner-modal').modal('hide');
+
+    $('form[data-ng-submit="search()"]').submit();
+
+  }, function(error){
+    //show read errors 
+  }, function(videoError){
+    //the video stream could be opened
+  });
+});

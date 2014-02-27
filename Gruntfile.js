@@ -32,11 +32,11 @@ module.exports = function(grunt) {
         }
       },
       vendors: {
-        src: ['public/lib/momentjs/min/moment.min.js', 'public/lib/qrcode-generator/js/qrcode.js', 'public/lib/zeroclipboard/ZeroClipboard.min.js'],
+        src: ['public/lib/momentjs/min/moment.min.js', 'public/lib/qrcode-generator/js/qrcode.js', 'public/lib/zeroclipboard/ZeroClipboard.min.js', 'public/lib/jquery/jquery.js', 'public/js/html5-qrcode.min.js'],
         dest: 'public/js/vendors.js'
       },
       angular: {
-        src: ['public/lib/angular/angular.min.js', 'public/lib/angular-resource/angular-resource.min.js', 'public/lib/angular-route/angular-route.min.js', 'public/lib/angular-qrcode/qrcode.js', 'public/lib/angular-animate/angular-animate.min.js', 'public/lib/angular-bootstrap/ui-bootstrap.min.js', 'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js', 'public/lib/angular-ui-utils/ui-utils.min.js', 'public/lib/ngprogress/build/ngProgress.min.js'],
+        src: ['public/lib/angular/angular.min.js', 'public/lib/angular-resource/angular-resource.min.js', 'public/lib/angular-route/angular-route.min.js', 'public/lib/angular-qrcode/qrcode.js', 'public/lib/angular-animate/angular-animate.min.js', 'public/lib/angular-bootstrap/ui-bootstrap.min.js', 'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js', 'public/lib/angular-ui-utils/ui-utils.min.js', 'public/lib/ngprogress/build/ngProgress.min.js', 'public/lib/bootstrap/js/modal.js'],
         dest: 'public/js/angularjs-all.js'
       },
       main: {
