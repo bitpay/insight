@@ -18,6 +18,24 @@
 		<section class="container" data-ng-view></section>
 	</div>
 	<div id="footer" data-ng-include="'/views/includes/footer.html'" role="navigation"></div>
+
+	<div id="scanner-modal" class="modal fade">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+		<button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+		<h4 class="modal-title">Scan Code</h4>
+	      </div>
+	      <div class="modal-body">
+		<div id="reader-div" style="width: 300px; height: 300px; margin: 0 auto;"></div>
+	      </div>
+	      <div class="modal-footer">
+		<button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/vendors.min.js"></script>
 	<script src="/js/angularjs-all.min.js"></script>
