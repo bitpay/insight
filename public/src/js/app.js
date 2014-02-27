@@ -37,8 +37,9 @@ $(document).on('click', '*[data-action=launch-scanner]', function() {
 
     $('#search').val( str );
     $('#search').focus();
-    $('#search').trigger({type: 'keypress', which: 13, keyCode: 13});
     $('#scanner-modal').modal('hide');
+
+    $('form[data-ng-submit="search()"]').submit();
 
   }, function(error){
     //show read errors 
