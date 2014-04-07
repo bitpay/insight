@@ -233,3 +233,8 @@ footer p {
 	margin: 0;
 	color: #fff;
 }
+
+.media img.media-object {
+  max-height: 7.5em;
+  max-width: 7.5em;
+}
