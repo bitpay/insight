@@ -25,6 +25,11 @@ a:hover {
 	color: white;
 }
 
+a.supported {
+	font-size: 14px;
+	color: white;
+}
+
 pre {
 	padding: 10px 15px;
 	background: #262A2E;
