@@ -112,7 +112,7 @@ angular.module('insight.system').controller('ScannerController',
     qrcode.callback = function(data) {
       _scanStop();
 
-      var str = (data.indexOf('bitcoin:') === 0) ? data.substring(8) : data; 
+      var str = (data.indexOf('reddcoin:') === 0) ? data.substring(8) : data; 
       console.log('QR code detected: ' + str);
       $searchInput
         .val(str)
