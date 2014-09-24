@@ -56,6 +56,10 @@
               <span data-ng-show="block.isMainChain" class="text-success">(Mainchain)</span>
               <span data-ng-show="!block.isMainChain" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> (Orphaned)</span>
             </td>
+          </tr> 
+          <tr>
+            <td><strong>Block Type</strong></td>
+            <td class="text-right text-muted">{{block.nonce > 0 && 'PoW' || 'PoSV'}}</td>
           </tr>
           <tr>
             <td><strong>Block Reward</strong></td>
