@@ -36,10 +36,11 @@
           <span class="glyphicon glyphicon-ok" tooltip="Historic sync finished" tooltip-placement="bottom" data-ng-show="sync.status==='finished'"> </span>
         </div>
         &nbsp; &middot;
+        <strong>Last Block</strong> {{totalBlocks || info.blocks}} &middot;
+        <strong>Supply</strong> {{info.moneysupply}} RDD &middot;
         <span data-ng-init="getStatus('Info')">
           <strong>Conn</strong> {{info.connections}}
-        </span> &middot;
-        <strong>Height</strong> {{totalBlocks || info.blocks}}
+        </span>
       </div>
       </li>
       <li>
