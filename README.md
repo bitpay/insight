@@ -19,7 +19,7 @@ Check some screenshots and more details at [insight's project homepage](http://i
 
   To install Insight, clone the main repository:
 
-    $ git clone https://github.com/reddcoin-project/reddsight.git && cd insight
+    $ git clone https://github.com/reddcoin-project/reddsight.git && cd reddsight
 
   Install dependencies:
 
