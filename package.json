@@ -46,7 +46,7 @@
     "start": "INSIGHT_PUBLIC_PATH=public node node_modules/.bin/insight-bitcore-api"
   },
   "dependencies": {
-    "insight-bitcore-api": "git://github.com/reddcoin-project/reddsight-api.git"
+    "insight-bitcore-api": "git://github.com/reddcoin-project/reddsight-api.git#db941fd954b61a1d5d32bb048362bb6f760ae8a4"
   },
   "devDependencies": {
     "bower": "~1.2.8",
