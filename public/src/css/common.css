@@ -132,7 +132,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>.active>a:hover {
-    background-color: #fff;
+    background-color: #2B2B2B;
+    color: #fff;
 }
 
 .navbar-form .form-group {
@@ -162,7 +163,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .navbar-default .navbar-brand {
     color: #FFFFFF;
-    padding: 20px 15px;
+    padding: 0px 15px;
 }
 
 .navbar-form .form-control {
@@ -198,7 +199,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-left: 5px;
 }
 
-#search { color: #fff; }
+#search {
+    color: #fff;
+    width: 290px;
+}
 
 #search::-webkit-input-placeholder {
     color: #AAA;
