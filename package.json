@@ -1,13 +1,25 @@
 {
-  "name": "insight-bitcore",
-  "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the reddcoin network and build your own services with it.",
+  "name": "reddsight",
+  "description": "An open-source frontend for the Reddsight API. The Reddsight API provides you with a convenient, powerful and simple way to query and broadcast data on the Reddcoin network and build your own services with it.",
   "version": "0.2.5",
   "author": {
-    "name": "Ryan X Charles",
-    "email": "ryan@bitpay.com"
+    "name": "Larry Ren",
+    "email": "ren@reddcoin.com"
   },
   "repository": "git://github.com/reddcoin-project/reddsight.git",
   "contributors": [
+    {
+      "name": "Mike Croteau",
+      "email": "mike@reddcoin.com"
+    },
+    {
+      "name": "Andrew Groff",
+      "email": "andrew@reddcoin.com"
+    },
+    {
+      "name": "Ryan X Charles",
+      "email": "ryan@bitpay.com"
+    },
     {
       "name": "Matias Alejo Garcia",
       "email": "ematiu@gmail.com"
@@ -43,10 +55,10 @@
     "front-end"
   ],
   "scripts": {
-    "start": "INSIGHT_PUBLIC_PATH=public node node_modules/.bin/insight-bitcore-api"
+    "start": "INSIGHT_PUBLIC_PATH=public node node_modules/.bin/reddsight-api"
   },
   "dependencies": {
-    "insight-bitcore-api": "git://github.com/reddcoin-project/reddsight-api.git"
+    "reddsight-api": "git://github.com/reddcoin-project/reddsight-api.git"
   },
   "devDependencies": {
     "bower": "~1.2.8",
