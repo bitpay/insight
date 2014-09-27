@@ -122,8 +122,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .navbar-default .navbar-nav>li>a {
     color: #F4FBE8;
     font-family: 'Ubuntu', sans-serif;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus {
@@ -182,7 +182,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     padding-bottom: 22px;
 }
 
-#search-form { color: #fff; }
+#search-form {
+
+    color: #fff;
+}
 
 #search.loading {
     background-image: url('/img/loading.gif');
@@ -201,7 +204,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 #search {
     color: #fff;
-    width: 290px;
+    width: 267px;
 }
 
 #search::-webkit-input-placeholder {
