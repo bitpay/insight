@@ -27,6 +27,7 @@ npm-debug.log
 .nodemonignore
 
 .DS_Store
+.idea
 public/lib/*
 !public/lib/zeroclipboard/ZeroClipboard.swf
 db/txs/*
