@@ -102,7 +102,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
-    background-color: #F0F7E2;
+    background-color: #FEE6EA;
 }
 .navbar { min-height: 64px; }
 .navbar-default .navbar-toggle {
@@ -120,20 +120,22 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: #F4FBE8;
+    color: #CCCCCC;
     font-family: 'Ubuntu', sans-serif;
     padding-left: 10px;
     padding-right: 10px;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus {
-    background-color: #D2132A;
+    background-color: #000000;
     color: #fff;
+    border-bottom:2px solid #1fbba6;
 }
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>.active>a:hover {
-    background-color: #2B2B2B;
+    background-color: #000000;
     color: #fff;
+    border-bottom:2px solid #1fbba6
 }
 
 .navbar-form .form-group {
@@ -208,14 +210,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 #search::-webkit-input-placeholder {
-    color: #AAA;
+    color: #CCC;
     font-family: 'Ubuntu', sans-serif;
     font-style: italic;
     font-weight: 100;
 }
 
 #search::-moz-placeholder {
-    color: #AAA;
+    color: #CCC;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 100;
 }
@@ -656,7 +658,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 a.v_highlight_more {
-    background-color: #F0F7E2;
+    background-color: #FEE6EA;
     color: #333;
 }
 
