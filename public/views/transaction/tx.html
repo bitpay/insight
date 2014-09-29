@@ -184,8 +184,8 @@
 
 <div class="line-top row" data-ng-hide="!tx">
   <div class="col-xs-6 col-sm-4 col-md-4">
-    <span data-ng-show="!tx.isCoinStakeOut && !tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))" class="txvalues txvalues-default">Fees: {{$root.currency.getConvertion(tx.fees) || tx.fees + 'RDD'}} </span>
-    <span data-ng-show="tx.isCoinStakeOut && !isNaN(parseFloat(tx.fees))" class="txvalues txvalues-default">Stake Reward: {{$root.currency.getConvertion(tx.fees*-1.0) || (tx.fees*-1.0) + 'RDD'}} </span>
+    <span data-ng-show="!tx.isCoinStake && !tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))" class="txvalues txvalues-default">Fees: {{$root.currency.getConvertion(tx.fees) || tx.fees + 'RDD'}} </span>
+    <span data-ng-show="tx.isCoinStake && !isNaN(parseFloat(tx.fees))" class="txvalues txvalues-default">Stake Reward: {{$root.currency.getConvertion(tx.fees*-1.0) || (tx.fees*-1.0) + 'RDD'}} </span>
   </div>
   <div class="col-xs-6 col-sm-8 col-md-8 text-right">
     <span data-ng-show="tx.confirmations" class="txvalues txvalues-success">{{tx.confirmations}} Confirmations</span>
