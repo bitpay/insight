@@ -37,7 +37,9 @@
         </div>
         &nbsp; &middot;
         <strong>Last Block</strong> {{totalBlocks || info.blocks}} &middot;
-        <strong>Supply</strong> {{info.moneysupply}} RDD
+        <span data-ng-init="getStatus('Info')">
+          <strong>Supply</strong> {{info.moneysupply}} RDD
+        </span>
       </div>
       </li>
       <li>
