@@ -12,7 +12,7 @@
       <div class="col-md-6 col-lg-5 text-right">
         <span data-ng-show="tx.confirmations" class="txvalues txvalues-success">{{tx.confirmations}} Confirmations</span>
         <span data-ng-show="!tx.confirmations" class="txvalues txvalues-danger">Unconfirmed Transaction!</span>
-        <span class="txvalues txvalues-primary">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' BTC' }}</span>
+        <span class="txvalues txvalues-primary">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' TPC' }}</span>
       </div>
     </div>
     <div class="hide_snavbar">
