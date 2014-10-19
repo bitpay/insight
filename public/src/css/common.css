@@ -734,6 +734,13 @@ a.v_highlight_more {
   h3 {
     font-size: 18px;
   }
+  .insight {
+    font-size: 30px;
+  }
+  .navbar-default .navbar-nav>li>a {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 @media (max-width: 767px) {
