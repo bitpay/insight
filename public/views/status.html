@@ -32,24 +32,8 @@
           </td>
           </tr>
           <tr>
-            <td>Start Date</td>
-            <td class="text-right"><time title="{{sync.startTs | date:'medium'}}">{{humanSince(sync.startTs)}}</time></td>
-          </tr>
-          <tr data-ng-show="sync.endTs">
-            <td>Finish Date</td>
-            <td class="text-right"><time title="{{sync.startTs | date:'medium'}}" >{{humanSince(sync.endTs)}}</time></td>
-          </tr>
-          <tr>
             <td>Initial Block Chain Height</td>
             <td class="text-right">{{sync.blockChainHeight}}</td>
-          </tr>
-          <tr>
-            <td>Synced Blocks</td>
-            <td class="text-right">{{sync.syncedBlocks}}</td>
-          </tr>
-          <tr>
-            <td>Skipped Blocks (previously synced)</td>
-            <td class="text-right">{{sync.skippedBlocks}}</td>
           </tr>
           <tr>
             <td>Sync Type</td>
@@ -148,14 +132,6 @@
           <tr>
             <td>Testnet</td>
             <td class="text-right">{{info.testnet}}</td>
-          </tr>
-          <tr>
-            <td>Proxy setting</td>
-            <td class="text-right">{{info.proxy}}</td>
-          </tr>
-          <tr>
-            <td>Info Errors</td>
-            <td class="text-right">{{info.infoErrors}}</td>
           </tr>
         </tbody>
       </table>
