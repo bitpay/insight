@@ -769,7 +769,7 @@ a.v_highlight_more {
         font-size: 20px;
     }
     .navbar-default .navbar-brand {
-        padding: 15px;
+        margin-top:-6px;
     }
     .insight {
         font-size: 26px;
