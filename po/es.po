@@ -22,27 +22,27 @@ msgstr "404 Página no encontrada :("
 
 #: public/views/index.html
 msgid ""
-"<strong>insight</strong>  is an <a href=\"http://live.insight.is/\" target="
-"\"_blank\">open-source Bitcoin blockchain explorer</a> with complete REST "
+"<strong>digie</strong>  is an <a href=\"http://digiexplorer.info/\" target="
+"\"_blank\">open-source Digibyte blockchain explorer</a> with complete REST "
 "and websocket APIs that can be used for writing web wallets and other apps  "
-"that need more advanced blockchain queries than provided by bitcoind RPC.  "
+"that need more advanced blockchain queries than provided by digibyted RPC.  "
 "Check out the <a href=\"http://github.com/bitpay/insight\" target=\"_blank"
 "\">source code</a>."
 msgstr ""
-"<strong>insight</strong>  es un <a href=\"http://live.insight.is/\" target="
+"<strong>digiexplorer</strong>  es un <a href=\"http://digiexplorer.info/\" target="
 "\"_blank\">explorador de bloques de Bitcoin open-source</a> con un completo "
 "conjunto de REST y APIs de websockets que pueden ser usadas para escribir "
-"monederos de Bitcoins y otras aplicaciones que requieran consultar un "
+"monederos de Digibytes y otras aplicaciones que requieran consultar un "
 "explorador de bloques.  Obtén el código en <a href=\"http://github.com/"
 "bitpay/insight\" target=\"_blank\">el repositorio abierto de Github</a>."
 
 #: public/views/index.html
 msgid ""
-"<strong>insight</strong> is still in development, so be sure to report any "
+"<strong>digiexplorer</strong> is still in development, so be sure to report any "
 "bugs and provide feedback for improvement at our <a href=\"https://github."
 "com/bitpay/insight/issues\" target=\"_blank\">github issue tracker</a>."
 msgstr ""
-"<strong>insight</strong> esta en desarrollo aún, por ello agradecemos que "
+"<strong>digiexplorer</strong> esta en desarrollo aún, por ello agradecemos que "
 "nos reporten errores o sugerencias para mejorar el software. <a href="
 "\"https://github.com/bitpay/insight/issues\" target=\"_blank\">Github issue "
 "tracker</a>."
@@ -68,8 +68,8 @@ msgid "Best Block"
 msgstr "Mejor Bloque"
 
 #: public/views/status.html
-msgid "Bitcoin node information"
-msgstr "Información del nodo Bitcoin"
+msgid "Digibyte node information"
+msgstr "Información del nodo Digibyte"
 
 #: public/views/block.html
 msgid "Block"
@@ -90,15 +90,15 @@ msgstr "Bytes Serializados"
 
 #: public/views/includes/connection.html
 msgid ""
-"Can't connect to bitcoind to get live updates from the p2p network. (Tried "
-"connecting to bitcoind at {{host}}:{{port}} and failed.)"
+"Can't connect to digibyted to get live updates from the p2p network. (Tried "
+"connecting to digibyted at {{host}}:{{port}} and failed.)"
 msgstr ""
-"No se pudo conectar a bitcoind para obtener actualizaciones en vivo de la "
-"red p2p. (Se intentó conectar a bitcoind de {{host}}:{{port}} y falló.)"
+"No se pudo conectar a digibyted para obtener actualizaciones en vivo de la "
+"red p2p. (Se intentó conectar a digibyted de {{host}}:{{port}} y falló.)"
 
 #: public/views/includes/connection.html
-msgid "Can't connect to insight server. Attempting to reconnect..."
-msgstr "No se pudo conectar al servidor insight. Intentando re-conectar..."
+msgid "Can't connect to digiexplorer server. Attempting to reconnect..."
+msgstr "No se pudo conectar al servidor digiexplorer. Intentando re-conectar..."
 
 #: public/views/includes/connection.html
 msgid "Can't connect to internet. Please, check your connection."
@@ -121,8 +121,8 @@ msgid "Connections to other nodes"
 msgstr "Conexiones a otros nodos"
 
 #: public/views/status.html
-msgid "Current Blockchain Tip (insight)"
-msgstr "Actual Blockchain Tip (insight)"
+msgid "Current Blockchain Tip (digiexplorer)"
+msgstr "Actual Blockchain Tip (digiexplorer)"
 
 #: public/views/status.html
 msgid "Current Sync Status"
@@ -195,8 +195,8 @@ msgid "Last Block"
 msgstr "Último Bloque"
 
 #: public/views/status.html
-msgid "Last Block Hash (Bitcoind)"
-msgstr "Último Bloque Hash (Bitcoind)"
+msgid "Last Block Hash (Digibyted)"
+msgstr "Último Bloque Hash (Digibyted)"
 
 #: public/views/index.html
 msgid "Latest Blocks"

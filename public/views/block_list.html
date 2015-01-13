@@ -42,6 +42,7 @@
             <th class="text-right" translate>Transactions</th>
             <th class="text-right hidden-xs" translate>Mined by</th>
             <th class="text-right" translate>Size</th>
+            <th class="text-right" translate>Algo</th>
           </tr>
         </thead>
         <tbody>
@@ -54,6 +55,7 @@
           <td class="text-right">{{b.txlength}}</td>
           <td class="text-right hidden-xs"><a href="{{b.poolInfo.url}}" title="{{b.poolInfo.poolName}}" target="_blank" data-ng-show="b.poolInfo">{{b.poolInfo.poolName}}</a></td>
           <td class="text-right">{{b.size}}</td>
+          <td class="text-right">{{b.algo}}</td>
         </tr>
         </tbody>
       </table>

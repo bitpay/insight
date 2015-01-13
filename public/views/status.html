@@ -63,11 +63,11 @@
         <thead data-ng-include src="'/views/includes/infoStatus.html'"></thead>
         <tbody>
           <tr>
-            <td translate>Last Block Hash (Bitcoind)</td>
+            <td translate>Last Block Hash (Digibyted)</td>
             <td class="text-right ellipsis"><a href="/block/{{lastblockhash}}">{{lastblockhash}}</a></td>
           </tr>
           <tr>
-            <td translate>Current Blockchain Tip (insight)</td>
+            <td translate>Current Blockchain Tip (digiexplorer)</td>
             <td class="text-right ellipsis"><a href="/block/{{syncTipHash}}">{{syncTipHash}}</a></td>
           </tr>
         </tbody>
@@ -117,7 +117,7 @@
     </div> <!-- END OF COL-8 -->
 
     <div class="col-xs-12 col-md-4 col-gray">
-      <h2 translate>Bitcoin node information</h2>
+      <h2 translate>Digibyte node information</h2>
       <table class="table" data-ng-controller="StatusController" data-ng-init="getStatus('Info')">
         <thead  data-ng-include src="'/views/includes/infoStatus.html'"></thead>
         <tbody>
