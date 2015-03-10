@@ -3,71 +3,17 @@
 module.exports = function(grunt) {
 
   //Load NPM tasks
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-css');
-  grunt.loadNpmTasks('grunt-mocha-test');
-  grunt.loadNpmTasks('grunt-nodemon');
-  grunt.loadNpmTasks('grunt-concurrent');
-  grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-markdown');
+  grunt.loadNpmTasks('grunt-macreload');
+  grunt.loadNpmTasks('grunt-angular-gettext');
 
   // Project Configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    watch: {
-      readme: {
-        files: ['README.md'],
-        tasks: ['markdown']
-      },
-      jade: {
-        files: ['app/views/**'],
-        options: {
-          livereload: true,
-        },
-      },
-      js: {
-        files: ['Gruntfile.js', 'insight.js', 'app/**/*.js', 'public/js/**'],
-        tasks: ['jshint'],
-        options: {
-          livereload: true,
-        },
-      },
-      assets: {
-        files: ['public/src/**/*.js', 'public/**/*.css'],
-        tasks: ['compile'],
-        options: {
-          livereload: true,
-        },
-      },
-      html: {
-        files: ['public/views/**'],
-        options: {
-          livereload: true,
-        },
-      },
-      css: {
-        files: ['public/css/**'],
-        options: {
-          livereload: true
-        }
-      },
-        // we monitor only app/models/* because we have test for models only now
-//      test: {
-//        files: ['test/**/*.js', 'test/*.js','app/models/*.js'],
-//        tasks: ['test'],
-//      }
-    },
-    jshint: {
-      all: {
-        src: ['Gruntfile.js', 'insight.js', 'app/**/*.js', 'public/src/js/**/*.js','lib/*.js'],
-        options: {
-          jshintrc: true
-        }
-      }
-    },
     concat: {
       options: {
         process: function(src, filepath) {
@@ -80,19 +26,19 @@ module.exports = function(grunt) {
         }
       },
       vendors: {
-        src: ['public/lib/momentjs/min/moment.min.js', 'public/lib/qrcode-generator/js/qrcode.js', 'public/lib/zeroclipboard/ZeroClipboard.min.js'],
+        src: ['public/src/js/ios-imagefile-megapixel/megapix-image.js', 'public/lib/qrcode-generator/js/qrcode.js', 'public/src/js/jsqrcode/grid.js', 'public/src/js/jsqrcode/version.js', 'public/src/js/jsqrcode/detector.js', 'public/src/js/jsqrcode/formatinf.js', 'public/src/js/jsqrcode/errorlevel.js', 'public/src/js/jsqrcode/bitmat.js', 'public/src/js/jsqrcode/datablock.js', 'public/src/js/jsqrcode/bmparser.js', 'public/src/js/jsqrcode/datamask.js', 'public/src/js/jsqrcode/rsdecoder.js', 'public/src/js/jsqrcode/gf256poly.js', 'public/src/js/jsqrcode/gf256.js', 'public/src/js/jsqrcode/decoder.js', 'public/src/js/jsqrcode/qrcode.js', 'public/src/js/jsqrcode/findpat.js', 'public/src/js/jsqrcode/alignpat.js', 'public/src/js/jsqrcode/databr.js', 'public/lib/momentjs/min/moment.min.js', 'public/lib/moment/lang/es.js', 'public/lib/zeroclipboard/ZeroClipboard.min.js'],
         dest: 'public/js/vendors.js'
       },
       angular: {
-        src: ['public/lib/angular/angular.min.js', 'public/lib/angular-resource/angular-resource.min.js', 'public/lib/angular-route/angular-route.min.js', 'public/lib/angular-qrcode/qrcode.js', 'public/lib/angular-animate/angular-animate.min.js', 'public/lib/angular-bootstrap/ui-bootstrap.min.js', 'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js', 'public/lib/angular-ui-utils/ui-utils.min.js', 'public/lib/ngprogress/build/ngProgress.min.js'],
+        src: ['public/lib/angular/angular.min.js', 'public/lib/angular-resource/angular-resource.min.js', 'public/lib/angular-route/angular-route.min.js', 'public/lib/angular-qrcode/qrcode.js', 'public/lib/angular-animate/angular-animate.min.js', 'public/lib/angular-bootstrap/ui-bootstrap.js', 'public/lib/angular-bootstrap/ui-bootstrap-tpls.js', 'public/lib/angular-ui-utils/ui-utils.min.js', 'public/lib/ngprogress/build/ngProgress.min.js', 'public/lib/angular-gettext/dist/angular-gettext.min.js', 'public/lib/angular-moment/angular-moment.min.js'],
         dest: 'public/js/angularjs-all.js'
       },
       main: {
-        src: ['public/src/js/app.js', 'public/src/js/controllers/*.js', 'public/src/js/services/*.js', 'public/src/js/directives.js', 'public/src/js/filters.js', 'public/src/js/config.js', 'public/src/js/init.js'],
+        src: ['public/src/js/app.js', 'public/src/js/controllers/*.js', 'public/src/js/services/*.js', 'public/src/js/directives.js', 'public/src/js/filters.js', 'public/src/js/config.js', 'public/src/js/init.js', 'public/src/js/translations.js'],
         dest: 'public/js/main.js'
       },
       css: {
-        src: ['public/src/css/**/*.css'],
+        src: ['public/lib/bootstrap/dist/css/bootstrap.min.css', 'public/src/css/**/*.css'],
         dest: 'public/css/main.css'
       }
     },
@@ -120,38 +66,6 @@ module.exports = function(grunt) {
         dest: 'public/css/main.min.css'
       }
     },
-    mochaTest: {
-      options: {
-        reporter: 'spec',
-      },
-      src: ['test/**/*.js'],
-    },
-    nodemon: {
-      dev: {
-        script: 'insight.js',
-        options: {
-          args: [],
-          ignore: ['public/**/*.html','public/**/*.css', 'public/**/*.js', 'test/**/*','util/**/*', ,'dev-util/**/*'],
-          // nodeArgs: ['--debug'],
-          delayTime: 1,
-          env: {
-            PORT: 3000
-          },
-          cwd: __dirname
-        }
-      }
-    },
-    concurrent: {
-      tasks: ['nodemon', 'watch'],
-      options: {
-        logConcurrentOutput: true
-      }
-    },
-    env: {
-      test: {
-        NODE_ENV: 'test'
-      }
-    },
     markdown: {
       all: {
         files: [
@@ -163,6 +77,39 @@ module.exports = function(grunt) {
          }
         ]
       }
+    },
+    macreload: {
+      chrome: {
+        browser: 'chrome',
+        editor: 'macvim'
+      }
+    },
+    watch: {
+      main: {
+        files: ['public/src/js/**/*.js'],
+        tasks: ['concat:main', 'uglify:main'],
+      },
+      css: {
+        files: ['public/src/css/**/*.css'],
+        tasks: ['concat:css', 'cssmin'],
+      },
+    },
+    nggettext_extract: {
+      pot: {
+        files: {
+          'po/template.pot': ['public/views/*.html', 'public/views/**/*.html']
+        }
+      },
+    },
+    nggettext_compile: {
+      all: {
+        options: {
+          module: 'insight'
+        },
+        files: {
+          'public/src/js/translations.js': ['po/*.po']
+        }
+      },
     }
   });
 
@@ -170,11 +117,13 @@ module.exports = function(grunt) {
   grunt.option('force', true);
 
   //Default task(s).
-  grunt.registerTask('default', ['jshint', 'compile', 'concurrent']);
+  grunt.registerTask('default', ['watch']);
+
+  //Update .pot file
+  grunt.registerTask('translate', ['nggettext_extract']);
 
   //Compile task (concat + minify)
-  grunt.registerTask('compile', ['concat', 'uglify', 'cssmin']);
+  grunt.registerTask('compile', ['nggettext_compile', 'concat', 'uglify', 'cssmin']);
 
-  //Test task.
-  grunt.registerTask('test', ['env:test', 'mochaTest']);
+
 };

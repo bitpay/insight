@@ -1,61 +1,93 @@
 <div data-ng-include src="'/views/includes/connection.html'"></div>
 <section data-ng-controller="transactionsController" data-ng-init="findThis()">
-  <div class="secondary_navbar" scroll data-ng-class="{'hidden': !secondaryNavbar}">
-    <div class="row">
-      <div class="col-md-8 text-center">
-        <span class="ellipsis txvalues txvalues-normal">
-          <strong>Transaction</strong> {{tx.txid}}
-          <span class="btn-copy" clip-copy="tx.txid"></span>
-        </span>
+  <div class="secondary_navbar hidden-xs hidden-sm" scroll data-ng-class="{'hidden': !secondaryNavbar}" data-ng-show="tx.txid" data-ng-init="hideSNavbar=0">
+    <div class="container" data-ng-if="!hideSNavbar">
+      <div class="col-md-6 col-lg-7 text-left">
+          <h3 translate>Transaction</h3>
+          <div class="ellipsis"> 
+            <small>{{tx.txid}}</small> 
+            <span class="btn-copy" clip-copy="tx.txid"></span>
+          </div>
       </div>
-      <div class="col-md-4">
-        <span data-ng-show="tx.confirmations" class="txvalues txvalues-success">{{tx.confirmations}} Confirmations</span>
-        <span data-ng-show="!tx.confirmations" class="txvalues txvalues-danger">Unconfirmed Transaction!</span>
+      <div class="col-md-6 col-lg-5 text-right">
+        <span data-ng-show="tx.confirmations" class="txvalues
+          txvalues-success">{{tx.confirmations}} 
+          <span translate>Confirmations</span>
+        </span>
+        <span data-ng-show="!tx.confirmations" 
+          class="txvalues txvalues-danger" translate>Unconfirmed Transaction!</span>
         <span class="txvalues txvalues-primary">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' BTC' }}</span>
       </div>
     </div>
+    <div class="hide_snavbar">
+      <a href="#" data-ng-click="hideSNavbar=!hideSNavbar">
+        <span data-ng-show="hideSNavbar"><span class="text-muted glyphicon glyphicon-chevron-down"></span></span>
+        <span data-ng-show="!hideSNavbar"><span class="text-muted glyphicon glyphicon-chevron-up"></span></span>
+      </a>
+    </div>
   </div>
-  <div class="ng-cloak" data-ng-cloak data-ng-if="tx.txid">
-    <h1>Transaction 
+  <div data-ng-if="tx.txid">
+    <h1><span translate>Transaction</span> 
       <small data-ng-show="from_vin || from_vout">
-        <span data-ng-show="from_vin">Input</span> 
-        <span data-ng-show="from_vout">Output</span> 
+        <span data-ng-show="from_vin" translate>Input</span> 
+        <span data-ng-show="from_vout" translate>Output</span> 
         <span>{{v_index}}</span>
       </small>
     </h1>
     <div class="progress progress-striped active" data-ng-if="!tx.txid">
       <div class="progress-bar progress-bar-info" style="width: 100%">
-        <span>Loading Transaction Details...</span>
+        <span translate>Loading Transaction Details</span> <span class="loader-gif"></span>
       </div>
     </div>
     <div data-ng-if="tx.txid">
       <div class="well well-sm ellipsis">
-        <strong>Transaction</strong> 
+        <strong translate>Transaction</strong> 
         <span class="txid text-muted">{{tx.txid}}</span>
         <span class="btn-copy" clip-copy="tx.txid"></span>
       </div>
-      <h2>Summary</h2>
+      <h2 translate>Summary</h2>
       <table class="table" style="table-layout: fixed">
         <tbody>
         <tr>
-          <td><strong> Size </strong></td>
+          <td><strong translate>Size</strong></td>
           <td class="text-muted text-right">{{tx.size}} (bytes)</td>
         </tr>
         <tr>
-          <td><strong>Received Time </strong></td>
-          <td data-ng-show="tx.firstSeenTs" class="text-muted text-right">{{tx.firstSeenTs * 1000|date:'medium'}}</td>
-          <td data-ng-show="!tx.firstSeenTs" class="text-muted text-right">N/A</td>
-        </tr>
-        <tr>
-          <td><strong>Mined Time </strong></td>
+          <td><strong translate>Received Time</strong></td>
           <td data-ng-show="tx.time" class="text-muted text-right">{{tx.time * 1000|date:'medium'}}</td>
           <td data-ng-show="!tx.time" class="text-muted text-right">N/A</td>
+        </tr>
+        <tr>
+          <td><strong translate>Mined Time</strong></td>
+          <td data-ng-show="tx.time" class="text-muted text-right">{{tx.blocktime * 1000|date:'medium'}}</td>
+          <td data-ng-show="!tx.time" class="text-muted text-right">N/A</td>
+        </tr>
+        <tr>
+          <td><strong translate>Included in Block</strong></td>
+          <td data-ng-show="tx.blockhash" class="text-muted text-right"> 
+            <div class="ellipsis">
+              <a href="/block/{{tx.blockhash}}">{{tx.blockhash}}</a>
+            </div>
+          <td data-ng-show="!tx.blockhash" class="text-muted text-right">Unconfirmed</td>
+        </tr>
+        <tr data-ng-show="tx.locktime">
+          <td><strong>LockTime</strong></td>
+          <td class="text-muted text-right">{{tx.locktime}}</td>
+        </tr>
+        <tr data-ng-show="tx.isCoinBase">
+          <td><strong>Coinbase</strong></td>
+          <td class="text-muted text-right">
+            <div class="ellipsis">
+                <span class="btn-copy ng-isolate-scope" clip-copy="tx.vin[0].coinbase"></span>
+                <span class="ng-binding">{{tx.vin[0].coinbase}}</span>
+            </div>
+          </td>
         </tr>
         </tbody>
       </table>
     </div>
-    <h2>Details</h2>
-    <div class="block-tx ng-cloak" data-ng-cloak data-ng-if="tx.txid">
+    <h2 translate>Details</h2>
+    <div class="block-tx" data-ng-if="tx.txid">
       <div data-ng-include src="'/views/transaction/tx.html'"></div>
     </div>
   </div>
