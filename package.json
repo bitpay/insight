@@ -50,7 +50,7 @@
     "start": "INSIGHT_PUBLIC_PATH=public node node_modules/.bin/insight-bitcore-api"
   },
   "dependencies": {
-    "insight-bitcore-api": "git@github.com:digibyte/insight-api.git"
+    "insight-bitcore-api": "https://github.com/digibyte/insight-api.git"
   },
   "devDependencies": {
     "bower": "~1.2.8",
