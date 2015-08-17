@@ -4,7 +4,7 @@
   "version": "0.2.5",
     "engines": {
       "node": "0.12.x",
-      "npm": "3.3.x"
+      "npm": "2.12.x"
     },
   "author": {
     "name": "Ryan X Charles",
