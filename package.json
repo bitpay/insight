@@ -3,8 +3,8 @@
   "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the digibyte network and build your own services with it.",
   "version": "0.2.5",
     "engines": {
-      "node": "0.10.x",
-      "npm": "1.2.x"
+      "node": "0.12.x",
+      "npm": "3.3.x"
     },
   "author": {
     "name": "Ryan X Charles",
