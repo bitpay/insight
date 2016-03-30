@@ -4,25 +4,11 @@
   "version": "0.3.1",
   "repository": "git://github.com/bitpay/insight.git",
   "contributors": [
-    {
-      "name": "Matias Alejo Garcia",
-      "email": "ematiu@gmail.com"
+    
     },
     {
-      "name": "Manuel Araoz",
-      "email": "manuelaraoz@gmail.com"
-    },
-    {
-      "name": "Mario Colque",
-      "email": "colquemario@gmail.com"
-    },
-    {
-      "name": "Gustavo Cortez",
-      "email": "cmgustavo83@gmail.com"
-    },
-    {
-      "name": "Juan Ignacio Sosa Lopez",
-      "email": "bechilandia@gmail.com"
+      "name": " Matthew Trojan",
+      "email": "mtrojanwtf7@gmail.com
     }
   ],
   "bugs": {
