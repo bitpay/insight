@@ -38,7 +38,8 @@
     "bitcore",
     "front-end"
   ],
-  "bitcoreNode": "bitcore-node",
+  "main": "index.js",
+  "bitcoreNode": "index.js",
   "dependencies": {
   },
   "devDependencies": {
