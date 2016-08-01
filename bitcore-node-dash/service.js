@@ -68,7 +68,7 @@ Service.prototype.start = function(done) {
 };
 
 /**
- * Function to be called when bitcore-node is stopped
+ * Function to be called when bitcore-node-dash is stopped
  */
 Service.prototype.stop = function(done) {
   setImmediate(done);
