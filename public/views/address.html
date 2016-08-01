@@ -7,7 +7,7 @@
           <span class="btn-copy" clip-copy="address.addrStr"></span>
       </div>
       <div class="col-md-4">
-        <span class="txvalues txvalues-primary"><strong translate>Final Balance</strong> {{$root.currency.getConvertion(address.balance) || address.balance + ' BTC' }}</span>
+        <span class="txvalues txvalues-primary"><strong translate>Final Balance</strong> {{$root.currency.getConvertion(address.balance) || address.balance + ' DASH' }}</span>
       </div>
     </div>
     <div class="hide_snavbar">
@@ -17,7 +17,7 @@
       </a>
     </div>
   </div>
-  <h1><span translate>Address</span> <small data-ng-show="address.addrStr">{{$root.currency.getConvertion(address.balance) || address.balance + ' BTC'}}</small></h1>
+  <h1><span translate>Address</span> <small data-ng-show="address.addrStr">{{$root.currency.getConvertion(address.balance) || address.balance + ' DASH'}}</small></h1>
   <div class="text-muted" data-ng-if="!address.addrStr">
     <span translate>Loading Address Information</span> <span class="loader-gif"></span>
   </div>
@@ -34,15 +34,15 @@
           <tbody>
           <tr>
             <td><strong translate>Total Received</strong></td>
-            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.totalReceived) || address.totalReceived + ' BTC'}}</td>
+            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.totalReceived) || address.totalReceived + ' DASH'}}</td>
           </tr>
           <tr>
             <td><strong translate>Total Sent</strong></td>
-            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.totalSent) || address.totalSent + ' BTC'}}</td>
+            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.totalSent) || address.totalSent + ' DASH'}}</td>
           </tr>
           <tr>
             <td><strong translate>Final Balance</strong></td>
-            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.balance) || address.balance + ' BTC'}}</td>
+            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.balance) || address.balance + ' DASH'}}</td>
           </tr>
           <tr>
             <td><strong translate>No. Transactions</strong></td>

@@ -16,7 +16,7 @@
         </span>
         <span data-ng-show="!tx.confirmations" 
           class="txvalues txvalues-danger" translate>Unconfirmed Transaction!</span>
-        <span class="txvalues txvalues-primary">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' BTC' }}</span>
+        <span class="txvalues txvalues-primary">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' DASH' }}</span>
       </div>
     </div>
     <div class="hide_snavbar">
@@ -54,7 +54,7 @@
         </tr>
         <tr data-ng-show="tx.fees">
           <td><strong translate>Fee Rate</strong></td>
-          <td class="text-muted text-right">{{$root.currency.getConvertion((tx.fees * 1000) / tx.size) + ' per kB' || ((tx.fees * 1000) / tx.size) + 'BTC per kB'}}</td>
+          <td class="text-muted text-right">{{$root.currency.getConvertion((tx.fees * 1000) / tx.size) + ' per kB' || ((tx.fees * 1000) / tx.size) + 'DASH per kB'}}</td>
         </tr>
         <tr>
           <td><strong translate>Received Time</strong></td>
