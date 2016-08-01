@@ -1,6 +1,6 @@
 # Insight UI Dash
 
-A Dash blockchain explorer web application service for [Bitcore Node](https://github.com/dashpay/bitcore-node-dash) using the [Insight API](https://github.com/dashpay/insight-api-dash).
+A Dash blockchain explorer web application service for [Bitcore Node Dash](https://github.com/dashpay/bitcore-node-dash) using [Insight API Dash](https://github.com/dashpay/insight-api-dash).
 
 ## Quick Start
 
