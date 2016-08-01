@@ -23,16 +23,16 @@ msgstr "404 Página no encontrada :("
 #: public/views/index.html
 msgid ""
 "<strong>insight</strong>  is an <a href=\"http://live.insight.is/\" target="
-"\"_blank\">open-source Bitcoin blockchain explorer</a> with complete REST "
+"\"_blank\">open-source Dash blockchain explorer</a> with complete REST "
 "and websocket APIs that can be used for writing web wallets and other apps  "
-"that need more advanced blockchain queries than provided by bitcoind RPC.  "
+"that need more advanced blockchain queries than provided by dashd RPC.  "
 "Check out the <a href=\"https://github.com/dashpay/insight-ui-dash\" target=\"_blank"
 "\">source code</a>."
 msgstr ""
 "<strong>insight</strong>  es un <a href=\"http://live.insight.is/\" target="
-"\"_blank\">explorador de bloques de Bitcoin open-source</a> con un completo "
+"\"_blank\">explorador de bloques de Dash open-source</a> con un completo "
 "conjunto de REST y APIs de websockets que pueden ser usadas para escribir "
-"monederos de Bitcoins y otras aplicaciones que requieran consultar un "
+"monederos de Dashs y otras aplicaciones que requieran consultar un "
 "explorador de bloques.  Obtén el código en <a href=\"http://github.com/"
 "dashpay/insight\" target=\"_blank\">el repositorio abierto de Github</a>."
 
@@ -68,8 +68,8 @@ msgid "Best Block"
 msgstr "Mejor Bloque"
 
 #: public/views/status.html
-msgid "Bitcoin node information"
-msgstr "Información del nodo Bitcoin"
+msgid "Dash node information"
+msgstr "Información del nodo Dash"
 
 #: public/views/block.html
 msgid "Block"
@@ -90,11 +90,11 @@ msgstr "Bytes Serializados"
 
 #: public/views/includes/connection.html
 msgid ""
-"Can't connect to bitcoind to get live updates from the p2p network. (Tried "
-"connecting to bitcoind at {{host}}:{{port}} and failed.)"
+"Can't connect to dashd to get live updates from the p2p network. (Tried "
+"connecting to dashd at {{host}}:{{port}} and failed.)"
 msgstr ""
-"No se pudo conectar a bitcoind para obtener actualizaciones en vivo de la "
-"red p2p. (Se intentó conectar a bitcoind de {{host}}:{{port}} y falló.)"
+"No se pudo conectar a dashd para obtener actualizaciones en vivo de la "
+"red p2p. (Se intentó conectar a dashd de {{host}}:{{port}} y falló.)"
 
 #: public/views/includes/connection.html
 msgid "Can't connect to insight server. Attempting to reconnect..."
@@ -195,8 +195,8 @@ msgid "Last Block"
 msgstr "Último Bloque"
 
 #: public/views/status.html
-msgid "Last Block Hash (Bitcoind)"
-msgstr "Último Bloque Hash (Bitcoind)"
+msgid "Last Block Hash (dashd)"
+msgstr "Último Bloque Hash (dashd)"
 
 #: public/views/index.html
 msgid "Latest Blocks"
