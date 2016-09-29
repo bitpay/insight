@@ -216,12 +216,12 @@ margin-left: 0;
 .status {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  background-color: #003366;
+  background-color: #f4f4f4;
   border-radius: 3px;
   margin: 15px 0;
   padding: 8px 10px;
   font-size: 12px;
-  color: #eee;
+  color: #0066ee;
   text-align: center;
   margin-right: 10px;
 }
