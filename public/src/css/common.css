@@ -166,7 +166,7 @@ margin-left: 0;
 }
 
 .navbar-form .form-control {
-  background-color: #4299d8;
+  background-color: #f4f4f4;
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -181,7 +181,7 @@ margin-left: 0;
   padding-bottom: 22px;
 }
 
-#search-form { color: #fff; }
+#search-form { color: #06e; }
 
 #search.loading {
   background-image: url('/img/loading.gif');
@@ -198,7 +198,7 @@ margin-left: 0;
   margin-left: 5px;
 }
 
-#search { color: #fff; }
+#search { color: #06e; }
 
 #search::-webkit-input-placeholder {
   color: #0066cc;
@@ -518,7 +518,7 @@ margin-left: 0;
 .badge-inverse:hover { background-color: #1a1a1a; }
 
 .status .t {
-  color: white;
+  color: #06e;
 }
 
 .status .text-danger { background: red; }
@@ -849,4 +849,5 @@ a.v_highlight_more {
     width: 350px;
   }
 }
+
 
