@@ -10,6 +10,14 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   var pagesTotal = 1;
   var COIN = 100000000;
 
+  function hex2a(hexx) {
+      var hex = hexx.toString().substring(4);//force conversion
+      var str = '';
+      for (var i = 0; i < hex.length; i += 2)
+          str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+      return str;
+  };
+
   var _aggregateItems = function(items) {
     if (!items) return [];
 
@@ -18,6 +26,8 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     var ret = [];
     var tmp = {};
     var u = 0;
+    var op_return = null;
+    var op_returnString = '';
 
     for(var i=0; i < l; i++) {
 
@@ -31,6 +41,10 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
 
       // non standard output
       if (items[i].scriptPubKey && !items[i].scriptPubKey.addresses) {
+        if(items[i].scriptPubKey.asm.indexOf('OP_RETURN') !== -1){
+          op_returnString = hex2a(items[i].scriptPubKey.hex);
+          op_return = true;
+        }
         items[i].scriptPubKey.addresses = ['Unparsed address [' + u++ + ']'];
         items[i].notAddr = true;
         notAddr = true;
@@ -61,6 +75,8 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
       tmp[addr].valueSat += Math.round(items[i].value * COIN);
       tmp[addr].items.push(items[i]);
       tmp[addr].notAddr = notAddr;
+      tmp[addr].op_return = op_return;
+      tmp[addr].op_returnString = op_returnString;
       tmp[addr].count++;
     }
 
