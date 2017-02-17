@@ -6,14 +6,14 @@
 html,
 body {
   color: #373D42;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #373D42;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 /* Styling for the ngProgress itself */
 #ngProgress {
-  background-color: #6C9032 !important;
+  background-color: #295b85 !important;
   box-shadow: none !important;
   color: #373D42 !important;
   height: 3px !important;
@@ -103,7 +103,8 @@ margin-left: 0;
 }
 
 .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
-  background-color: #F0F7E2;
+  background-color: #cfe3f4;  
+  /*cfe3f4*/
 }
 .navbar { min-height: 64px; }
 .navbar-default .navbar-toggle { 
@@ -115,20 +116,20 @@ margin-left: 0;
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {background-color: #373D42;}
 
 .navbar-default {
-  background-color: #8DC429;
+  background-color: #1d71b8;
   margin: 0;
   border: 0;
 }
 
 .navbar-default .navbar-nav>li>a {
-  color: #F4FBE8;
-  font-family: 'Ubuntu', sans-serif;
+  color: #cfe3f4;
+  font-family: 'Montserrat', sans-serif;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus {
-  background-color: #6C9032;
+  background-color: #295b85;   /*1d71b8*/
   color: #fff;
 }
 
@@ -149,8 +150,8 @@ margin-left: 0;
 }
 
 .insight {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 34px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
   font-style: italic;
   font-weight: 700;
   overflow: hidden;
@@ -162,11 +163,11 @@ margin-left: 0;
 
 .navbar-default .navbar-brand {
   color: #FFFFFF;
-  padding: 20px 15px;
+  padding: -40px 15px;
 }
 
 .navbar-form .form-control {
-  background-color: #7CAD23;
+  background-color: #1d71b8;
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -201,22 +202,22 @@ margin-left: 0;
 #search { color: #fff; }
 
 #search::-webkit-input-placeholder {
-  color: #BCDF7E;
-  font-family: 'Ubuntu', sans-serif;
+  color: #CFE3F4;
+  font-family: 'Montserrat', sans-serif;
   font-style: italic;
   font-weight: 100;
 }
 
 #search::-moz-placeholder {
-  color: #BCDF7E;
-  font-family: 'Ubuntu', sans-serif;
+  color: #CFE3F4;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 100;
 }
 
 .status {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  background-color: #597338;
+  background-color: #345672;
   border-radius: 3px;
   margin: 15px 0;
   padding: 8px 10px;
@@ -316,8 +317,8 @@ margin-left: 0;
   border-radius: 2px;
 }
 .btn-primary {
-  background-color: #8DC429;
-  border: 2px solid #76AF0F;
+  background-color: #1d71b8;
+  border: 2px solid #1d71b8;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active,
@@ -363,7 +364,7 @@ margin-left: 0;
 }
 
 .txvalues-primary {
-  background-color: #8DC429;
+  background-color: #1d71b8;
 }
 
 .txvalues-default {
@@ -386,7 +387,7 @@ margin-left: 0;
   font-size: 14px;
   font-weight: normal;
 }
-.progress-bar-info { background-color: #8DC429; }
+.progress-bar-info { background-color: #1d71b8; }
 
 /* Set the fixed height of the footer here */
 #footer {
@@ -459,7 +460,7 @@ margin-left: 0;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   border-top: none;
-  border: 1px solid #64920F;
+  border: 1px solid #1D71B8;
   padding: 10px 20px;
   position: absolute;
   text-align: center;
@@ -667,7 +668,7 @@ margin-left: 0;
 }
 
 a.v_highlight_more {
-  background-color: #F0F7E2;
+  background-color: #cfe3f4;
   color: #333;
 }
 
@@ -754,7 +755,7 @@ a.v_highlight_more {
     font-size: 18px;
   }
   .insight {
-    font-size: 30px;
+    font-size: 40px;
   }
   .navbar-default .navbar-nav>li>a {
     padding-left: 15px;
@@ -826,7 +827,7 @@ a.v_highlight_more {
   }
   .txvalues-primary {
     background: none;
-    color: #8DC429;
+    color: #1d71b8;
   }
   .txvalues-default {
     background: none;
@@ -849,4 +850,3 @@ a.v_highlight_more {
     width: 350px;
   }
 }
-

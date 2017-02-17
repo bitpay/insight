@@ -7,7 +7,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="insight navbar-brand" href=".">insight</a>
+      <div>
+        <a class="insight navbar-brand" href="." style="margin-top: 5px;">
+        <img src="/img/DASHlogo_white.png" style="width: 150px; height: auto;" alt="dash_logo">
+      </a>
+      </div>
     </div>
     <div class="navbar-collapse collapse" collapse="$root.isCollapsed">
       <ul class="nav navbar-nav">
@@ -20,11 +24,11 @@
         <li>
       <div class="status" data-ng-controller="StatusController">
         <div data-ng-init="getSync()" class="pull-left">
-          <span class="t text-danger"  data-ng-show="sync.error" tooltip="{{sync.error}}" tooltip-placement="bottom"> 
+          <span class="t text-danger"  data-ng-show="sync.error" tooltip="{{sync.error}}" tooltip-placement="bottom">
               <span  class="glyphicon glyphicon-warning-sign"></span>
-              ERROR 
+              ERROR
           </span>
-          <span class="t" tooltip="{{sync.syncedBlocks}} / {{sync.blockChainHeight}} synced. {{sync.skippedBlocks || 0}} skipped" tooltip-placement="bottom" data-ng-show="sync.status==='syncing'"> 
+          <span class="t" tooltip="{{sync.syncedBlocks}} / {{sync.blockChainHeight}} synced. {{sync.skippedBlocks || 0}} skipped" tooltip-placement="bottom" data-ng-show="sync.status==='syncing'">
             <span  class="glyphicon glyphicon-refresh icon-rotate"></span>
             {{sync.syncPercentage}}%
           </span>
