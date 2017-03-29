@@ -3,18 +3,19 @@
 var BaseService = require('./service');
 var inherits = require('util').inherits;
 var fs = require('fs');
+var pkg = require('../package');
 
 var InsightUI = function(options) {
   BaseService.call(this, options);
   if (typeof options.apiPrefix !== 'undefined') {
     this.apiPrefix = options.apiPrefix;
   } else {
-    this.apiPrefix = 'insight-api';
+    this.apiPrefix = pkg.insightConfig.apiPrefix;
   }
   if (typeof options.routePrefix !== 'undefined') {
     this.routePrefix = options.routePrefix;
   } else {
-    this.routePrefix = 'insight';
+    this.routePrefix = pkg.insightConfig.routePrefix;
   }
 };
 
@@ -47,9 +48,6 @@ InsightUI.prototype.setupRoutes = function(app, express) {
 };
 
 InsightUI.prototype.filterIndexHTML = function(data) {
-  var transformed = data
-    .replace(/apiPrefix = '\/api'/, "apiPrefix = '/" + this.apiPrefix + "'");
-
   if (this.routePrefix) {
     transformed = transformed.replace(/<base href=\"\/\"/, '<base href="/' + this.routePrefix + '/"');
   }
