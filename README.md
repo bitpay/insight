@@ -1,207 +1,80 @@
-# *insight*
+# Insight UI
 
-*insight* is an open-source bitcoin blockchain explorer with complete REST
-and websocket APIs. Insight runs in NodeJS, uses AngularJS for the
-front-end and LevelDB for storage.
+A Bitcoin blockchain explorer web application service for [Bitcore Node](https://github.com/bitpay/bitcore-node) using the [Insight API](https://github.com/bitpay/insight-api).
 
-Check some screenshots and more details at [insight's project homepage](http://insight.bitcore.io).
+## Quick Start
 
+Please see the guide at [https://bitcore.io/guides/full-node](https://bitcore.io/guides/full-node) for information about getting a block explorer running. This is only the front-end component of the block explorer, and is packaged together with all of the necessary components in [Bitcore](https://github.com/bitpay/bitcore).
 
-## Prerequisites
+## Getting Started
 
-* **bitcoind** - Download and Install [Bitcoin](http://bitcoin.org/en/download)
+To manually install all of the necessary components, you can run these commands:
 
-*insight* needs a *trusted* bitcoind node to run. *insight* will connect to the node
-thru the RPC API, Peer-to-peer protocol and will even read its raw .dat files for syncing.
-
-Configure bitcoind to listen to RPC calls and set `txindex` to true.
-The easiest way to do this is by copying `./etc/bitcoind/bitcoin.conf` to your
-bitcoin data directory (usually `"~/.bitcoin"` on Linux, `"%appdata%\Bitcoin\"` on Windows, 
-or `"~/Library/Application Support/Bitcoin"` on Mac OS X).
-
-bitcoind must be running and must have finished downloading the blockchain **before** running *insight*.
-
-
-* **Node.js v0.10.x** - Download and Install [Node.js](http://www.nodejs.org/download/).
-
-* **NPM** - Node.js package manager, should be automatically installed when you get node.js.
-
-## Quick Install
-  Check the Prerequisites section above before installing.
-
-  To install Insight, clone the main repository:
-
-    $ git clone git@github.com:bitpay/insight.git && cd insight
-
-  Install dependencies:
-
-    $ npm install
-    
-  Run the main application:
-
-    $ node insight.js
-
-  Then open a browser and go to:
-
-    http://localhost:3001
-
-  Please note that the app will need to sync its internal database
-  with the blockchain state, which may take some time. You can check
-  sync progress from within the web interface.
-   
-
-## Configuration
-
-All configuration is specified in the [config](config/) folder, particularly the [config.js](config/config.js) file. There you can specify your application name and database name. Certain configuration values are pulled from environment variables if they are defined:
-
-### bitcoind connexion
-```
-BITCOIND_HOST         # RPC bitcoind host
-BITCOIND_PORT         # RPC bitcoind Port
-BITCOIND_P2P_PORT     # P2P bitcoind Port
-BITCOIND_USER         # RPC username
-BITCOIND_PASS         # RPC password
-BITCOIND_DATADIR      # bitcoind datadir for livenet, or datadir/testnet3 for testnet
-INSIGHT_NETWORK [= 'livenet' | 'testnet']
+```bash
+npm install -g bitcore-node
+bitcore-node create mynode
+cd mynode
+bitcore-node install insight-api
+bitcore-node install insight-ui
+bitcore-node start
 ```
 
-Make sure that bitcoind is configured to [accept incoming connections using 'rpcallowip'](https://en.bitcoin.it/wiki/Running_Bitcoin).
-
-In case the network is changed (testnet to livenet or vice versa) levelDB database needs to be deleted. This can be performed running:
-```util/sync.js -D``` and waiting for *insight* to synchronize again.  Once the database is deleted, the sync.js process can be safely interrupted (CTRL+C) and continued from the synchronization process embedded in main app.
-
-## Synchronization
-
-The initial synchronization process scans the blockchain from the paired bitcoind server to update addresses and balances. *insight* needs one (and only one) trusted bitcoind node to run. This node must have finished downloading the blockchain befure running *insight*.
-
-While *insight* is synchronizing the website can be accessed (the sync process is embedded in the webserver), but there may be missing data or incorrect balances for addresses. The 'sync' status is shown on the top-right of all pages. 
-
-The blockchain can be read from bitcoind's raw `.dat` files or RPC interface. Reading the information from the `.dat` files is much faster so it's the recommended (and default) alternative. `.dat` files are scanned in the default location for each platform. In case a non-standard location is used, it needs to be defined (see the Configuration section). The synchronization type being used can be seen at the [Status page](http://localhost:3001/status).  As of February 2014, using `.dat` files the sync process takes 7 hrs. for livenet and 20 mins. for testnet.
-
-While synchronizing the blockchain, *insight* listens for new blocks and transactions relayed by the bitcoind node. Those are also stored on *insight*'s database. In case *insight* is shutdown for a period of time, restarting it will trigger a partial (historic) synchronization of the blockchain. Depending on the size of that synchronization task, a reverse RPC or forward `.dat` syncing strategy will be used. 
-
-If bitcoind is shutdown, *insight* needs to be stopped and restarted once bitcoind is restarted.
-
-### Syncing old blockchain data manualy
-
-  Old blockchain data can be manually synced issuing:
-
-    $ util/sync.js
-
-  Check util/sync.js --help for options, particulary -D to erase the current DB.
-
-  *NOTE* that there is no need to run this manually since the historic synchronization is embedded on the web application, so by running you will trigger the historic sync automatically.
-
-
-### DB storage requirement
-
-To store the blockchain and address related information, *insight* uses LevelDB. Two DBs are created: txs and blocks. By default these are stored on 
-  ```<insight root>/db``` 
-  
-this can be changed on config/config.js. As of February 2014, storing the livenet blockchain takes ~30GB of disk space (2GB for the testnet).
+Open a web browser to `http://localhost:3001/insight/`
 
 ## Development
 
-To run insight locally for development with grunt:
+To run Insight UI locally in development mode:
 
-```$ NODE_ENV=development grunt```
+Install bower dependencies:
+
+```
+$ bower install
+```
 
 To compile and minify the web application's assets:
 
-```$ grunt compile```
-
-To run the tests
-
-```$ grunt test```
-
-
-Contributions and suggestions are welcomed at [insight github repository](https://github.com/bitpay/insight).
-
-
-## API
-
-A REST API is provided at /api. The entry points are:
-
-
-### Block
 ```
-  /api/block/[:hash]
-  /api/block/00000000a967199a2fad0877433c93df785a8d8ce062e5f9b451cd1397bdbf62
-```
-### Transaction
-```
-  /api/tx/[:txid]
-  /api/tx/525de308971eabd941b139f46c7198b5af9479325c2395db7f2fb5ae8562556c
-```
-### Address
-```
-  /api/addr/[:addr]
-  /api/addr/mmvP3mTe53qxHdPqXEvdu8WdC7GfQ2vmx5
-```
-### Transactions by Block
-```
-  /api/txs/?block=HASH
-  /api/txs/?block=00000000fa6cf7367e50ad14eb0ca4737131f256fc4c5841fd3c3f140140e6b6
-```
-### Transactions by Address
-```
-  /api/txs/?address=ADDR
-  /api/txs/?address=mmhmMNfBiZZ37g1tgg2t8DDbNoEdqKVxAL
+$ grunt compile
 ```
 
-### Historic blockchain data sync status
+There is a convenient Gruntfile.js for automation during editing the code
+
 ```
-  /api/sync
+$ grunt
 ```
 
-### Live network p2p data sync status
+## Multilanguage support
+
+Insight UI uses [angular-gettext](http://angular-gettext.rocketeer.be) for multilanguage support.
+
+To enable a text to be translated, add the ***translate*** directive to html tags. See more details [here](http://angular-gettext.rocketeer.be/dev-guide/annotate/). Then, run:
+
 ```
-  /api/peer
+grunt compile
 ```
 
-## Web Socket API
-The web socket API is served using [socket.io](http://socket.io) at:
+This action will create a template.pot file in ***po/*** folder. You can open it with some PO editor ([Poedit](http://poedit.net)). Read this [guide](http://angular-gettext.rocketeer.be/dev-guide/translate/) to learn how to edit/update/import PO files from a generated POT file. PO file will be generated inside po/ folder.
+
+If you make new changes, simply run **grunt compile** again to generate a new .pot template and the angular javascript ***js/translations.js***. Then (if use Poedit), open .po file and choose ***update from POT File*** from **Catalog** menu.
+
+Finally changes your default language from ***public/src/js/config***
+
 ```
-  /socket.io/1/
+gettextCatalog.currentLanguage = 'es';
 ```
 
-Bitcoin network events published are:
-'tx': new transaction received from network. Data will be a app/models/Transaction object.
-Sample output:
-```
-{
-  "txid":"00c1b1acb310b87085c7deaaeba478cef5dc9519fab87a4d943ecbb39bd5b053",
-  "processed":false
-  ...
-}
-```
+This line will take a look at any *.po files inside ***po/*** folder, e.g.
+**po/es.po**, **po/nl.po**. After any change do not forget to run ***grunt
+compile***.
 
 
-'block': new block received from network. Data will be a app/models/Block object.
-Sample output:
-```
-{
-  "hash":"000000004a3d187c430cd6a5e988aca3b19e1f1d1727a50dead6c8ac26899b96",
-  "time":1389789343,
-  ...
-}
-```
+## Note
 
-'sync': every 1% increment on the sync task, this event will be triggered.
+For more details about the [Insight API](https://github.com/bitpay/insight-api) configuration and end-points, go to [Insight API GitHub repository](https://github.com/bitpay/insight-api).
 
-Sample output:
-```
-{
-  blocksToSync: 164141,
-  syncedBlocks: 475,
-  upToExisting: true,
-  scanningBackward: true,
-  isEndGenesis: true,
-  end: "000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943",
-  isStartGenesis: false,
-  start: "000000009f929800556a8f3cfdbe57c187f2f679e351b12f7011bfc276c41b6d"
-}
-```
+## Contribute
+
+Contributions and suggestions are welcomed at the [Insight UI GitHub repository](https://github.com/bitpay/insight-ui).
 
 
 ## License

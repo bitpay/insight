@@ -3,9 +3,9 @@
 var ZeroClipboard = window.ZeroClipboard;
 
 angular.module('insight')
-  .directive("scroll", function ($window) {
+  .directive('scroll', function ($window) {
     return function(scope, element, attrs) {
-      angular.element($window).bind("scroll", function() {
+      angular.element($window).bind('scroll', function() {
         if (this.pageYOffset >= 200) {
           scope.secondaryNavbar = true;
         } else {
@@ -69,6 +69,22 @@ angular.module('insight')
 
         clip.on('noFlash wrongflash', function() {
           return elm.remove();
+        });
+      }
+    };
+  })
+  .directive('focus', function ($timeout) {
+    return {
+      scope: {
+        trigger: '@focus'
+      },
+      link: function (scope, element) {
+        scope.$watch('trigger', function (value) {
+          if (value === "true") {
+            $timeout(function () {
+              element[0].focus();
+            });
+          }
         });
       }
     };

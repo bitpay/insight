@@ -4,8 +4,38 @@ angular.module('insight.address').controller('AddressController',
   function($scope, $rootScope, $routeParams, $location, Global, Address, getSocket) {
     $scope.global = Global;
 
+    var socket = getSocket($scope);
+    var addrStr = $routeParams.addrStr;
+
+    var _startSocket = function() {
+      socket.on('bitcoind/addresstxid', function(data) {
+        if (data.address === addrStr) {
+          $rootScope.$broadcast('tx', data.txid);
+          var base = document.querySelector('base');
+          var beep = new Audio(base.href + '/sound/transaction.mp3');
+          beep.play();
+        }
+      });
+      socket.emit('subscribe', 'bitcoind/addresstxid', [addrStr]);
+    };
+
+    var _stopSocket = function () {
+      socket.emit('unsubscribe', 'bitcoind/addresstxid', [addrStr]);
+    };
+
+    socket.on('connect', function() {
+      _startSocket();
+    });
+
+    $scope.$on('$destroy', function(){
+      _stopSocket();
+    });
+
+    $scope.params = $routeParams;
+
     $scope.findOne = function() {
       $rootScope.currentAddr = $routeParams.addrStr;
+      _startSocket();
 
       Address.get({
           addrStr: $routeParams.addrStr
@@ -26,16 +56,5 @@ angular.module('insight.address').controller('AddressController',
           $location.path('/');
         });
     };
-
-    var socket = getSocket($scope);
-    socket.on('connect', function() {
-      socket.emit('subscribe', $routeParams.addrStr);
-      socket.on($routeParams.addrStr, function(tx) {
-        console.log('AddressTx event received ' + tx);
-        $rootScope.$broadcast('tx', tx);
-      });
-    });
-
-    $scope.params = $routeParams;
 
   });
