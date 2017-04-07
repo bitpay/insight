@@ -43,9 +43,13 @@
     "apiPrefix": "insight-api",
     "routePrefix": "insight"
   },
+  "scripts": {
+    "build": "bower install && grunt compile",
+    "watch": "grunt"
+  },
   "dependencies": {},
   "devDependencies": {
-    "bower": "~1.2.8",
+    "bower": "~1.8.0",
     "grunt": "~0.4.2",
     "grunt-angular-gettext": "^0.2.15",
     "grunt-cli": "~0.1.11",

@@ -4,6 +4,6 @@ angular.module('insight.api')
   .factory('Api',
     function() {
       return {
-        prefix: '/INSIGHT_API_PREFIX'
+        apiPrefix: '/INSIGHT_API_PREFIX'
       }
     });
