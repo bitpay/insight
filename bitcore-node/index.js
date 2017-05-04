@@ -19,7 +19,7 @@ InsightUI.dependencies = ['insight-api'];
 inherits(InsightUI, BaseService);
 
 InsightUI.prototype.start = function(callback) {
-  this.indexFile = this.filterIndexHTML(fs.readFileSync(__dirname + '/../public/index.html', {encoding: 'utf8'}));
+  this.indexFile = this.filterIndexHTML(fs.readFileSync(__dirname + '/../public/index-template.html', {encoding: 'utf8'}));
   setImmediate(callback);
 };
 
