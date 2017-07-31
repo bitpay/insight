@@ -11,11 +11,20 @@ angular.module('insight.system').controller('HeaderController',
     };
 
     $scope.menu = [{
+      'title': 'Home',
+      'link': 'home'
+    },{
       'title': 'Blocks',
       'link': 'blocks'
     }, {
       'title': 'Status',
       'link': 'status'
+    },{
+      'title': 'History',
+      'link': 'history'
+    }, {
+      'title': 'Blacklist',
+      'link': 'blacklist'
     }];
 
     $scope.openScannerModal = function() {
