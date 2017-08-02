@@ -277,7 +277,7 @@ msgstr "没找到匹配的记录"
 
 #: public/views/address.html
 msgid "No. Transactions"
-msgstr "交易号码"
+msgstr "交易笔数"
 
 #: public/views/block.html
 msgid "Number Of Transactions"
