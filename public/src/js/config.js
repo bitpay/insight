@@ -3,6 +3,10 @@
 //Setting up route
 angular.module('insight').config(function($routeProvider) {
   $routeProvider.
+   when('/home', {
+      templateUrl: 'views/home.html',
+      title: 'Home'
+    }).
     when('/block/:blockHash', {
       templateUrl: 'views/block.html',
       title: 'Bitcoin Block '
@@ -20,11 +24,15 @@ angular.module('insight').config(function($routeProvider) {
       title: 'Bitcoin Transaction '
     }).
     when('/', {
-      templateUrl: 'views/index.html',
+      templateUrl: 'views/home.html',
       title: 'Home'
     }).
     when('/blocks', {
       templateUrl: 'views/block_list.html',
+      title: 'Bitcoin Blocks solved Today'
+    }).
+     when('/blocks-index', {
+      templateUrl: 'views/index.html',
       title: 'Bitcoin Blocks solved Today'
     }).
     when('/blocks-date/:blockDate/:startTimestamp?', {
@@ -39,8 +47,20 @@ angular.module('insight').config(function($routeProvider) {
       templateUrl: 'views/status.html',
       title: 'Status'
     }).
+    when('/history', {
+      templateUrl: 'views/history.html',
+      title: 'History'
+    }).
+    when('/blacklist', {
+      templateUrl: 'views/blacklist.html',
+      title: 'Blacklist'
+    }).
     when('/messages/verify', {
       templateUrl: 'views/messages_verify.html',
+      title: 'Verify Message'
+    }).
+    when('/ripplecharts-frontend', {
+      templateUrl: 'views/ripplecharts-frontend/src/index.html',
       title: 'Verify Message'
     })
     .otherwise({

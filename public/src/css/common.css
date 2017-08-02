@@ -6,14 +6,14 @@
 html,
 body {
   color: #373D42;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: '微软雅黑', sans-serif;
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #373D42;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: '微软雅黑', sans-serif;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
@@ -21,6 +21,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .ng-hide {
   display: none !important;
 }
+table tr{height: 50px;}
 
 /* Styling for the ngProgress itself */
 #ngProgress {
@@ -115,7 +116,7 @@ margin-left: 0;
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {background-color: #373D42;}
 
 .navbar-default {
-  background-color: #8DC429;
+  background-color: #30bfa1;
   margin: 0;
   border: 0;
 }
@@ -150,7 +151,7 @@ margin-left: 0;
 
 .insight {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 34px;
+  font-size: 28px;
   font-style: italic;
   font-weight: 700;
   overflow: hidden;
@@ -846,7 +847,7 @@ a.v_highlight_more {
     width: 280px;
   }
   .navbar-form .form-control {
-    width: 350px;
+    width: 300px;
   }
 }
 
