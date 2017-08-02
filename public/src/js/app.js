@@ -1,6 +1,6 @@
 'use strict';
 
-var defaultLanguage = localStorage.getItem('insight-language') || 'en';
+var defaultLanguage = localStorage.getItem('insight-language') || 'zh';
 var defaultCurrency = localStorage.getItem('insight-currency') || 'BTC';
 
 angular.module('insight',[
