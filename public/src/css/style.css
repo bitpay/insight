@@ -30,8 +30,8 @@ img{border:0;vertical-align:middle}
 table{border-collapse:collapse;border-spacing:0}
 p{word-wrap:break-word;}
 .mdWrap{width: 100%; height: 120px;  position: absolute; left: 0; top: 0;}
-.md{ width: 382px; height: 40px; margin: 0 auto;}
-.md input{width: 380px; height: 35px; padding-left: 10px; background: rgba(28,41,59,0.7); border:1px solid #fff; color: #fff;border-radius: 3px; font-size: 16px; margin-top: 40px;}
+.md{ width: 470px; height: 40px; margin: 0 auto;}
+.md input{width: 380px; height: 38px; padding-left: 10px; background: rgba(28,41,59,0.7); border:1px solid #fff; color: #fff;border-radius: 3px; font-size: 16px; margin-top: 40px;}
 .tab1{width: 1200px; margin: 20px auto 0;}
 .tab1 table{width: 1200px; border-top: 1px solid #eee;}
 .grey{ background: #f4fdfc;}
@@ -187,4 +187,13 @@ table a{color: #30bfa1;}
 .bmbmlt button:hover{background: #31b1e9;}
 @media screen and (max-width: 1400px) {
     .rrll{left: 210px;}
+}
+.md #searchButton {
+	width: 50px;
+	height: 38px;
+	margin: 5px;
+	color: #fff;
+	background: rgba(150,150,150,0.7);
+	border: 1px solid #999;
+	border-radius: 4px
 }
