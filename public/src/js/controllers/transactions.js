@@ -5,8 +5,15 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   $scope.global = Global;
   $scope.loading = false;
   $scope.loadedBy = null;
+  $scope.searchAddr = "2NCRHyeRjyo1bUiZXLLymapcPxLDrrXY5Gn";
 
+  $scope.searchByAddr = function(){
+    $scope.searchAddr = $scope.searchAddr;
+     console.log("-----------------------------"+ $scope.searchAddr);
+  
+  }
 
+  console.log("-----------------------------"+ $scope.searchAddr);
   var pageNum = 0;
   var pagesTotal = 1;
   var COIN = 100000000;
@@ -102,12 +109,16 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   };
 
   var _byAddress = function () {
-    $routeParams.addrStr="2NCRHyeRjyo1bUiZXLLymapcPxLDrrXY5Gn";
+    var address = $routeParams.addrStr;
+    if(address===undefined){
+      address = $scope.searchAddr;
+    }
+     console.log("addrStr--------------"+ address);
     TransactionsByAddress.get({
-      address: $routeParams.addrStr,
+      address: address,
       pageNum: pageNum
     }, function(data) {
-       console.log("-----------------------------"+data);
+
       _paginate(data);
     });
   };
