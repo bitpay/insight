@@ -15,7 +15,7 @@ angular.module('insight.system').controller('HeaderController',
       'link': 'home'
     },{
       'title': 'Blocks',
-      'link': 'blocks'
+      'link': 'blocks-index'
     }, {
       'title': 'Status',
       'link': 'status'
