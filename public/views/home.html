@@ -10,84 +10,16 @@
 	    <div class="tab1">
 	    	<table>
 	    		<tr class="bbt">
-	    			<td class="td1"><a href="Wallet-address-details.html">1KP9YtDfko2WpPy95T6uNQxVEzJYzMenek</a></td>
+	    			<td class="td1"><a href="address/2NCRHyeRjyo1bUiZXLLymapcPxLDrrXY5Gn">2NCRHyeRjyo1bUiZXLLymapcPxLDrrXY5Gn</a></td>
 	    			<td>这是孙张三的账户地址</td>
 	    			<td class="td2">0.017463 BTC</td>
 	    		</tr>	    		
 	    	</table>
 	    </div>
-	      <div class="wallet">
-	    	
-	    	<div class="jiay">
-	    		<div class="jy1">
-	    			<span class="span1"><a href="transaction-not-confirm.html">f6922345b73e5fe4d187930b03643f1a8fd4d75d0903e80f268fefa4412de9a7</a></span>
-	    			<span class="span2">2017-06-12 12:30:31</span>
-	    		</div>
-	    		<div class="jy2">
-	    			<div class="JYBA">
-	    				<div class="jyb toya"><a href="Wallet-address-details.html">1KP9YtDfko2WpPy95T6uNQxVEzJYzMenek</a><span>0.04 BTC</span></div>
-	    				
-	    			</div>
-	    			<div class="mid">
-	    				<span class="arr-r"><img src="images/arr-r.png"  width="32" alt=""></span>
-	    			</div>
-	    			<div class="JYB">
-	    				<div class="jyb jyba"><a href="Wallet-address-details.html">1KsFhYKLs8qb1GHqrPxHoywNQpet2CtP9t</a><span>0.04 BTC</span></div>
-	    				<div class="jyb jybb"><a href="Wallet-address-details.html">1KsFhYKLs8qb1GHqrPxHoywNQpet2CtP9e</a><span>0.04 BTC</span></div>
-	    			</div>
-	    		</div>
-	    		<div class="jy3">
-	    			<span class="span1">手续费：0.00155208 BTC</span>
-	    			<span class="span2 weiqr">未确认</span>
-	    			<span class="span3 wtq1">- 0.03844792 BTC</span>
-	    		</div>
-	    	</div>
-	    	<div class="jiay">
-	    		<div class="jy1">
-	    			<span class="span1"><a href="transaction-confirm.html">f6922345b73e5fe4d187930b03643f1a8fd4d75d0903e80f268fefa4412de9a7</a></span>
-	    			<span class="span2">2017-06-12 12:30:31</span>
-	    		</div>
-	    		<div class="jy2">
-	    			<div class="JYBA">
-	    				<div class="jyb"><a href="Wallet-address-details.html">1KsFhYKLs8qb1GHqrPxHoywNQpet2CtP9e </a><span>0.04 BTC</span></div>
-	    				
-	    			</div>
-	    			<div class="mid">
-	    				<span class="arr-r"><img src="images/arr-r.png"  width="32" alt=""></span>
-	    			</div>
-	    			<div class="JYB">
-	    				<div class="jyb jyba"><a href="Wallet-address-details.html">1KsFhYKLs8qb1GHqrPxHoywNQpet2CtP9t</a><span>0.04 BTC</span></div>
-	    				<div class="jyb jybb"><a href="Wallet-address-details.html">1KsFhYKLs8qb1GHqrPxHoywNQpet2CtP9e</a><span>0.04 BTC</span></div>
-	    			</div>
-	    		</div>
-	    		<div class="jy3">
-	    			<span class="span1">手续费：0.00155208 BTC</span>
-	    			<span class="span2">21个确认数</span>
-	    			<span class="span3">0.03844792 BTC</span>
-	    		</div>
-	    	</div>
-	    	<div class="jiay">
-	    		<div class="jy1">
-	    			<span class="span1"><a href="transaction-confirm.html">f6922345b73e5fe4d187930b03643f1a8fd4d75d0903e80f268fefa4412de9a7</a></span>
-	    			<span class="span2">2017-06-12 12:30:31</span>
-	    		</div>
-	    		<div class="jy2">
-	    			<div class="JYBA">
-	    				<div class="jyb"><a href="Wallet-address-details.html">1KsFhYKLs8qb1GHqrPxHoywNQpet2CtP9e </a><span>0.04 BTC</span></div>
-	    				
-	    			</div>
-	    			<div class="mid">
-	    				<span class="arr-r"><img src="images/arr-r.png"  width="32" alt=""></span>
-	    			</div>
-	    			<div class="JYB">
-	    				<div class="jyb jyba"><a href="Wallet-address-details.html">1KsFhYKLs8qb1GHqrPxHoywNQpet2CtP9t</a><span>0.04 BTC</span></div>
-	    				<div class="jyb jybb"><a href="Wallet-address-details.html">1KsFhYKLs8qb1GHqrPxHoywNQpet2CtP9e</a><span>0.04 BTC</span></div>
-	    			</div>
-	    		</div>
-	    		<div class="jy3">
-	    			<span class="span1">手续费：0.00155208 BTC</span>
-	    			<span class="span2">21个确认数</span>
-	    			<span class="span3">0.03844792 BTC</span>
-	    		</div>
-	    	</div>
-	    </div>
+	    <div data-ng-include src="'views/includes/connection.html'"></div>
+
+  <div data-ng-if="true" data-ng-controller="transactionsController" data-ng-init="load('address')">
+    <div data-ng-include src="'views/transaction/list.html'" when-scrolled="loadMore()"></div>
+  </div>
+
+

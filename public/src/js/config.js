@@ -24,11 +24,15 @@ angular.module('insight').config(function($routeProvider) {
       title: 'Bitcoin Transaction '
     }).
     when('/', {
-      templateUrl: 'views/index.html',
+      templateUrl: 'views/home.html',
       title: 'Home'
     }).
     when('/blocks', {
       templateUrl: 'views/block_list.html',
+      title: 'Bitcoin Blocks solved Today'
+    }).
+     when('/blocks-index', {
+      templateUrl: 'views/index.html',
       title: 'Bitcoin Blocks solved Today'
     }).
     when('/blocks-date/:blockDate/:startTimestamp?', {

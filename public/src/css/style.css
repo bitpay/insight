@@ -168,12 +168,12 @@ table a{color: #30bfa1;}
 .lon-con{width: 1200px; height: 680px;margin: 0 auto;}
 .lon-con img{margin-top: 40px;}
 .lon-con .form1{width: 340px; height: 300px; background: #fff;float: right; margin-top: 130px;padding: 30px; border-radius: 3px;}
-.lon-con .lin{width: 300px; height: 33px; border: 1px solid #dfdfdf;padding-left: 10px;}
+.lon-con .lin{width: 260px; height: 33px; border: 1px solid #dfdfdf;padding-left: 10px;}
 .login-col{position: relative; margin-top: 40px;margin-left: 15px;}
 .login-col p{margin-bottom: 5px;}
 .lon-con .div1{width: 80px; height: 35px;line-height: 15px; background: #3080ec; position: absolute; top: 25px; right: 13px;}
 .laa{margin-left: 15px; color: #3080ec;line-height: 40px;}
-.lo-btn{width: 200px; margin: 50px 0 0 75px;}
+.lo-btn{width: 200px; margin: 50px 0 0 50px;}
 .lo-btn .ddlu{width:200px; height: 35px; background: #30bfa1; border-radius: 5px; color: #fff;display: inline-block;text-align: center;line-height: 33px;}
 .lo-btn .ddlu:hover{background: #38d6b5;}
 .lo-btn span{margin-top: 12px; margin-left: 15px;float: right;}
