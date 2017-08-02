@@ -6,6 +6,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   $scope.loading = false;
   $scope.loadedBy = null;
 
+
   var pageNum = 0;
   var pagesTotal = 1;
   var COIN = 100000000;
@@ -101,10 +102,12 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   };
 
   var _byAddress = function () {
+    $routeParams.addrStr="2NCRHyeRjyo1bUiZXLLymapcPxLDrrXY5Gn";
     TransactionsByAddress.get({
       address: $routeParams.addrStr,
       pageNum: pageNum
     }, function(data) {
+       console.log("-----------------------------"+data);
       _paginate(data);
     });
   };
