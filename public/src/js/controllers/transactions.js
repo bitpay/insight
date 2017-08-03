@@ -5,16 +5,13 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   $scope.global = Global;
   $scope.loading = false;
   $scope.loadedBy = null;
-  $scope.searchAddr = "2NCRHyeRjyo1bUiZXLLymapcPxLDrrXY5Gn";
+  $scope.searchAddr = "$routeParams.addrStr";
 
   $scope.searchByAddr = function(){
     $scope.searchAddr = $scope.searchAddr;
      _byAddress();
-     console.log("-----------------------------"+ $scope.searchAddr);
-  
   }
 
-  console.log("-----------------------------"+ $scope.searchAddr);
   var pageNum = 0;
   var pagesTotal = 1;
   var COIN = 100000000;
@@ -114,7 +111,6 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     if(address===undefined){
       address = $scope.searchAddr;
     }
-     console.log("addrStr--------------"+ address);
     TransactionsByAddress.get({
       address: address,
       pageNum: pageNum
