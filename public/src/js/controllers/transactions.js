@@ -9,6 +9,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
 
   $scope.searchByAddr = function(){
     $scope.searchAddr = $scope.searchAddr;
+     _byAddress();
      console.log("-----------------------------"+ $scope.searchAddr);
   
   }
