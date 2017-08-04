@@ -21,21 +21,15 @@
 		<div class="login-content">
 			<div class="lon-con">
 				<img src="images/login-bg.png" alt="" width="600">
-				<form action="" class="form1">
+				<form ng-contorller="loginCtrl" class="form1">
 					<div class="login-col">
-						
-						<input type="text" class="lin" placeholder="账号">
-						
+						<input type="text" class="lin" placeholder="账号" ng-model="user.name">
 					</div>
 					<div class="login-col">
-						
-						<input type="password" class="lin" placeholder="密码">
+						<input type="password" class="lin" placeholder="密码" ng-model="user.password">
 					</div>
-					
 					<div class="lo-btn">
-						<a href="index-template" class="ddlu">登 录
-						</a>
-						
+						<a href="javascript:void(0)" ng-click="login()" class="ddlu">登 录</a>
 					</div>
 				</form>
 			</div>
