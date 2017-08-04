@@ -32,7 +32,7 @@ p{word-wrap:break-word;}
 .mdWrap{width: 100%; height: 120px;  position: absolute; left: 0; top: 0;}
 .md{ width: 470px; height: 40px; margin: 0 auto;}
 .md input{width: 380px; height: 38px; padding-left: 10px; background: rgba(28,41,59,0.7); border:1px solid #fff; color: #fff;border-radius: 3px; font-size: 16px; margin-top: 40px;}
-.tab1{width: 1200px; margin: 20px auto 0;}
+.tab1{width: 1140px; margin: 20px auto 0;}
 .tab1 table{width: 1200px; border-top: 1px solid #eee;}
 .grey{ background: #f4fdfc;}
 .bbt{background: #30bfa1; color: #666;}
