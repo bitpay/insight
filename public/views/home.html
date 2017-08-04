@@ -1,4 +1,5 @@
-  <div data-ng-if="true" data-ng-controller="transactionsController" data-ng-init="load('address')">
+ <div class="navbar navbar-default navbar-fixed-top" data-ng-include="'views/includes/header.html'" role='navigation'></div>
+ <div data-ng-if="true" data-ng-controller="transactionsController" data-ng-init="load('address')">
   	    <div class="if">
 		    <div class="mdWrap">
 		    	    	<div class="md">
@@ -19,8 +20,6 @@
 	    	</table>
 	    </div>
 	    <div data-ng-include src="'views/includes/connection.html'"></div>
-
-<!--    	<input data-ng-show="true" type="text" data-ng-change="" data-ng-model="addr" value="2NCRHyeRjyo1bUiZXLLymapcPxLDrrXY5Gn"> -->
     <div data-ng-include src="'views/transaction/list.html'" when-scrolled="loadMore()"></div>
   </div>
 
