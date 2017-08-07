@@ -23,6 +23,7 @@ angular.module('insight.blacklists').controller('BlacklistsController',
       //         time: new Date()
       //     },
       // ];
+      // Blacklists.setBlacklists();
       $scope.blacklists = Blacklists.getBlacklists();
     //   Blacklists.get({}, function(res) {
     //     // $scope.loading = false;

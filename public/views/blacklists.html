@@ -21,7 +21,7 @@
 	    </div>
 	    <div class="nblock nbyu">
 	    	<div class="bla-tit">
-	    		<input type="text" placeholder="输入地址或备注关键词搜索">
+	    		<input type="text" ng-model="name_filter" placeholder="输入地址或备注关键词搜索">
 	    		<div class="xg">
 	    			<span class="bjx">编辑</span>&nbsp&nbsp
 	    			<span class="tja">添加</span>
@@ -35,7 +35,7 @@
 	    			<td>备注</td>
 	    			<td class="td5">更新时间</td>
 	    		</tr>
-				<tr class="fader" data-ng-repeat='b in blacklists'>
+				<tr class="fader" data-ng-repeat='b in blacklists | filter:name_filter'>
 	    			<td class="td1">{{b.id}}</td>
 	    			<td><a href="address/{{b.addr}}">{{b.addr}}</a></td>
 	    			<td class="bxg">{{b.comment}}</td>

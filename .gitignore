@@ -51,3 +51,5 @@ public/css/main.css
 README.html
 po/*
 !po/*.po
+
+public/js/main.min.js
