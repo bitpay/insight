@@ -9,18 +9,18 @@ angular.module('insight.login').factory('Account', function () {
         message:"test messafe"
     };
 
-    signIn = function (user) {
+   /* signIn = function (user) {
         if(user.name=="admin"&&user.password==123456){
             return authService;
         }else{
 
         }
-        /*return $http
+        return $http
             .post('/login', credentials)
             .then(function (res) {
                 Session.create(res.data.id, res.data.user.id,
                     res.data.user.role);
                 return res.data.user;
-            });*/
-    };
+            });
+    };*/
 });

@@ -162,12 +162,12 @@ table a{color: #30bfa1;}
 .bmbmmid p{text-align: center;font-size: 20px;}
 .rili{margin-left: 48px; margin-top: 15px;}
 /* 登录 */
-.login-nav{width: 1200px; height: 80px; margin: 30px auto; font-size: 28px; color: #30bfa1;}
+.login-nav{width: 1200px; height: 80px; margin: 0 auto 30px; font-size: 28px; color: #30bfa1;}
 .login-nav b{line-height: 80px;}
 .login-content{width: 100%; height: 680px; background: #30bfa1;}
-.lon-con{width: 1200px; height: 680px;margin: 0 auto;}
+.lon-con{width: 100%; height: 680px;margin: 0 auto;}
 .lon-con img{margin-top: 40px;}
-.lon-con .form1{width: 340px; height: 300px; background: #fff;float: right; margin-top: 130px;padding: 30px; border-radius: 3px;}
+.lon-con .form1{width: 340px; height: 300px; background: #fff;float: right; margin: 160px 50px 0 0;padding: 30px; border-radius: 3px;}
 .lon-con .lin{width: 260px; height: 33px; border: 1px solid #dfdfdf;padding-left: 10px;}
 .login-col{position: relative; margin-top: 40px;margin-left: 15px;}
 .login-col p{margin-bottom: 5px;}
