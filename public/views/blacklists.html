@@ -1,4 +1,4 @@
-	<section data-ng-controller="BlocksController" data-ng-init="list()">
+	<section data-ng-controller="BlacklistsController" data-ng-init="list()">
 	    <div class="tian-popWrap">
 	    	<div class="tian-pop">
 	    		<img src="images/cuo.png" width="40" alt="">
@@ -39,7 +39,7 @@
 	    			<td class="td1">{{b.id}}</td>
 	    			<td><a href="address/{{b.addr}}">{{b.addr}}</a></td>
 	    			<td class="bxg">{{b.comment}}</td>
-	    			<td class="td5">{{b.time}}</td>
+	    			<td class="td5">{{b.time | date:'medium'}}</td>
 	    		</tr>
 	    	</table>
 	    	

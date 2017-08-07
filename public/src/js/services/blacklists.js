@@ -2,21 +2,28 @@
 
 angular.module('insight.blacklists')
   .factory('Blacklists',
-    function get($resource, Api) {
+    function () {
         console.log("blacklists service start");
 
-        return [
+      var blacklists = [
           {
-              id:1,
+              id:21,
               addr:"0r935lsfgferogerjgerg43g34",
               comment:"这是1的hash",
-              time: (new Date().getMilliseconds())
+              time: new Date()
           },
           {
-              id:2,
+              id:22,
               addr:"1r935lsfgferogerjgerg43g34",
               comment:"这是2的hash",
-              time: (new Date().getMilliseconds())
-          },
+              time: new Date()
+          }
       ];
+      var service = {};
+
+      service.getBlacklists = function() {
+          return blacklists;
+      }
+
+      return service;
   });
