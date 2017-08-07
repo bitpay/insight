@@ -1,43 +1,20 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>比特币数据处理平台-登录</title>
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<link href="css/style.css" rel="stylesheet">
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<script src="js/js.js"></script>
-	</head>
-	<body>
-		<div class="login-nav">
+<div class="login-nav">
 			<!-- <img src="images/login-logo.png" height="62" width="309" alt=""> -->
-			<b>比特币数据处理平台</b>
-		</div>
-		<div class="login-content">
-			<div class="lon-con">
-				<img src="images/login-bg.png" alt="" width="600">
-				<form action="" class="form1">
-					<div class="login-col">
-						
-						<input type="text" class="lin" placeholder="账号">
-						
-					</div>
-					<div class="login-col">
-						
-						<input type="password" class="lin" placeholder="密码">
-					</div>
-					
-					<div class="lo-btn">
-						<a href="home.html" class="ddlu">登 录
-						</a>
-						
-					</div>
-				</form>
+	<b>比特币数据处理平台</b>
+</div>
+<div class="login-content" data-ng-controller="loginController" >
+	<div class="lon-con">
+		<img src="images/login-bg.png" alt="" width="600">
+		<form class="form1">
+			<div class="login-col">
+				<input type="text" class="lin" placeholder="账号" data-ng-model="user.name">
 			</div>
-		</div>
-		<div class="lo-foo">
-			<p>Copyright © 2017 京ICP备15015411号-1</p>
-		</div>
-	</body>
-</html>
+			<div class="login-col">
+				<input type="password" class="lin" placeholder="密码" data-ng-model="user.password">
+			</div>
+			<div class="lo-btn">
+				<button data-ng-click="login()" class="ddlu">登 录</button>
+			</div>
+		</form>
+	</div>
+</div>

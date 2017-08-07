@@ -5,7 +5,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   $scope.global = Global;
   $scope.loading = false;
   $scope.loadedBy = null;
-  $scope.searchAddr = "$routeParams.addrStr";
+  $scope.searchAddr = "2NCRHyeRjyo1bUiZXLLymapcPxLDrrXY5Gn";
 
   $scope.searchByAddr = function(){
     $scope.searchAddr = $scope.searchAddr;

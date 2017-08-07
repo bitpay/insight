@@ -24,8 +24,8 @@ angular.module('insight').config(function($routeProvider) {
       title: 'Bitcoin Transaction '
     }).
     when('/', {
-      templateUrl: 'views/home.html',
-      title: 'Home'
+      templateUrl: 'views/login.html',
+      title: 'Login'
     }).
     when('/blocks', {
       templateUrl: 'views/block_list.html',
