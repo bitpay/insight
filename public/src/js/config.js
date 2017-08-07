@@ -51,8 +51,8 @@ angular.module('insight').config(function($routeProvider) {
       templateUrl: 'views/history.html',
       title: 'History'
     }).
-    when('/blacklist', {
-      templateUrl: 'views/blacklist.html',
+    when('/blacklists', {
+      templateUrl: 'views/blacklists.html',
       title: 'Blacklist'
     }).
     when('/messages/verify', {

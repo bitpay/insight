@@ -47,7 +47,10 @@
     "build": "bower install && grunt compile",
     "watch": "grunt"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bitcore-lib": "^0.14.0",
+    "mkdirp": "^0.5.1"
+  },
   "devDependencies": {
     "bower": "~1.8.0",
     "grunt": "~0.4.2",
