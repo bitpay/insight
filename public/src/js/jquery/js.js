@@ -61,14 +61,14 @@ $(document).ready(function(){
 
 
 
- document.getElementById('quanxuan').onclick = function() {
+ $('#quanxuan').click( function() {
       var obj = document.getElementsByTagName('input'); //获取文档中所有的input元素
       for (var i = 0; i < obj.length; i ++) {
           if (obj[i].type == 'checkbox') {
               obj[i].checked = true; //设置复选框元素对象的checked属性值为true就能勾选该复选框；false即为取消选择
           }
       }
-  }
+  });
 
 
 

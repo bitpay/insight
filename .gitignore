@@ -53,3 +53,5 @@ po/*
 !po/*.po
 
 public/js/main.min.js
+
+public/css/main.min.css
