@@ -1,4 +1,3 @@
-<div class="navbar navbar-default navbar-fixed-top" data-ng-include="'views/includes/header.html'" role='navigation'></div>
 <div data-ng-include src="'views/includes/connection.html'"></div>
 <section data-ng-controller="AddressController" data-ng-init="findOne()">
   <div class="secondary_navbar hidden-xs hidden-sm" scroll data-ng-class="{'hidden': !secondaryNavbar}" data-ng-show="address.addrStr" data-ng-init="hideSNavbar=0">
@@ -28,7 +27,7 @@
       <span class="text-muted">{{address.addrStr}}</span>
       <span class="btn-copy" clip-copy="address.addrStr"></span>
     </div>
-    <h2 translate>Summary <small>confirmed</small></h2>
+    <h2 translate>交易统计 <small>已确认</small></h2>
     <div class="row" data-ng-hide="!address.addrStr">
       <div class="col-md-10">
         <table class="table">
@@ -56,7 +55,7 @@
         <qrcode size="160" data="{{address.addrStr}}"></qrcode>
       </div>
     </div>
-    <div data-ng-show="address.unconfirmedTxApperances">
+    <div data-ng-show="true">
       <h3 translate>Unconfirmed</h3>
       <table class="table">
         <tbody>
@@ -74,7 +73,22 @@
     </div>
   </div>
   <div data-ng-if="address.addrStr" data-ng-controller="transactionsController" data-ng-init="load('address')">
-    <h2 translate>Transactions</h2>
+    <h2 translate>交易 <div class="jiantou" style="padding-top: 12px;">
+            <img src="images/you.png" width="30" alt="" data-ng-show="youShow" data-ng-click="lookTX('you')" class="youg">
+            <img src="images/you-g.png" width="30" alt=""  data-ng-show="!youShow" data-ng-click="lookTX('you-g')" class="you">
+            <img src="images/zuo.png" width="30" alt=""  data-ng-show="zuoShow" data-ng-click="lookTX('zuo')" class="zuog">
+            <img src="images/zuo-g.png" width="30" alt=""  data-ng-show="!zuoShow" data-ng-click="lookTX('zuo-g')" class="zuo">      
+        </div>
+            <div class="rrll">
+              <p class="lead text-center m20v">
+              {{dateval}} UTC
+              <a href="javascript:void(0)" class="btn btn-primary btn-xs" datepicker-popup show-button-bar="false" data-ng-click="openCalendar($event)" data-ng-model="dt" is-open="opened" data-ng-required="true"><span class="glyphicon glyphicon-calendar"></span></a>
+              </p>
+            <!--   <input type="text" class="range" data-ng-model="dateval"/>
+              <img class="dateimg" src="images/rili.png"  width="25" alt="">
+              <img class="dateimg" src="images/search.png" alt="" data-ng-click="searchByDate()" height="35"> -->
+            </div>
+            <span class="daochu" data-ng-click="lookTX('you')">导出</span></h2>
     <div data-ng-include src="'views/transaction/list.html'" when-scrolled="loadMore()"></div>
   </div>
 </section>
