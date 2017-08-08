@@ -1,0 +1,44 @@
+	<section data-ng-controller="BlacklistsController" data-ng-init="">
+	    <div class="nblock nbyu">
+	    	<div class="bla-tit">
+	    		<input type="text" ng-model="name_filter" placeholder="输入地址或备注关键词搜索">
+	    	</div>
+
+			<hr>
+			<form class="form-horizontal">
+				<label class="col-sm-2 control-label">地址:</label>
+				<div class="col-sm-10 bla-tit">
+					<input type="text" name="addr" ng-model="newblacklist.addr" ng-disabled="!bedit" placeholder="地址">
+				</div>
+				<label class="col-sm-2 control-label">备注:</label>
+				<div class="col-sm-10 bla-tit">
+					<input type="text" name="comment" ng-model="newblacklist.comment" placeholder="备注">
+				</div>
+
+				<input type="hidden" ng-model="newcontact.id" />
+				<input type="button" value="保存" ng-click="saveBlacklist()" class="btn btn-primary" />
+			</form>
+
+			<hr>
+	    	<table class="ftab">
+	    		<tr class="grey tfg">
+	    			<td class="td1">编号</td>
+	    			<td>地址</td>
+	    			<td>备注</td>
+	    			<td class="td5">更新时间</td>
+	    			<td>操作</td>
+	    		</tr>
+				<tr class="fader" data-ng-repeat='b in blacklists | filter:name_filter'>
+	    			<td class="td1">{{b.id}}</td>
+	    			<td><a href="address/{{b.addr}}">{{b.addr}}</a></td>
+	    			<td class="bxg">{{b.comment}}</td>
+	    			<td class="td5">{{b.time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+					<td>
+						<a href="javascript:void(0)" ng-click="edit(b.id)">编辑</a> |
+						<a href="javascript:void(0)" ng-click="delete(b.id)">删除</a>
+					</td>
+	    		</tr>
+	    	</table>
+	    	
+	    </div>
+	</section>

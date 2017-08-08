@@ -25,7 +25,7 @@ angular.module('insight.system').controller('HeaderController',
       'link': 'history'
     }, {
       'title': 'Blacklist',
-      'link': 'blacklist'
+      'link': 'blacklists'
     }];
 
     $scope.openScannerModal = function() {
