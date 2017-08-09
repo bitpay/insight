@@ -1,5 +1,5 @@
 <div class="container">
-  <div data-ng-controller="HeaderController">
+  <div data-ng-controller="HeaderController" data-ng-show="isLogin" >
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" data-ng-click="$root.isCollapsed = !$root.isCollapsed">
         <span class="sr-only">Toggle navigation</span>
@@ -9,7 +9,7 @@
       </button>
       <a class="insight navbar-brand" href=".">BTCEXPLORER</a>
     </div>
-    <div class="navbar-collapse collapse" data-ng-show="false" collapse="$root.isCollapsed">
+    <div class="navbar-collapse collapse"collapse="$root.isCollapsed">
       <ul class="nav navbar-nav">
         <li data-ng-repeat="item in menu" ui-route="{{item.link}}" data-ng-class="{active: $uiRoute}">
           <a href="{{item.link}}">{{item.title|translate}}</a>
@@ -45,4 +45,5 @@
       </ul> -->
     </div>
   </div>
+  <h1 data-ng-hide="isLogin">比特币数据处理平台</h1>
 </div>

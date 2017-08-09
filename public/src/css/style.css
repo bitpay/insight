@@ -123,7 +123,7 @@ table a{color: #30bfa1;}
 .dc{color: #30bfa1;}
 /* 黑名单 */
 .bla-tit{height: 40px; margin-bottom: 30px;}
-.bla-tit input{width: 500px; height: 40px;border-radius: 3px; border: 1px solid #ddd;padding-left: 10px; float: left;background: #fff;}
+.bla-tit input{width: 400px; height: 40px;border-radius: 3px; border: 1px solid #ddd;padding-left: 10px; float: left;background: #fff;}
 .xg{float: right; margin-top: 10px;font-size: 16px;color: #30bfa1;}
 .xg span{cursor: pointer;}
 .nb-more{display: none;}
