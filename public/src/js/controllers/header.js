@@ -3,7 +3,6 @@
 angular.module('insight.system').controller('HeaderController',
   function($scope, $rootScope, $modal, getSocket, Global, Block) {
     $scope.global = Global;
-    $rootScope.isLogin=false;
 
     $rootScope.currency = {
       factor: 1,
