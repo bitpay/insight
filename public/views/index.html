@@ -42,8 +42,11 @@
         <table class="table table-hover table-striped" style="table-layout: fixed;">
           <thead>
             <tr>
-              <th>Hash</th>
-              <th class="text-right" translate>Value Out</th>
+              <th>交易哈希</th>
+              <th class="text-right">交易产生时间</th>
+              <th class="text-right">交易金额</th>
+              <!-- <th class="text-right">交易状态</th> -->
+
             </tr>
           </thead>
           <tbody>
@@ -52,7 +55,9 @@
             <td>
               <a class="ellipsis" href="tx/{{tx.txid}}">{{tx.txid}}</a>
             </td>
+            <td class="text-right"><span class="ellipsis">{{humanSince(tx.blocktime)}}</span></td>
             <td class="text-right"><span class="ellipsis">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' BTC'}}</span></td>
+           <!--  <td class="text-right"><span class="ellipsis">{{tx.confirmations}}个确认数</span></td> -->
           </tr>
           </tbody>
         </table>

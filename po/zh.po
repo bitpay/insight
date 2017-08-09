@@ -119,7 +119,7 @@ msgstr "完成"
 
 #: public/views/transaction.html public/views/transaction/tx.html
 msgid "Confirmations"
-msgstr "确认书"
+msgstr "确认"
 
 #: public/views/includes/header.html
 msgid "Conn"
@@ -487,7 +487,7 @@ msgstr "未验证的交易!"
 
 #: public/views/address.html
 msgid "Unconfirmed Txs Balance"
-msgstr "未确认的Txs余额"
+msgstr "未确认的交易余额"
 
 #: public/views/index.html
 msgid "Value Out"
