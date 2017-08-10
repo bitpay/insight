@@ -29,17 +29,19 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
      $scope.txdirection =imgstr;
      $scope.stime=undefined;
      $scope.txs=[];
+     pageNum = 0;
       _byAddress();
   }
 
- $scope.searchByDate = function(){
+/* $scope.searchByDate = function(){
    var date= _formatTimestamp(new Date())+" 00:00:00";
    $scope.stime = Math.round((new Date(date)).getTime()/1000);
    $scope.etime = Math.round((new Date()).getTime()/1000);
     $scope.txs=[];
+    pageNum = 0;
     $scope.txdirection=undefined;
     _byAddress();
-  }
+  }*/
 
  $scope.$watch('dt', function(newValue, oldValue) {
     if (newValue !== oldValue) {
