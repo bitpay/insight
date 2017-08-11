@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .ng-hide {
   display: none !important;
 }
-table tr{height: 50px;}
+.table tr{height: 50px;}
 
 /* Styling for the ngProgress itself */
 #ngProgress {
