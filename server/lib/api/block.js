@@ -76,18 +76,22 @@ module.exports = function BlockAPI(router) {
           res.status(501).send();
           logger.log('err', err);
         }
-        res.json({
-          blocks: blocks.map(block => ({
-            hash: block.hash,
-            height: block.height,
-            size: block.size,
-            time: block.ts,
-            txlength: block.txs.length,
-            poolInfo: {},
-          })),
-          length: blocks.length,
-          pagination: {},
-        });
+        if (blocks.length > 0) {
+          res.json({
+            blocks: blocks.map(block => ({
+              hash: block.hash,
+              height: block.height,
+              size: block.size,
+              time: block.ts,
+              txlength: block.txs.length,
+              poolInfo: {},
+            })),
+            length: blocks.length,
+            pagination: {},
+          });
+        } else {
+          res.send();
+        }
       });
   });
 
