@@ -1,15 +1,13 @@
+
  <div data-ng-if="true" data-ng-controller="transactionsController" data-ng-init="load('address')">
   	    <div class="if">
-		    <div class="mdWrap">
+		    <div class="mdWrap" data-ng-show="false">
 		    	    	<div class="md">
-		    	    		<input type="text" data-ng-model="searchAddr" placeholder="1KP9YtDfko2WpPy95T6uNQxVEzJYzMenek">
-		    	    		<input id="searchButton" type="button" ng-click="searchByAddr()" value="GO">
+		    	    		<input id="searchAddress" type="text" data-ng-model="searchAddr" >
+		    	    		<input id="searchButton" type="button" ng-click="searchByAddr()"  value="GO">
 		    	    	</div>
-		    </div> 
-	    	<!-- <iframe src="views/ripplecharts-frontend/src/index.html" frameborder="0"></iframe> -->
-	    	<div style="height: 800px;width: 100%;overflow: hidden;">
-	    		
-	    	</div>
+		    </div>  
+	    	<iframe src="views/ripplecharts-frontend/src/index.html" frameborder="0"></iframe> 
 	    </div>
 	  
 	    <div class="tab1">
@@ -24,5 +22,4 @@
 	    <div data-ng-include src="'views/includes/connection.html'"></div>
     <div data-ng-include src="'views/transaction/list.html'" when-scrolled="loadMore()"></div>
   </div>
-
 

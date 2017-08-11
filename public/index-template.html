@@ -12,6 +12,22 @@
 	<link rel="shortcut icon" href="img/icons/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,400italic">
 	<link rel="stylesheet" href="css/main.min.css">
+  <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/vendors.min.js"></script>
+  <script src="js/angularjs-all.min.js"></script>
+  <script src="js/main.min.js"></script>
+  <script type="text/javascript">  
+      function iftest(addr){
+        var element = angular.element($('#searchAddress'));
+        var controller = element.controller();
+        var scope = element.scope();
+        scope.searchAddr = addr;
+        scope.$apply();
+        $("#searchButton").click();
+      }
+</script>
+
 </head>
 <body ng-cloak class="ng-cloak">
   <div>
@@ -66,9 +82,6 @@
       <a class="insight m10v pull-right" target="_blank" href="http://insight.is">insight <small>API v{{version}}</small></a>
     </div>
   </div>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="js/vendors.min.js"></script>
-  <script src="js/angularjs-all.min.js"></script>
-  <script src="js/main.min.js"></script>
+
 </body>
 </html>
