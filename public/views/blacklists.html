@@ -29,13 +29,13 @@
 	    			<td>操作</td>
 	    		</tr>
 				<tr class="fader" data-ng-repeat='b in blacklists | filter:name_filter'>
-	    			<td class="td1">{{b.id}}</td>
+	    			<td class="td1">{{b.no}}</td>
 	    			<td><a href="address/{{b.addr}}">{{b.addr}}</a></td>
 	    			<td class="bxg">{{b.comment}}</td>
 	    			<td class="td5">{{b.time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
 					<td>
-						<a href="javascript:void(0)" ng-click="edit(b.id)">编辑</a> |
-						<a href="javascript:void(0)" ng-click="delete(b.id)">删除</a>
+						<a href="javascript:void(0)" ng-click="edit(b.addr, b.comment)">编辑</a> |
+						<a href="javascript:void(0)" ng-click="delete(b.addr)">删除</a>
 					</td>
 	    		</tr>
 	    	</table>

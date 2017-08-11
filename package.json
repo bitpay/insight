@@ -41,6 +41,7 @@
   "bitcoreNode": "bitcore-node",
   "insightConfig": {
     "apiPrefix": "insight-api",
+    "servicePrefix": "bitcore-service",
     "routePrefix": "insight"
   },
   "scripts": {
