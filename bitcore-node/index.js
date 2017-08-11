@@ -11,10 +11,11 @@ var InsightUI = function(options) {
   // client must be rebuilt with the proper options. A future version of 
   // Bitcore should allow for a service "build" step to make this better.
   this.apiPrefix = pkg.insightConfig.apiPrefix;
+  this.servicePrefix = pkg.insightConfig.servicePrefix;
   this.routePrefix = pkg.insightConfig.routePrefix;
 };
 
-InsightUI.dependencies = ['insight-api'];
+InsightUI.dependencies = ['insight-api', 'bitcore-service'];
 
 inherits(InsightUI, BaseService);
 

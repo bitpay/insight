@@ -24,6 +24,10 @@ module.exports = function(grunt) {
             {
               match: 'INSIGHT_API_PREFIX',
               replacement: '<%= pkg.insightConfig.apiPrefix %>'
+            },
+            {
+              match: 'BITCORE_SERVICE_PREFIX',
+              replacement: '<%= pkg.insightConfig.servicePrefix %>'
             }
           ],
           usePrefix: false
