@@ -1,15 +1,13 @@
- <div data-ng-if="true" data-ng-controller="transactionsController" data-ng-init="load('address')">
+  <div data-ng-if="true" data-ng-controller="transactionsController" data-ng-init="load('address')">
+            <div id="test" ng-click="searchByAddr()"></div>
   	    <div class="if">
-		    <div class="mdWrap">
-		    	    	<div class="md">
-		    	    		<input type="text" data-ng-model="searchAddr" placeholder="1KP9YtDfko2WpPy95T6uNQxVEzJYzMenek">
-		    	    		<input id="searchButton" type="button" ng-click="searchByAddr()" value="GO">
-		    	    	</div>
-		    </div> 
-	    	<!-- <iframe src="views/ripplecharts-frontend/src/index.html" frameborder="0"></iframe> -->
-	    	<div style="height: 800px;width: 100%;overflow: hidden;">
-	    		
-	    	</div>
+                    <div class="mdWrap">
+                                <div class="md">
+                                        <input id="myFocus" type="text" data-ng-model="searchAddr" placeholder="1KP9YtDfko2WpPy95T6uNQxVEzJYzMenek">
+                                        <input id="searchButton" type="button" ng-click="searchByAddr();document.getElementById('aa').contentWindow.gotoThing(); " value="GO">
+                                </div>
+                    </div>
+	    	<iframe id="aa" src="views/ripplecharts-frontend/src/index.html" frameborder="0"></iframe>
 	    </div>
 	  
 	    <div class="tab1">
@@ -22,6 +20,8 @@
 	    	</table>
 	    </div>
 	    <div data-ng-include src="'views/includes/connection.html'"></div>
+
+<!--    	<input data-ng-show="true" type="text" data-ng-change="" data-ng-model="addr" value="2NCRHyeRjyo1bUiZXLLymapcPxLDrrXY5Gn"> -->
     <div data-ng-include src="'views/transaction/list.html'" when-scrolled="loadMore()"></div>
   </div>
 
