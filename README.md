@@ -4,7 +4,7 @@
 
 ## Requirements
 
-Insight requires [Node.js](https://nodejs.org) and [MongoDB](https://www.mongodb.com/). Consider using [n](https://github.com/tj/n) and [m](https://github.com/aheckmann/m) to install the latest versions. 
+Insight requires [Node.js](https://nodejs.org) and [MongoDB](https://www.mongodb.com/).Consider using [n](https://github.com/tj/n) and [m](https://github.com/aheckmann/m) to install the latest versions. 
 
 ## Quick Start
 
