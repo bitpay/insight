@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle">XRP Charts</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Light:300,700|Open+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- D3 needs this -->
+    <meta charset="utf-8">
+
+    <!-- social media tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ripple">
+    <meta name="twitter:title" content="XRP Charts">
+    <meta name="twitter:description" content="Ripple Network Data Visualization.">
+    <meta name="twitter:creator" content="@ripple">
+    <meta name="twitter:image:src" content="">
+    <meta property="og:title" content="XRP Charts" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https:/xrpcharts.ripple.com" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="Ripple Network Data Visualization.">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <script>
+      var API = "https://data.ripple.com/v2";
+      var GA_ACCOUNT = "UA-49665209-1";
+      var GA_ID = "ripplecharts.com";
+      var remote;
+      window.location = '#/graph'
+    </script>
+
+    <!-- compiled CSS -->
+    <link rel="stylesheet" type="text/css" href="../ripplecharts-2.4.2.css" />
+
+    <script type="text/javascript" src="../ripplecharts-2.4.2.js"></script>
+
+  </head>
+  <body ng-class="theme">
+    <div id="loading">
+      <img class="loader" src="assets/images/rippleThrobber.png"/>
+    </div>
+    <div id="maintenance">
+      <div class="logo"></div>
+      <h3 class="title"></h3>
+      <div class="subtitle"></div>
+    </div>
+    <div snap-drawer>
+      <div class="banner-pad"></div>
+      <ul class="nav">
+        <li class="top">
+        </li>
+        <li class="page">
+          <ul>
+            <li ui-route="/" ng-class="{active:$uiRoute}">
+              <a href="#/" snap-close>Dashboard</a>
+            </li>
+          </ul>
+        </li>
+        <li class="category">
+          <a href="#/markets" snap-close><img src="assets/icons/999_markets.svg">Markets</a>
+        </li>
+        <li class="page">
+          <ul>
+            <li ui-route="/markets(/.+)?" ng-class="{active:$uiRoute !== false}">
+              <a href="#/markets" snap-close>Live Chart</a>
+            </li>
+            <li ui-route="/multimarkets" ng-class="{active:$uiRoute !== false}">
+              <a href="#/multimarkets" snap-close>Multi Markets</a>
+            </li>
+            <li ui-route="/active_accounts" ng-class="{active:$uiRoute !== false}">
+              <a href="#/active_accounts" snap-close>Active Accounts</a>
+            </li>
+            <li ui-route="/trade-volume" ng-class="{active:$uiRoute !== false}">
+              <a href="#/trade-volume" snap-close>Trade Volume</a>
+            </li>
+            <li ui-route="/xrp-markets" ng-class="{active:$uiRoute !== false}">
+              <a href="#/xrp-markets" snap-close>XRP Markets</a>
+            </li>
+          </ul>
+        </li>
+        <li class="category">
+          <a href="#/value" snap-close><img src="assets/icons/999_network.svg">Network</a>
+        </li>
+        <li class="page">
+          <ul>
+            <li ui-route="/value" ng-class="{active:$uiRoute !== false}">
+              <a href="#/value" snap-close>Value Trends</a>
+            </li>
+            <li ui-route="/history" ng-class="{active:$uiRoute !== false}">
+              <a href="#/history" snap-close>Historical Volume</a>
+            </li>
+            <li ui-route="/metrics" ng-class="{active:$uiRoute !== false}">
+              <a href="#/metrics" snap-close>Metrics</a>
+            </li>
+            <li ui-route="/Topology" ng-class="{active:$uiRoute !== false}">
+              <a href="#/nodes" snap-close>Topology</a>
+            </li>
+            <li ui-route="/validators" ng-class="{active:$uiRoute !== false}">
+              <a href="#/validators" snap-close>Validators</a>
+            </li>
+          </ul>
+        </li>
+        <li class="category">
+          <a href="#/graph" snap-close><img src="assets/icons/999_accounts.svg">Accounts</a>
+        </li>
+        <li class="page">
+          <ul>
+            <li ui-route="/graph(/.+)?" ng-class="{active:$uiRoute !== false}">
+              <a href="#/graph" snap-close>Account Explorer</a>
+            </li>
+          </ul>
+        </li>
+        <li class="category">
+          <a href="#/transactions" snap-close><img src="assets/images/flip.svg"/>Transactions</a>
+        </li>
+      </ul>
+    </div>
+
+    <div snap-content class="snap-content" snap-options="snapOptions">
+      <div class="banner-pad"></div>
+      <div ui-view="main"></div>
+
+
+    </div>
+
+  </body>
+  <script>
+    if (GA_ACCOUNT && GA_ID) {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', GA_ACCOUNT, GA_ID);
+      ga('require', 'displayfeatures');
+
+    } else {
+      ga = function(){};
+    }
+
+  </script>
+</html>
+
