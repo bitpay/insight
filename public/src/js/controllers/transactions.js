@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('insight.transactions').controller('transactionsController',
+angular.module('insight.transactions',['ngSanitize', 'ngCsv']).controller('transactionsController',
 function($scope, $rootScope, $routeParams, $location, Global, Transaction, TransactionsByBlock, TransactionsByAddress) {
   $scope.global = Global;
   $scope.loading = false;
@@ -31,6 +31,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
      $scope.txdirection =imgstr;
      $scope.stime=undefined;
      $scope.txs=[];
+     $scope.exceltxs=[];
      pageNum = 0;
       _byAddress();
   }
@@ -40,7 +41,9 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
    $scope.stime = Math.round((new Date(date)).getTime()/1000);
    $scope.etime = Math.round((new Date()).getTime()/1000);
     $scope.txs=[];
+    $scope.exceltxs=[];
     pageNum = 0;
+
     $scope.txdirection=undefined;
     _byAddress();
   }*/
@@ -50,9 +53,11 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
        $scope.stime = Math.round((new Date(_formatTimestamp(newValue)+" 00:00:00")).getTime()/1000);
        $scope.etime = Math.round((new Date(_formatTimestamp(newValue)+" 23:59:59")).getTime()/1000);
        $scope.txs=[];
+       $scope.exceltxs=[];
        $scope.dateval = _formatTimestamp(newValue);
        console.log($scope.stime,$scope.etime);
        $scope.txdirection=undefined;
+       $scope.exceltxs=[];
        pageNum = 0;
        _byAddress();
     }
@@ -61,7 +66,6 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   $scope.openCalendar = function($event) {
     $event.preventDefault();
     $event.stopPropagation();
-
     $scope.opened = true;
   };
 
@@ -74,6 +78,18 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
 
     return yyyy + '-' + (mm[1] ? mm : '0' + mm[0]) + '-' + (dd[1] ? dd : '0' + dd[0]); //padding
   };
+
+    //Datepicker
+    var _formatTime = function (date) {
+        var yyyy = date.getUTCFullYear().toString();
+        var mm = (date.getUTCMonth() + 1).toString(); // getMonth() is zero-based
+        var dd  = date.getUTCDate().toString();
+        var h  = date.getUTCHours().toString();
+        var m  = date.getUTCMinutes().toString();
+        var s  = date.getUTCSeconds().toString();
+
+        return yyyy + '-' + (mm[1] ? mm : '0' + mm[0]) + '-' + (dd[1] ? dd : '0' + dd[0]) + " " + (h[1] ? h : '0' + h[0]) + ":" + (m[1] ? m : '0' + m[0]) + ":" + (s[1] ? s : '0' + s[0]) ; //padding
+    };
 
   $scope.dateval = _formatTimestamp(new Date());
   var pageNum = 0;
@@ -157,6 +173,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     data.txs.forEach(function(tx) {
         _processTX(tx);
         $scope.txs.push(tx);
+        $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
     });
   };
 
@@ -171,6 +188,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
               //console.log(JSON.stringify(tx))
               _processTX(tx);
               $scope.txs.push(tx);
+              $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
           }
       })
       if(txCount<10&&pageNum<Math.round(pagesTotal/10)){
@@ -188,15 +206,18 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
         if(JSON.stringify(tx.vin).indexOf(account) != -1){
           _processTX(tx);
           $scope.txs.push(tx);
+          $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
         }           
       }else if($scope.txdirection==="zuo"){
          if(JSON.stringify(tx.vout).indexOf(account) != -1){
           _processTX(tx);
           $scope.txs.push(tx);
+          $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
         }    
       }else{
         _processTX(tx);
         $scope.txs.push(tx);
+        $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
       }
   }
 
@@ -238,6 +259,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
       $scope.tx = tx;
       _processTX(tx);
       $scope.txs.unshift(tx);
+      $scope.exceltxs.unshift({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
     }, function(e) {
       if (e.status === 400) {
         $rootScope.flashMessage = 'Invalid Transaction ID: ' + $routeParams.txId;
@@ -287,6 +309,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   
   //Init without txs
   $scope.txs = [];
+  $scope.exceltxs = [];
 
   $scope.$on('tx', function(event, txid) {
     _findTx(txid);
