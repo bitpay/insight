@@ -7,7 +7,7 @@ angular.module('insight.history').controller('HistoryController',
     // $scope.historys = HistoryService.list();
     $scope.list = function () {
       HistoryService.get({}, function (res) {
-        console.log('res', res)
+        // console.log('tp::',typeof res.data,'res', res.data)
         if (res.code === 0) {
           $scope.histories = res.data;
         }
