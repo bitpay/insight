@@ -17,6 +17,8 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   }
 
   $scope.lookTX = function(imgstr){
+
+    console.log(imgstr);
     if(imgstr==="you"){
      $scope.youShow=!$scope.youShow;
     }else if(imgstr==="you-g"){
@@ -30,18 +32,21 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
      $scope.stime=undefined;
      $scope.txs=[];
      $scope.exceltxs=[];
+     pageNum = 0;
       _byAddress();
   }
 
- $scope.searchByDate = function(){
+/* $scope.searchByDate = function(){
    var date= _formatTimestamp(new Date())+" 00:00:00";
    $scope.stime = Math.round((new Date(date)).getTime()/1000);
    $scope.etime = Math.round((new Date()).getTime()/1000);
     $scope.txs=[];
     $scope.exceltxs=[];
+    pageNum = 0;
+
     $scope.txdirection=undefined;
     _byAddress();
-  }
+  }*/
 
  $scope.$watch('dt', function(newValue, oldValue) {
     if (newValue !== oldValue) {
@@ -52,6 +57,8 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
        $scope.dateval = _formatTimestamp(newValue);
        console.log($scope.stime,$scope.etime);
        $scope.txdirection=undefined;
+       $scope.exceltxs=[];
+       pageNum = 0;
        _byAddress();
     }
   });
@@ -59,7 +66,6 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   $scope.openCalendar = function($event) {
     $event.preventDefault();
     $event.stopPropagation();
-
     $scope.opened = true;
   };
 
@@ -165,39 +171,55 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     pagesTotal = data.pagesTotal;
     pageNum += 1;
     data.txs.forEach(function(tx) {
-      var account= $routeParams.addrStr;
-      if($scope.txdirection!=undefined){
-          if($scope.txdirection==="you"){
-            if(JSON.stringify(tx.vin).indexOf(account) != -1){
-              _processTX(tx);
-              $scope.txs.push(tx);
-              $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
-            }           
-          }else if($scope.txdirection==="zuo"){
-             if(JSON.stringify(tx.vout).indexOf(account) != -1){
-              _processTX(tx);
-              $scope.txs.push(tx);
-              $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
-             }
-          }else{
-            _processTX(tx);
-            $scope.txs.push(tx);
-            $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
-          }
-          
-      }else if($scope.stime!=undefined||$scope.etime!=undefined){
+        _processTX(tx);
+        $scope.txs.push(tx);
+        $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
+    });
+  };
+
+  var _TxByDate = function(data){
+      $scope.loading = false;
+      pagesTotal = data.pagesTotal;
+      pageNum += 1;
+      var txCount = 0;
+      data.txs.forEach(function(tx) {
         if(tx.blocktime>$scope.stime&&tx.blocktime<$scope.etime){
+              txCount +=1;
+              //console.log(JSON.stringify(tx))
               _processTX(tx);
               $scope.txs.push(tx);
               $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
-        }
+          }
+      })
+      if(txCount<10&&pageNum<Math.round(pagesTotal/10)){
+        _byAddress();
+      }
+  }
+  var _Txdirection = function(data){
+     var txs= [];
+      $scope.loading = false;
+      pagesTotal = data.pagesTotal;
+      pageNum += 1;
+      var txCount = 0;
+      var account= $routeParams.addrStr;
+      if($scope.txdirection==="you"){
+        if(JSON.stringify(tx.vin).indexOf(account) != -1){
+          _processTX(tx);
+          $scope.txs.push(tx);
+          $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
+        }           
+      }else if($scope.txdirection==="zuo"){
+         if(JSON.stringify(tx.vout).indexOf(account) != -1){
+          _processTX(tx);
+          $scope.txs.push(tx);
+          $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
+        }    
       }else{
         _processTX(tx);
         $scope.txs.push(tx);
         $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
       }
-    });
-  };
+  }
 
   var _byBlock = function() {
     TransactionsByBlock.get({
@@ -217,7 +239,14 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
       address: address,
       pageNum: pageNum
     }, function(data) {
-      _paginate(data);
+      if($scope.stime!=undefined||$scope.etime!=undefined){
+        _TxByDate(data);
+      }else if($scope.txdirection!=undefined){
+        _Txdirection(data);
+      }else{
+        _paginate(data);
+      }
+
     });
   };
 
