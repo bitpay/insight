@@ -9,7 +9,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   $scope.zuoShow=true;
   var txdirection_you=true;
   var txdirection_zuo=true;
-
+  $scope.searchAddr="mjAFPh7F15o3BrAXbqZgUtUj6zjnKMWMhu";
 
   var pageNum = 0;
   var pagesTotal = 1;
@@ -39,7 +39,6 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   }
 
   $scope.lookTX = function(imgstr){
-
     isHome=false;
     if(imgstr==="you"){
         txdirection_you=false;
@@ -189,10 +188,13 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     pageNum += 1;
     data.txs.forEach(function(tx) {
       if(isHome){
+        console.log("--2 "+tx);
         _processTX(tx);
         $scope.txs.push(tx);
       }else{
+        //console.log("_Txdirection "+_Txdirection(tx));
         if(_Txdirection(tx)){
+          console.log("--3 "+tx);
           _processTX(tx);
           $scope.txs.push(tx);
           $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
@@ -222,23 +224,22 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
       }
   }
   var _Txdirection = function(tx){
-
+      //console.log("txdirection_you "+txdirection_you,"txdirection_zuo "+txdirection_zuo);
       var account= $routeParams.addrStr;
-      if(!txdirection_you&&txdirection_you){
+      if(txdirection_you&&!txdirection_zuo){
         if(JSON.stringify(tx.vin).indexOf(account) != -1){
           return true;
         }           
-      }else if(txdirection_you&&!txdirection_you){
+      }else if(!txdirection_you&&txdirection_zuo){
          if(JSON.stringify(tx.vout).indexOf(account) != -1){
           return true;
         }    
-      }else if(txdirection_you&&$scope.txdirection_you){
-         if(JSON.stringify(tx.vout).indexOf(account) != -1){
-          return true;
-        }    
+      }else if(txdirection_you&&txdirection_zuo){
+          return true;  
       }else{
         return false;
       }
+      return false;
   }
 
   var _byBlock = function() {
