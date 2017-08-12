@@ -253,7 +253,7 @@ msgstr "挖掘时间"
 
 #: public/views/block.html public/views/block_list.html public/views/index.html
 msgid "Mined by"
-msgstr "挖矿人"
+msgstr "矿池"
 
 #: public/views/status.html
 msgid "Mining Difficulty"
@@ -321,7 +321,7 @@ msgstr "重定向中..."
 
 #: public/views/includes/search.html
 msgid "Search for block, transaction or address"
-msgstr "查找区块，交易，或地址"
+msgstr "查询区块高度、区块哈希、交易哈希或地址"
 
 #: public/views/index.html
 msgid "See all blocks"
@@ -483,7 +483,7 @@ msgstr "未验证"
 
 #: public/views/transaction.html public/views/transaction/tx.html
 msgid "Unconfirmed Transaction!"
-msgstr "未验证的交易!"
+msgstr "未确认!"
 
 #: public/views/address.html
 msgid "Unconfirmed Txs Balance"
