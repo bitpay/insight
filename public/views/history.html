@@ -1,10 +1,10 @@
-	 	<div class="history" data-ng-controller="HistoryController">
+ 	<div class="history" data-ng-controller="HistoryController">
 	 		<h1>黑名单地址历史交易量统计</h1>
 	 		<div class="hdr" data-ng-repeat="history in histories">
 	 			<table class="tab1">
 	 				<tr>
 	 					<td class="td1">导入时间：{{history.import_time}}</td>
-	 					<td class="td2 dc">导出</td>
+	 					<td class="td2 dc" ng-csv="history.user" add-bom="true" csv-header="['黑名单地址','备注','交易量']" filename="黑名单地址历史交易量统计_{{dateval}}.csv">导出</td>
 	 				</tr>
 	 			</table>
 	 			<table class="tab1 tab2" data-ng-repeat="user in history.user">

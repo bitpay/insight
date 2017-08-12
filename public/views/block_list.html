@@ -36,7 +36,7 @@
         <h1>
           <span translate>Blocks</span>
           <small><span translate>by date.</span> {{detail}} {{before}}</small>
-          <span class="daochu" ng-csv="blocks"  filename="区块信息表_{{dateval}}.csv" >导出</span>
+          <span class="daochu" ng-csv="excelblocks" add-bom="true" csv-header="['区块高度','区块产生时间','交易量','矿池','区块大小']" filename="区块信息表_{{dateval}}.csv" >导出</span>
         </h1>
       </div>
       <table class="table table-hover table-striped">

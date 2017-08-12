@@ -31,7 +31,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
      $scope.txdirection =imgstr;
      $scope.stime=undefined;
      $scope.txs=[];
-     $scope.exceltxs=[{hash:'交易哈希',time:'交易产生时间',value:'交易金额',confirmations:'交易状态'}];
+     $scope.exceltxs=[];
      pageNum = 0;
       _byAddress();
   }
@@ -53,7 +53,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
        $scope.stime = Math.round((new Date(_formatTimestamp(newValue)+" 00:00:00")).getTime()/1000);
        $scope.etime = Math.round((new Date(_formatTimestamp(newValue)+" 23:59:59")).getTime()/1000);
        $scope.txs=[];
-       $scope.exceltxs=[{hash:'交易哈希',time:'交易产生时间',value:'交易金额',confirmations:'交易状态'}];
+       $scope.exceltxs=[];
        $scope.dateval = _formatTimestamp(newValue);
        console.log($scope.stime,$scope.etime);
        $scope.txdirection=undefined;
