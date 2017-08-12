@@ -21,6 +21,9 @@ angular.module('insight.system').controller('FooterController',
       name: 'English',
       isoCode: 'en',
     }, {
+      name: 'Chinese',
+      isoCode: 'zh',
+    }, {
       name: 'Spanish',
       isoCode: 'es',
     }, {

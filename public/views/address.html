@@ -27,7 +27,7 @@
       <span class="text-muted">{{address.addrStr}}</span>
       <span class="btn-copy" clip-copy="address.addrStr"></span>
     </div>
-    <h2 translate>Summary <small>confirmed</small></h2>
+    <h2 translate>交易统计 <small>已确认</small></h2>
     <div class="row" data-ng-hide="!address.addrStr">
       <div class="col-md-10">
         <table class="table">
@@ -55,7 +55,7 @@
         <qrcode size="160" data="{{address.addrStr}}"></qrcode>
       </div>
     </div>
-    <div data-ng-show="address.unconfirmedTxApperances">
+    <div data-ng-show="true">
       <h3 translate>Unconfirmed</h3>
       <table class="table">
         <tbody>
@@ -73,7 +73,26 @@
     </div>
   </div>
   <div data-ng-if="address.addrStr" data-ng-controller="transactionsController" data-ng-init="load('address')">
-    <h2 translate>Transactions</h2>
+    <h2 translate>交易 <div class="jiantou" style="padding-top: 12px;">
+            <img src="images/you.png" width="30" alt="" data-ng-show="youShow" data-ng-click="lookTX('you')" data-ng-model="txdirection_you" class="youg">
+            <img src="images/you-g.png" width="30" alt=""  data-ng-show="!youShow" data-ng-click="lookTX('you-g')" class="you">
+            <img src="images/zuo.png" width="30" alt=""  data-ng-show="zuoShow" data-ng-click="lookTX('zuo')" data-ng-model="xdirection_zuo" class="zuog">
+            <img src="images/zuo-g.png" width="30" alt=""  data-ng-show="!zuoShow" data-ng-click="lookTX('zuo-g')" class="zuo">   
+        </div>
+            <div class="rrll">
+              <p class="lead text-center m20v">
+              <input data-ng-model="datevalaa" data-ng-show="false">
+              <input data-ng-model="datevalbb" data-ng-show="false">
+              <input class="rangeA" data-ng-model="datevala" class="btn btn-primary btn-xs" datepicker-popup show-button-bar="false" data-ng-click="openCalendara($event)" is-open="openeda" placeholder="年-月-日">
+              <span>--</span>
+               <input class="rangeA" data-ng-model="datevalb" class="btn btn-primary btn-xs" datepicker-popup show-button-bar="false" data-ng-click="openCalendarb($event)" is-open="openedb" placeholder="年-月-日">
+               <img class="dateimg" src="images/search.png" alt="" data-ng-click="searchByDate()" height="35">
+              </p>
+            <!--   <input type="text" class="range" data-ng-model="dateval"/>
+              <img class="dateimg" src="images/rili.png"  width="25" alt="">
+              <img class="dateimg" src="images/search.png" alt="" data-ng-click="searchByDate()" height="35"> -->
+            </div>
+            <span class="daochu" data-ng-click="excel()">导出</span></h2>
     <div data-ng-include src="'views/transaction/list.html'" when-scrolled="loadMore()"></div>
   </div>
 </section>

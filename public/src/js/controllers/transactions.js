@@ -1,14 +1,115 @@
 'use strict';
 
-angular.module('insight.transactions').controller('transactionsController',
+angular.module('insight.transactions',['ngSanitize', 'ngCsv']).controller('transactionsController',
 function($scope, $rootScope, $routeParams, $location, Global, Transaction, TransactionsByBlock, TransactionsByAddress) {
   $scope.global = Global;
   $scope.loading = false;
   $scope.loadedBy = null;
+  $scope.youShow=true;
+  $scope.zuoShow=true;
+  var txdirection_you=true;
+  var txdirection_zuo=true;
+  $scope.searchAddr="mjAFPh7F15o3BrAXbqZgUtUj6zjnKMWMhu";
 
   var pageNum = 0;
   var pagesTotal = 1;
   var COIN = 100000000;
+  var isHome=false;
+ 
+   //Datepicker
+  var _formatTimestamp = function (date) {
+    var yyyy = date.getUTCFullYear().toString();
+    var mm = (date.getUTCMonth() + 1).toString(); // getMonth() is zero-based
+    var dd  = date.getUTCDate().toString();
+
+    return yyyy + '-' + (mm[1] ? mm : '0' + mm[0]) + '-' + (dd[1] ? dd : '0' + dd[0]); //padding
+  };
+
+/*  $scope.datevala = _formatTimestamp(new Date());
+  $scope.datevalb = _formatTimestamp(new Date());*/
+ /* $scope.stime = Math.round((new Date(_formatTimestamp(new Date()) +" 00:00:00")).getTime()/1000);
+  $scope.etime = Math.round((new Date(_formatTimestamp(new Date()) +" 23:59:59")).getTime()/1000);*/
+
+  $scope.searchByAddr = function(){
+    $scope.searchAddr = $scope.searchAddr;
+      isHome=true;
+      $scope.txs=[];
+      pageNum = 0;
+     _byAddress();
+  }
+
+  $scope.lookTX = function(imgstr){
+    isHome=false;
+    if(imgstr==="you"){
+        txdirection_you=false;
+        $scope.youShow=!$scope.youShow;
+    }else if(imgstr==="you-g"){
+        txdirection_you=true;
+     $scope.youShow=!$scope.youShow;
+    }else if(imgstr==="zuo"){
+        txdirection_zuo=false;
+        $scope.zuoShow=!$scope.zuoShow;
+    }else{
+        txdirection_zuo=true;
+        $scope.zuoShow=!$scope.zuoShow;
+    }
+     $scope.txs=[];
+     $scope.exceltxs=[];
+     pageNum = 0;
+      _byAddress();
+  }
+  
+
+  $scope.openCalendara = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.openeda = true;
+  };
+  $scope.openCalendarb = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.openedb = true;
+  };
+
+  $scope.$watch('datevala', function(newValue, oldValue) {
+    if (newValue !== oldValue) {
+      $scope.stime = Math.round((new Date(_formatTimestamp(newValue) +" 00:00:00")).getTime()/1000);
+    }
+
+  });
+  $scope.$watch('datevalb', function(newValue, oldValue) {
+    if (newValue !== oldValue) {
+        $scope.etime = Math.round((new Date(_formatTimestamp(newValue) +" 23:59:59")).getTime()/1000);
+        if($scope.stime>$scope.etime){
+            alert("开始时间不能大于结束时间!");
+        }
+    }
+
+  });
+
+
+ $scope.searchByDate = function(){
+      isHome=false;
+      //console.log($scope.stime ,$scope.etime);
+      $scope.txs=[];
+      $scope.exceltxs=[{hash:'交易哈希',time:'交易产生时间',value:'交易金额',confirmations:'交易状态'}];
+      pageNum = 0;
+      _byAddress();
+  }
+
+    //Datepicker
+    var _formatTime = function (date) {
+        var yyyy = date.getUTCFullYear().toString();
+        var mm = (date.getUTCMonth() + 1).toString(); // getMonth() is zero-based
+        var dd  = date.getUTCDate().toString();
+        var h  = date.getUTCHours().toString();
+        var m  = date.getUTCMinutes().toString();
+        var s  = date.getUTCSeconds().toString();
+
+        return yyyy + '-' + (mm[1] ? mm : '0' + mm[0]) + '-' + (dd[1] ? dd : '0' + dd[0]) + " " + (h[1] ? h : '0' + h[0]) + ":" + (m[1] ? m : '0' + m[0]) + ":" + (s[1] ? s : '0' + s[0]) ; //padding
+    };
+
+
 
   var _aggregateItems = function(items) {
     if (!items) return [];
@@ -84,12 +185,61 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
 
     pagesTotal = data.pagesTotal;
     pageNum += 1;
-
     data.txs.forEach(function(tx) {
-      _processTX(tx);
-      $scope.txs.push(tx);
+      if(isHome){
+        console.log("--2 "+tx);
+        _processTX(tx);
+        $scope.txs.push(tx);
+      }else{
+        //console.log("_Txdirection "+_Txdirection(tx));
+        if(_Txdirection(tx)){
+          console.log("--3 "+tx);
+          _processTX(tx);
+          $scope.txs.push(tx);
+          $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
+        }
+      }
+     
     });
   };
+
+  var _TxByDate = function(data){
+      $scope.loading = false;
+      pagesTotal = data.pagesTotal;
+      pageNum += 1;
+      var txCount = 0;
+      data.txs.forEach(function(tx) {
+        if(tx.blocktime>$scope.stime&&tx.blocktime<$scope.etime){
+              txCount +=1;
+             if(_Txdirection(tx)){
+                _processTX(tx);
+                $scope.txs.push(tx);
+                $scope.exceltxs.push({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
+              }
+          }
+      })
+      if(txCount<10&&pageNum<Math.round(pagesTotal/10)){
+        _byAddress();
+      }
+  }
+  var _Txdirection = function(tx){
+      //console.log("txdirection_you "+txdirection_you,"txdirection_zuo "+txdirection_zuo);
+      var account= $routeParams.addrStr;
+      if(txdirection_you&&!txdirection_zuo){
+        if(JSON.stringify(tx.vin).indexOf(account) != -1){
+          return true;
+        }           
+      }else if(!txdirection_you&&txdirection_zuo){
+         if(JSON.stringify(tx.vout).indexOf(account) != -1){
+          return true;
+        }    
+      }else if(txdirection_you&&txdirection_zuo){
+          return true;  
+      }else{
+        return false;
+      }
+      return false;
+  }
 
   var _byBlock = function() {
     TransactionsByBlock.get({
@@ -101,11 +251,20 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   };
 
   var _byAddress = function () {
+    var address = $routeParams.addrStr;
+    if(address===undefined){
+      address = $scope.searchAddr;
+    }
     TransactionsByAddress.get({
-      address: $routeParams.addrStr,
+      address: address,
       pageNum: pageNum
     }, function(data) {
-      _paginate(data);
+      if($scope.stime!=undefined||$scope.etime!=undefined){
+        _TxByDate(data);
+      }else{
+        _paginate(data);
+      }
+
     });
   };
 
@@ -118,6 +277,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
       $scope.tx = tx;
       _processTX(tx);
       $scope.txs.unshift(tx);
+      // $scope.exceltxs.unshift({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
     }, function(e) {
       if (e.status === 400) {
         $rootScope.flashMessage = 'Invalid Transaction ID: ' + $routeParams.txId;
@@ -167,6 +327,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   
   //Init without txs
   $scope.txs = [];
+  $scope.exceltxs=[{hash:'交易哈希',time:'交易产生时间',value:'交易金额',confirmations:'交易状态'}];
 
   $scope.$on('tx', function(event, txid) {
     _findTx(txid);

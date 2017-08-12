@@ -107,7 +107,7 @@
             <td class="text-right text-muted">{{block.version}}</td>
           </tr>
           <tr>
-            <td> <strong>Nonce</strong></td>
+            <td> <strong translate>Nonce</strong></td>
             <td class="text-right text-muted">{{block.nonce}}</td>
           </tr>
           <tr data-ng-show="block.nextblockhash">
@@ -120,7 +120,7 @@
     </div>
   </div>
   <div data-ng-if="block.hash" data-ng-controller="transactionsController" data-ng-init="load('block')">
-    <h3 translate>Transactions</h3>
+      <h3 translate>交易 <span class="daochu" ng-csv="exceltxs" add-bom="true" csv-header="['交易哈希', '交易产生时间', '交易金额', '交易状态']" filename="交易信息表_{{dateval}}.csv">导出</span></h3>
     <div data-ng-include src="'views/transaction/list.html'" when-scrolled="loadMore()"></div>
   </div>
 

@@ -2,11 +2,15 @@
 <section data-ng-controller="BlocksController" data-ng-init="list()">
   <div class="row">
     <div class="col-xs-12 col-gray col-gray-fixed">
-      <div class="block-id">
-        <div class="icon-block text-center">
+      <div class="block-1">
+       <!--  <div class="icon-block text-center">
           <span class="glyphicon glyphicon-list"></span>
           <h3><span translate>Blocks</span> <br> 
             <span translate>mined on:</span></h3>
+        </div> -->
+        <div class="bmbmcon">
+        <img src="images/menu.png" alt="" width="55">
+        <p>所有区块</p>
         </div>
       </div>
       <p class="lead text-center m20v">
@@ -32,6 +36,7 @@
         <h1>
           <span translate>Blocks</span>
           <small><span translate>by date.</span> {{detail}} {{before}}</small>
+          <span class="daochu" ng-csv="excelblocks" add-bom="true" csv-header="['区块高度','区块产生时间','交易量','矿池','区块大小']" filename="区块信息表_{{dateval}}.csv" >导出</span>
         </h1>
       </div>
       <table class="table table-hover table-striped">
