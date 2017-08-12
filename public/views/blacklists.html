@@ -1,11 +1,47 @@
 	<section data-ng-controller="BlacklistsController" data-ng-init="">
-	    <div class="nblock nbyu">
+		<div class="tian-popWrap" ng-show="isAdd">
+			<div class="tian-pop">
+				<img src="images/cuo.png" width="40" alt="" ng-click="cancelAdd()">
+				<span>地址</span>
+				<input type="text" ng-model="newblacklist.addr">
+				<span class="bzh">备注</span>
+				<textarea name="" id="" cols="30" rows="10" ng-model="newblacklist.comment"></textarea>
+				<button ng-click="doAdd()">添加</button>
+			</div>
+		</div>
+		<div class="tian-popWrap" ng-show="isEdit">
+			<div class="tian-pop">
+				<img src="images/cuo.png" width="40" alt="" ng-click="cancelEdit()">
+				<span>地址</span>
+				<input type="text" data-ng-model="editblacklist.addr" ng-disabled="!bedit">
+				<span class="bzh">备注</span>
+				<textarea name="" id="" cols="30" rows="10" data-ng-model="editblacklist.comment"></textarea>
+				<button ng-click="doEdit()">更新</button>
+			</div>
+		</div>
+		<div class="del-popWrap" ng-show="isDel">
+			<div class="del-pop">
+				<div class="deltit">系统提示</div>
+				<h5>确定要将选中的地址从黑名单中移除吗？</h5>
+				<button ng-click="doDel(true)">是</button>
+				<button class="fou" ng-click="doDel(false)">否</button>
+			</div>
+		</div>
+
+		<div class="nblock nbyu">
 	    	<div class="bla-tit">
 	    		<input type="text" ng-model="name_filter" placeholder="输入地址或备注关键词搜索">
-	    	</div>
+				<div class="xg" ng-show="bedit">
+					<span class="bjx" ng-click="editMode()">编辑</span>&nbsp&nbsp
+					<span class="tja" ng-click="addMode()">添加</span>
+				</div>
+				<div class="xg" ng-hide="bedit">
+					<span class="del" ng-click="delMode()">删除</span>&nbsp&nbsp
+					<span class="quxi" ng-click="cancelMode()">取消</span>
+				</div>
+			</div>
 
-			<hr>
-			<form class="form-horizontal">
+			<form class="form-horizontal" ng-show="false">
 				<label class="col-sm-1 control-label">地址:</label>
 				<div class="col-sm-4 bla-tit">
 					<input type="text" name="addr" ng-model="newblacklist.addr" ng-disabled="!bedit" placeholder="地址">
@@ -16,27 +52,32 @@
 				</div>
 
 				<input type="hidden" ng-model="newcontact.id" />
-				<input type="button" value="保存" ng-click="saveBlacklist()" class="btn btn-primary" />
+				<input type="button" value="保存" ng-click="saveBlacklist(newblacklist)" class="btn btn-primary" />
 			</form>
 
-			<hr>
 	    	<table class="ftab">
 	    		<tr class="grey tfg">
+					<td class="td1">
+						<input type="checkbox" id="quanxuan" ng-hide="bedit" ng-click="selectAll()" ng-model="select_all">
+					</td>
 	    			<td class="td1">编号</td>
 	    			<td>地址</td>
 	    			<td>备注</td>
 	    			<td class="td5">更新时间</td>
-	    			<td>操作</td>
+	    			<!--<td>操作</td>-->
 	    		</tr>
 				<tr class="fader" data-ng-repeat='b in blacklists | filter:name_filter'>
-	    			<td class="td1">{{b.no}}</td>
-	    			<td><a href="address/{{b.addr}}">{{b.addr}}</a></td>
-	    			<td class="bxg">{{b.comment}}</td>
-	    			<td class="td5">{{b.time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
-					<td>
-						<a href="javascript:void(0)" ng-click="edit(b.addr, b.comment)">编辑</a> |
-						<a href="javascript:void(0)" ng-click="delete(b.addr)">删除</a>
+					<td class="td1">
+						<input type="checkbox" ng-hide="bedit" ng-model="b.checked" ng-click="selectOne()">
 					</td>
+	    			<td class="td1" ng-click="openEdit(b.addr, b.comment)">{{b.no}}</td>
+	    			<td><a href="address/{{b.addr}}">{{b.addr}}</a></td>
+	    			<td class="bxg" ng-click="openEdit(b.addr, b.comment)">{{b.comment}}</td>
+	    			<td class="td5" ng-click="openEdit(b.addr, b.comment)">{{b.time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+					<!--<td>-->
+						<!--<a href="javascript:void(0)" ng-click="edit(b.addr, b.comment)">编辑</a> |-->
+						<!--<a href="javascript:void(0)" ng-click="delete(b.addr)">删除</a>-->
+					<!--</td>-->
 	    		</tr>
 	    	</table>
 	    	
