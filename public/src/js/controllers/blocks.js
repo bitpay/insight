@@ -25,6 +25,8 @@ angular.module('insight.blocks').controller('BlocksController',
     return yyyy + '-' + (mm[1] ? mm : '0' + mm[0]) + '-' + (dd[1] ? dd : '0' + dd[0]); //padding
   };
 
+  $scope.dateval = _formatTimestamp(new Date());
+
   $scope.$watch('dt', function(newValue, oldValue) {
     if (newValue !== oldValue) {
       $location.path('/blocks-date/' + _formatTimestamp(newValue));
@@ -67,6 +69,7 @@ angular.module('insight.blocks').controller('BlocksController',
     }, function(res) {
       $scope.loading = false;
       $scope.blocks = res.blocks;
+      console.log($scope.blocks);
       $scope.pagination = res.pagination;
     });
   };
