@@ -42,22 +42,22 @@
         <table class="table table-hover table-striped" style="table-layout: fixed;">
           <thead>
             <tr>
-              <th>交易哈希</th>
+              <th colspan="3" >交易哈希</th>
               <th class="text-right">交易产生时间</th>
               <th class="text-right">交易金额</th>
-              <!-- <th class="text-right">交易状态</th> -->
+              <th class="text-right">交易状态</th>
 
             </tr>
           </thead>
           <tbody>
           <tr data-ng-show="!txs.length"><td colspan="3" translate>Waiting for transactions...</td></tr>
           <tr class="fader" data-ng-repeat='tx in txs'>
-            <td>
+            <td colspan="3" >
               <a class="ellipsis" href="tx/{{tx.txid}}">{{tx.txid}}</a>
             </td>
-            <td class="text-right"><span class="ellipsis">{{humanSince(tx.blocktime)}}</span></td>
+            <td class="text-right"><span class="ellipsis">{{humanSince(tx.time)}}</span></td>
             <td class="text-right"><span class="ellipsis">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' BTC'}}</span></td>
-           <!--  <td class="text-right"><span class="ellipsis">{{tx.confirmations}}个确认数</span></td> -->
+            <td class="text-right"><span class="ellipsis">{{tx.confirmations}}个确认数</span></td>
           </tr>
           </tbody>
         </table>

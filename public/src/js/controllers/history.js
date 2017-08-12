@@ -4,6 +4,7 @@ angular.module('insight.history').controller('HistoryController',
   function ($scope, $rootScope, $routeParams, HistoryService) {
     console.log("historys controller start");
 
+
       //Datepicker
       var _formatTimestamp = function (date) {
           var yyyy = date.getUTCFullYear().toString();
@@ -15,12 +16,7 @@ angular.module('insight.history').controller('HistoryController',
 
       $scope.dateval = _formatTimestamp(new Date());
 
-      $scope.$watch('dt', function(newValue, oldValue) {
-          if (newValue !== oldValue) {
-              $location.path('/blocks-date/' + _formatTimestamp(newValue));
-          }
-      });
-
+    
     // $scope.historys = HistoryService.list();
     $scope.list = function () {
       HistoryService.get({}, function (res) {
@@ -33,7 +29,133 @@ angular.module('insight.history').controller('HistoryController',
       });
     }
     $scope.list();
+    $scope.histories = [
+        {
+            "import_time":"20170811145006",
+            "user":[
+                {
+                    "id":"history.blacklist.20170811-145006.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-145006"
+                },
+                {
+                    "id":"history.blacklist.20170811-145219.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-145219"
+                },
+                {
+                    "id":"history.blacklist.20170811-165334.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-165334"
+                },
+                {
+                    "id":"history.blacklist.20170811-165341.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-165341"
+                },
+                {
+                    "id":"history.blacklist.20170811-183227.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183227"
+                },
+                {
+                    "id":"history.blacklist.20170811-183427.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183427"
+                }
+            ],
+            "txsnum":2,
+            "limitpage":5
+        },
+        {
+            "import_time":"20170811183827",
+            "user":[
+                {
+                    "id":"history.blacklist.20170811-183827.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183827"
+                }, {
+                    "id":"history.blacklist.20170811-183827.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183827"
+                }, {
+                    "id":"history.blacklist.20170811-183827.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183827"
+                }, {
+                    "id":"history.blacklist.20170811-183827.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183827"
+                }, {
+                    "id":"history.blacklist.20170811-183827.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183827"
+                }, {
+                    "id":"history.blacklist.20170811-183827.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183827"
+                }, {
+                    "id":"history.blacklist.20170811-183827.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183827"
+                }, {
+                    "id":"history.blacklist.20170811-183827.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183827"
+                }, {
+                    "id":"history.blacklist.20170811-183827.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183827"
+                }, {
+                    "id":"history.blacklist.20170811-183827.muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "addr":"muv8WgxDydvKB82JZhLcyX1dsmyAmkFKhR",
+                    "comment":"nkbjb",
+                    "txsnum":2,
+                    "time":"20170811-183827"
+                }
+            ],
+            "txsnum":2,
+            "limitpage":5
+        }
+    ]
 
+    $scope.histories.forEach(function(history,index){
+      $scope["datashow"+history.import_time]=true;
+      history.idnum=index;
+    })
     $scope.params = $routeParams;
-
+    $scope.expand = function(showDiv,num,id){
+        $scope["datashow"+showDiv] =!$scope["datashow"+showDiv];
+        $scope.histories[id].limitpage=num;
+    }
   });

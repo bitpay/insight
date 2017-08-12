@@ -28,7 +28,6 @@ angular.module('insight.blacklists').controller('BlacklistsController',
     // click dialog's add btn
     $scope.doAdd = function () {
       if (!$scope.newblacklist || !$scope.newblacklist.addr) {
-        // TODO 还需要验证地址的有效性
         $scope.newblacklist = {addr:'please input address'}
       } else if ($scope.newblacklist.addr.length !== 34) {
         // TODO 还需要验证地址的有效性
@@ -41,8 +40,12 @@ angular.module('insight.blacklists').controller('BlacklistsController',
 
     // click dialog's cancel btn
     $scope.cancelAdd = function () {
-      $scope.newblacklist.addr = ''
-      $scope.newblacklist.comment = ''
+      if (!$scope.newblacklist || !$scope.newblacklist.addr) {
+
+      } else {
+        $scope.newblacklist.addr = ''
+        $scope.newblacklist.comment = ''
+      }
       $scope.isAdd = false;
     };
 
@@ -82,7 +85,7 @@ angular.module('insight.blacklists').controller('BlacklistsController',
 
     $scope.checked = [];
     $scope.selectAll = function () {
-      if ($scope.select_all) {
+      if (!$scope.select_all) {
         $scope.checked = [];
         angular.forEach($scope.blacklists, function (i) {
           i.checked = true;
@@ -94,25 +97,50 @@ angular.module('insight.blacklists').controller('BlacklistsController',
           $scope.checked = [];
         })
       }
-      console.log($scope.checked);
+      // console.log('Achecked:',$scope.checked);
     };
-    $scope.selectOne = function () {
-      angular.forEach($scope.blacklists, function (i) {
-        var index = $scope.checked.indexOf(i.addr);
-        if (i.checked && index === -1) {
-          $scope.checked.push(i.addr);
-        } else if (!i.checked && index !== -1) {
-          $scope.checked.splice(index, 1);
-        }
-        ;
-      })
+    $scope.selectOne = function (addr) {
+      var index = $scope.checked.indexOf(addr);
+      if (index === -1) {
+        $scope.checked.push(addr);
+      } else if (index !== -1) {
+        $scope.checked.splice(index, 1);
+      }
 
       if ($scope.blacklists.length === $scope.checked.length) {
         $scope.select_all = true;
       } else {
         $scope.select_all = false;
       }
-      console.log($scope.checked);
+      // console.log('1checked:',$scope.checked);
+    }
+
+    // click delete btn
+    $scope.delMode = function () {
+      // console.log('$scope.checked=',$scope.checked)
+      if (!$scope.checked || $scope.checked.length === 0) {
+        return;
+      }
+      $scope.isDel = true
+    }
+    // click dialog delete btn
+    $scope.doDel = function (ok) {
+
+      if (!ok) {
+        $scope.isDel = false
+        return;
+      }
+
+      $http.delete(Service.apiPrefix + '/blacklist/list/' + JSON.stringify($scope.checked))
+        .success(function(data, status, headers, config) {
+          if (data.code === 0) {
+            $scope.list();
+          }
+        })
+        .error(function(data, status, headers, config) {
+        });
+
+      $scope.isDel = false
     }
 
     $scope.saveBlacklist = function (blacklist) {
@@ -153,6 +181,7 @@ angular.module('insight.blacklists').controller('BlacklistsController',
       $scope.bedit = true;
     };
 
+    // form delete.(old)
     $scope.delete = function (hash) {
       // console.log('controller,delete hash=', hash)
 
