@@ -19,6 +19,7 @@
 				<button ng-click="doEdit()">更新</button>
 			</div>
 		</div>
+
 		<div class="del-popWrap" ng-show="isDel">
 			<div class="del-pop">
 				<div class="deltit">系统提示</div>
@@ -68,7 +69,7 @@
 	    		</tr>
 				<tr class="fader" data-ng-repeat='b in blacklists | filter:name_filter'>
 					<td class="td1">
-						<input type="checkbox" ng-hide="bedit" ng-model="b.checked" ng-click="selectOne()">
+						<input type="checkbox" ng-hide="bedit" ng-model="b.checked" ng-click="selectOne(b.addr)">
 					</td>
 	    			<td class="td1" ng-click="openEdit(b.addr, b.comment)">{{b.no}}</td>
 	    			<td><a href="address/{{b.addr}}">{{b.addr}}</a></td>
