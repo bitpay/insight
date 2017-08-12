@@ -54,7 +54,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
         $scope.zuoShow=!$scope.zuoShow;
     }
      $scope.txs=[];
-     $scope.exceltxs=[];
+     $scope.exceltxs=[{hash:'交易哈希',time:'交易产生时间',value:'交易金额',confirmations:'交易状态'}];
      pageNum = 0;
       _byAddress();
   }
@@ -73,7 +73,6 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
 
   $scope.$watch('datevala', function(newValue, oldValue) {
     if (newValue !== oldValue) {
-      //$scope.datevala = _formatTimestamp(newValue);
       $scope.stime = Math.round((new Date(_formatTimestamp(newValue) +" 00:00:00")).getTime()/1000);
     }
 
@@ -93,7 +92,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
       isHome=false;
       //console.log($scope.stime ,$scope.etime);
       $scope.txs=[];
-      $scope.exceltxs=[];
+      $scope.exceltxs=[{hash:'交易哈希',time:'交易产生时间',value:'交易金额',confirmations:'交易状态'}];
       pageNum = 0;
       _byAddress();
   }
@@ -278,7 +277,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
       $scope.tx = tx;
       _processTX(tx);
       $scope.txs.unshift(tx);
-      $scope.exceltxs.unshift({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
+      // $scope.exceltxs.unshift({hash:tx.txid,time:_formatTime(new Date(tx.time * 1000)),value:tx.valueOut + " BTC",confirmations:tx.confirmations});
     }, function(e) {
       if (e.status === 400) {
         $rootScope.flashMessage = 'Invalid Transaction ID: ' + $routeParams.txId;
@@ -328,7 +327,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   
   //Init without txs
   $scope.txs = [];
-  $scope.exceltxs = [];
+  $scope.exceltxs=[{hash:'交易哈希',time:'交易产生时间',value:'交易金额',confirmations:'交易状态'}];
 
   $scope.$on('tx', function(event, txid) {
     _findTx(txid);
