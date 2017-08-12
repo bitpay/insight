@@ -40,8 +40,12 @@ angular.module('insight.blacklists').controller('BlacklistsController',
 
     // click dialog's cancel btn
     $scope.cancelAdd = function () {
-      $scope.newblacklist.addr = ''
-      $scope.newblacklist.comment = ''
+      if (!$scope.newblacklist || !$scope.newblacklist.addr) {
+
+      } else {
+        $scope.newblacklist.addr = ''
+        $scope.newblacklist.comment = ''
+      }
       $scope.isAdd = false;
     };
 
