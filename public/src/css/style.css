@@ -127,7 +127,7 @@ table a{color: #30bfa1;}
 .xg{float: right; margin-top: 10px;font-size: 16px;color: #30bfa1;}
 .xg span{cursor: pointer;}
 .nb-more{display: none;}
-.del-popWrap{width: 100%; height: 100%; background: rgba(0,0,0,0.5); position: fixed; left: 0; top: 0; display: none; z-index: 999;}
+.del-popWrap{width: 100%; height: 100%; background: rgba(0,0,0,0.5); position: fixed; left: 0; top: 0; z-index: 999;}
 .del-pop{width: 550px; height: 220px; background: #fff; border-radius: 5px; border: 1px solid #ddd; position: absolute; left: 50%; top: 25%; margin-left: -275px;}
 .deltit{width: 100%; height:40px;text-align: center;line-height: 40px; border-bottom: 1px solid #ddd;}
 .del-pop h5{font-size: 16px; text-align: center;margin: 20px 0; font-weight: normal;}
