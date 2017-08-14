@@ -76,7 +76,9 @@ module.exports = function BlockAPI(router) {
           res.status(501).send();
           logger.log('err', err);
         }
-        if (blocks.length > 0) {
+        if (!blocks.length) {
+          res.send();
+        } else {
           res.json({
             blocks: blocks.map(block => ({
               hash: block.hash,
@@ -89,8 +91,6 @@ module.exports = function BlockAPI(router) {
             length: blocks.length,
             pagination: {},
           });
-        } else {
-          res.send();
         }
       });
   });
