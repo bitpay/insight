@@ -1,6 +1,6 @@
 {
   "name": "Insight",
-  "version": "0.0.1",
+  "version": "5.0.0-beta.1",
   "dependencies": {
     "angular": "~1.2.13",
     "angular-resource": "~1.2.13",
