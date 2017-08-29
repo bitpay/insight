@@ -23,17 +23,17 @@ msgstr "404 Seite nicht gefunden :("
 #: public/views/index.html
 msgid ""
 "<strong>insight</strong>  is an <a href=\"http://live.insight.is/\" target="
-"\"_blank\">open-source Bitcoin blockchain explorer</a> with complete REST "
+"\"_blank\">open-source Viacoin blockchain explorer</a> with complete REST "
 "and websocket APIs that can be used for writing web wallets and other apps  "
-"that need more advanced blockchain queries than provided by bitcoind RPC.  "
+"that need more advanced blockchain queries than provided by viacoind RPC.  "
 "Check out the <a href=\"https://github.com/bitpay/insight-ui\" target=\"_blank"
 "\">source code</a>."
 msgstr ""
 "<strong>insight</strong> ist ein <a href=\"http://live.insight.is/\" target="
-"\"_blank\">Open Source Bitcoin Blockchain Explorer</a> mit vollständigen "
+"\"_blank\">Open Source Viacoin Blockchain Explorer</a> mit vollständigen "
 "REST und Websocket APIs um eigene Wallets oder Applikationen zu "
 "implementieren. Hierbei werden fortschrittlichere Abfragen der Blockchain "
-"ermöglicht, bei denen die RPC des Bitcoind nicht mehr ausreichen. Der "
+"ermöglicht, bei denen die RPC des Viacoind nicht mehr ausreichen. Der "
 "aktuelle <a href=\"https://github.com/bitpay/insight-ui\" target=\"_blank"
 "\">Quellcode</a> ist auf Github zu finden."
 
@@ -69,8 +69,8 @@ msgid "Best Block"
 msgstr "Bester Block"
 
 #: public/views/status.html
-msgid "Bitcoin node information"
-msgstr "Bitcoin-Node Info"
+msgid "Viacoin node information"
+msgstr "Viacoin-Node Info"
 
 #: public/views/block.html
 msgid "Block"
@@ -91,11 +91,11 @@ msgstr "Serialisierte Bytes"
 
 #: public/views/includes/connection.html
 msgid ""
-"Can't connect to bitcoind to get live updates from the p2p network. (Tried "
-"connecting to bitcoind at {{host}}:{{port}} and failed.)"
+"Can't connect to viacoind to get live updates from the p2p network. (Tried "
+"connecting to viacoind at {{host}}:{{port}} and failed.)"
 msgstr ""
-"Es ist nicht möglich mit Bitcoind zu verbinden um live Aktualisierungen vom "
-"P2P Netzwerk zu erhalten. (Verbindungsversuch zu bitcoind an {{host}}:"
+"Es ist nicht möglich mit Viacoind zu verbinden um live Aktualisierungen vom "
+"P2P Netzwerk zu erhalten. (Verbindungsversuch zu viacoind an {{host}}:"
 "{{port}} ist fehlgeschlagen.)"
 
 #: public/views/includes/connection.html
@@ -199,8 +199,8 @@ msgid "Last Block"
 msgstr "Letzter Block"
 
 #: public/views/status.html
-msgid "Last Block Hash (Bitcoind)"
-msgstr "Letzter Hash (Bitcoind)"
+msgid "Last Block Hash (Viacoind)"
+msgstr "Letzter Hash (Viacoind)"
 
 #: public/views/index.html
 msgid "Latest Blocks"
