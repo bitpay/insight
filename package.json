@@ -24,7 +24,8 @@
   "scripts": {
     "build": "bower install && grunt compile",
     "watch": "grunt",
-    "install-and-build": "npm install && npm run build"
+    "install-and-build": "npm install && npm run build",
+    "test": "mocha test"
   },
   "dependencies": {},
   "devDependencies": {
