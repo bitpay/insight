@@ -29,6 +29,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "mocha": "^2.4.5",
     "bower": "~1.8.0",
     "grunt": "~0.4.2",
     "grunt-angular-gettext": "^0.2.15",
