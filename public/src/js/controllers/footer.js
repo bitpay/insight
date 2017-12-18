@@ -21,11 +21,17 @@ angular.module('insight.system').controller('FooterController',
       name: 'English',
       isoCode: 'en',
     }, {
+      name: 'Chinese',
+      isoCode: 'zh',
+    }, {
       name: 'Spanish',
       isoCode: 'es',
     }, {
       name: 'Français',
       isoCode: 'fr_FR',
+    }, {
+      name: 'Português (Brasil)',
+      isoCode: 'pt_BR',
     }, {
       name: 'Japanese',
       isoCode: 'ja',
