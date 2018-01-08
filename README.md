@@ -1,6 +1,6 @@
 Insight UI
 
-A Viacoin blockchain explorer web application service for [Viacore Node](https://github.com/bitpay/viacore-node) using the [Insight API](https://github.com/viacoin/insight-via-api).
+A Viacoin blockchain explorer web application service for [Viacore Node](https://github.com/viacoin/viacore-node) using the [Insight API](https://github.com/viacoin/insight-via-api).
 
 ## Quick Start
 
