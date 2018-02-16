@@ -4,6 +4,6 @@ angular.module('insight.api')
   .factory('Api',
     function() {
       return {
-        apiPrefix: '/insight-api'
+        apiPrefix: 'http://localhost:3001/api'
       }
     });
