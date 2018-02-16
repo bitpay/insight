@@ -18,7 +18,7 @@
   ],
   "bitcoreNode": "bitcore-node",
   "insightConfig": {
-    "apiPrefix": "api",
+    "apiPrefix": "http://localhost:3001/api",
     "routePrefix": ""
   },
   "scripts": {
