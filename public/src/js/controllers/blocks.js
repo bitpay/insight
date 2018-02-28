@@ -68,6 +68,11 @@ angular.module('insight.blocks').controller('BlocksController',
       $scope.loading = false;
       $scope.blocks = res.blocks;
       $scope.pagination = res.pagination;
+			$scope.pagination.olderBlocks = $scope.pagination.moreTs;
+		  for (var key in $scope.blocks)
+		  {
+				if($scope.blocks[key].time < $scope.pagination.olderBlocks)  $scope.pagination.olderBlocks = $scope.blocks[key].time;
+		  }
     });
   };
 
