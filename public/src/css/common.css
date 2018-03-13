@@ -536,6 +536,7 @@ margin-left: 0;
   width: 16px;
   outline: none;
   vertical-align: sub;
+  cursor:pointer;
 }
 
 .btn-expand {
