@@ -1,10 +1,10 @@
 # Insight UI Dash
 
-A Dash blockchain explorer web application service for [Bitcore Node Dash](https://github.com/dashpay/bitcore-node-dash) using [Insight API Dash](https://github.com/dashpay/insight-api-dash).
+A Dash blockchain explorer web application service for [Bitcore Node Dash](https://github.com/dashevo/bitcore-node-dash) using [Insight API Dash](https://github.com/dashevo/insight-api-dash).
 
 ## Quick Start
 
-Please see the guide at [https://bitcore.io/guides/full-node](https://bitcore.io/guides/full-node) for information about getting a block explorer running. This is only the front-end component of the block explorer, and is packaged together with all of the necessary components in [Bitcore](https://github.com/dashpay/bitcore-dash).
+Please see the guide at [https://bitcore.io/guides/full-node](https://bitcore.io/guides/full-node) for information about getting a block explorer running. This is only the front-end component of the block explorer, and is packaged together with all of the necessary components in [Bitcore](https://github.com/dashevo/bitcore-dash).
 
 ## Getting Started
 
@@ -70,11 +70,11 @@ compile***.
 
 ## Note
 
-For more details about the [Insight API](https://github.com/dashpay/insight-api-dash) configuration and end-points, go to [Insight API GitHub repository](https://github.com/dashpay/insight-api-dash).
+For more details about the [Insight API](https://github.com/dashevo/insight-api-dash) configuration and end-points, go to [Insight API GitHub repository](https://github.com/dashevo/insight-api-dash).
 
 ## Contribute
 
-Contributions and suggestions are welcomed at the [Insight UI Dash GitHub repository](https://github.com/dashpay/insight-ui-dash).
+Contributions and suggestions are welcomed at the [Insight UI Dash GitHub repository](https://github.com/dashevo/insight-ui-dash).
 
 
 ## License
