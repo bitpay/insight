@@ -850,3 +850,8 @@ a.v_highlight_more {
     width: 340px;
   }
 }
+
+/*fix for ui-bootstrap-tpls datepicker*/
+.uib-day button, .uib-month button, .uib-year button {
+  min-width: 100%;
+}
