@@ -15,6 +15,18 @@ angular.module('insight.blocks').controller('BlocksController',
       $location.path('/');
     });
   }
+  
+  var toUTCDate = function(date){
+    var _utc = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),  date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+    return _utc;
+  };
+
+  var millisToUTCDate = function(millis){
+    return toUTCDate(new Date(millis* 1000));
+  };
+
+  $scope.toUTCDate = toUTCDate;
+  $scope.millisToUTCDate = millisToUTCDate;
 
   //Datepicker
   var _formatTimestamp = function (date) {
@@ -32,10 +44,8 @@ angular.module('insight.blocks').controller('BlocksController',
   });
 
   $scope.openCalendar = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
-
     $scope.opened = true;
+    setTimeout(function(){ angular.element(document.querySelector('.uib-datepicker-popup'))[0].style.display = "block"; }, 100);
   };
 
   $scope.humanSince = function(time) {
