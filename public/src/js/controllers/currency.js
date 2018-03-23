@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('insight.currency').controller('CurrencyController',
+angular.module('insight.currency', ['ui.router','ui.bootstrap']).controller('CurrencyController',
   function($scope, $rootScope, Currency) {
     $rootScope.currency.symbol = defaultCurrency;
 
