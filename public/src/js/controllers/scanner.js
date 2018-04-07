@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('insight.system').controller('ScannerController',
-  function($scope, $rootScope, $modalInstance, Global) {
+  function($scope, $rootScope, $uibModalInstance, Global) {
     $scope.global = Global;
 
     // Detect mobile devices
@@ -96,7 +96,7 @@ angular.module('insight.system').controller('ScannerController',
 
     var _scanStop = function() {
       $scope.scannerLoading = false;
-      $modalInstance.close();
+      $uibModalInstance.close();
       if (!$scope.isMobile) {
         if (localMediaStream.stop) localMediaStream.stop();
         localMediaStream = null;
@@ -124,7 +124,7 @@ angular.module('insight.system').controller('ScannerController',
       _scanStop();
     };
 
-    $modalInstance.opened.then(function() {
+    $uibModalInstance.opened.then(function() {
       $rootScope.isCollapsed = true;
       
       // Start the scanner

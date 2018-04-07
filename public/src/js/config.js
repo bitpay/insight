@@ -55,7 +55,8 @@ angular.module('insight')
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
   })
-  .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgress, gettextCatalog, amMoment) {
+  .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgressFactory, gettextCatalog, amMoment) {
+    var ngProgress = ngProgressFactory.createInstance();
     gettextCatalog.currentLanguage = defaultLanguage;
     amMoment.changeLocale(defaultLanguage);
     $rootScope.$on('$routeChangeStart', function() {
@@ -68,7 +69,6 @@ angular.module('insight')
       //Change page title, based on Route information
       $rootScope.titleDetail = '';
       $rootScope.title = $route.current.title;
-      $rootScope.isCollapsed = true;
       $rootScope.currentAddr = null;
 
       $location.hash($routeParams.scrollTo);
