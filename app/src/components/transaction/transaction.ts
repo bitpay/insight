@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CurrencyProvider } from '../../providers/currency/currency';
+import { AddressPage } from '../../pages';
+import { TransactionPage } from '../../pages';
 
 /**
  * Generated class for the TransactionComponent component.
@@ -32,13 +34,13 @@ export class TransactionComponent {
   }
 
   public goToTx(txId: string): void {
-    this.navCtrl.push('transaction', {
+    this.navCtrl.push(TransactionPage, {
       'txId': txId
     });
   }
 
   public goToAddress(addrStr: string): void {
-    this.navCtrl.push('address', {
+    this.navCtrl.push(AddressPage, {
       'addrStr': addrStr
     });
   }

@@ -2,6 +2,7 @@ import { Component, NgZone, Input } from '@angular/core';
 import { BlocksProvider } from '../../providers/blocks/blocks';
 import { NavController } from 'ionic-angular';
 import { BlocksPage } from '../../pages';
+import { BlockDetailPage } from '../../pages';
 
 /**
  * Generated class for the LatestBlocksComponent component.
@@ -51,7 +52,7 @@ export class LatestBlocksComponent {
   }
 
   public goToBlock(blockHash: string): void {
-    this.navCtrl.push('block-detail', {
+    this.navCtrl.push(BlockDetailPage, {
       'blockHash': blockHash
     });
   }
