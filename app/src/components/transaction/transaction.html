@@ -32,16 +32,25 @@
       </ion-list>
 
       <ion-list [hidden]="tx.isCoinBase">
-        <ion-item *ngFor="let vin of aggregateItems(tx.vin)">
+        <ion-item *ngFor="let vin of aggregateItems(tx.vin); let i = index" [ngClass]="[i === dx ? 'itemHighlight' : 'itemNoLight']">
           <div>
             <div class="ellipsis">
+              <span *ngIf="vin.items[dx] !== undefined && vin.items[dx].txid" [hidden]="!expanded">
+                <a (click)="goToOutput(vin.items[dx].txid, dx)">
+                  <ion-icon name="arrow-dropleft-circle"></ion-icon>
+                </a>
+              </span>
+              <span>
+                {{ printer(vin) }}
+              </span>
               <p>
                 <a (click)="goToAddress(vin.addr)">{{ vin.addr }}</a>
               </p>
             </div>
             <div [hidden]="!expanded">
               <p *ngIf="vin.confirmations">
-                <b>Confirmations</b> {{vin.confirmations}}</p>
+                <b>Confirmations</b> {{vin.confirmations}}
+              </p>
               <p>
                 <b>Unlocking Script</b>
               </p>
@@ -66,7 +75,7 @@
     </ion-col>
 
     <ion-col col-12 col-md-1 text-center>
-      <ion-icon name="arrow-forward"></ion-icon>
+      <ion-icon name="arrow-forward" class="shiftDown"></ion-icon>
     </ion-col>
 
     <ion-col col-12 col-md-6>
@@ -94,7 +103,14 @@
 
           <div item-end>
             {{ currency.getConvertedNumber(vout.value) | number:'1.0-8' }} {{ currency.currencySymbol }}
-            <span [hidden]="!vout.spentTxId">(S)</span>
+            <!-- <span [hidden]="!vout.spentTxId">(S)</span> -->
+            <span [hidden]="!vout.spentTxId">
+              <!-- <a (click)="goToInput(vout.spentTxId, vout.spentIndex)">(S)</a> -->
+              (S)
+              <a (click)="goToInput(vout.spentTxId, vout.spentIndex)" [hidden]="!expanded">
+                  <ion-icon name="arrow-dropright-circle"></ion-icon>
+              </a>
+            </span>
             <span [hidden]="vout.spentTxId">(U)</span>
           </div>
         </ion-item>

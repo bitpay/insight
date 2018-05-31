@@ -9,6 +9,8 @@ transaction {
 
     ion-row {
       border: 1px solid #f3f3f3;
+      margin-top: 10px;
+      margin-bottom: 10px;
 
       &.small {
         font-size: 1.1rem;
@@ -24,11 +26,35 @@ transaction {
 
   ion-icon {
     color: rgba(0, 0, 0, 0.25);
+    margin-right: 5px;
   }
+
+// New Stuff
+
+.shiftDown {
+    padding-top: 1.2em;
+}
+
+.ellipsis {
+  margin-bottom: .7rem;
+  margin-top: 8px;
+}
+
+.unlocking-script {
+  padding-top: .7rem;
+  max-width: 90%;
+}
+
+.locking-script {
+  padding-top: .7rem;
+}
+
+//end
 
   .item,
   .item p {
     font-size: 1.4rem;
+    font-weight: bold;
   }
 
   $transaction-item-boarder-radius: 3px;
@@ -39,6 +65,13 @@ transaction {
   .item:last-of-type {
     border-bottom-left-radius: $transaction-item-boarder-radius;
     border-bottom-right-radius: $transaction-item-boarder-radius;
+  }
+
+  .itemHighlight {
+    background-color: #8dc429;
+  }
+  .itemNoLight {
+    background-color: default;
   }
 
   .list {

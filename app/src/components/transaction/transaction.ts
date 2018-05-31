@@ -19,6 +19,7 @@ export class TransactionComponent {
 
   public expanded: boolean = false;
   @Input() public tx: any = {};
+  @Input() public dx?: number;
 
   constructor(private navCtrl: NavController, public currency: CurrencyProvider) {
   }
@@ -37,6 +38,24 @@ export class TransactionComponent {
     });
   }
 
+  public goToInput(txId: string, dxNm: number): void {
+    this.navCtrl.push('input', {
+      'txId': txId,
+      'dxNm': dxNm
+    });
+  }
+
+  public goToOutput(txId: string, dxNm: number): void {
+    this.navCtrl.push('output', {
+      'txId': txId,
+      'dxNm': dxNm
+    });
+  }
+
+  public printer(obj: any): void {
+    console.log(obj);
+  }
+
   public goToAddress(addrStr: string): void {
     this.navCtrl.push('address', {
       'addrStr': addrStr
@@ -48,6 +67,9 @@ export class TransactionComponent {
   }
 
   public aggregateItems(items: Array<any>): Array<any> {
+
+    console.log(this.dx);
+
     if (!items) return [];
 
     let l: number = items.length;
