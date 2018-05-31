@@ -1,8 +1,8 @@
 {
-  "name": "insight-ui-dash",
+  "name": "@dashevo/insight-ui",
   "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the Dash network and build your own services with it.",
-  "version": "0.4.3",
-  "repository": "git://github.com/dashpay/insight-ui-dash.git",
+  "version": "1.0.0",
+  "repository": "git://github.com/dashevo/insight-ui.git",
   "contributors": [
     {
       "name": "Matias Alejo Garcia",
@@ -26,9 +26,9 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/dashpay/insight-ui-dash/issues"
+    "url": "https://github.com/dashevo/insight-ui/issues"
   },
-  "homepage": "https://github.com/dashpay/insight-ui-dash",
+  "homepage": "https://github.com/dashevo/insight-ui",
   "license": "MIT",
   "keywords": [
     "insight",
@@ -36,11 +36,17 @@
     "blockexplorer",
     "dash",
     "bitcore-dash",
-    "front-end"
+    "front-end",
+    "dashcore"
   ],
-  "bitcoreNode": "bitcore-node-dash",
-  "dependencies": {
+  "dashcoreNode": "dashcore-node",
+  "scripts": {
+    "build": "bower install && grunt compile",
+    "watch": "grunt",
+    "install-and-build": "npm install && npm run build",
+    "test": "mocha test"
   },
+  "dependencies": {},
   "devDependencies": {
     "bower": "~1.2.8",
     "grunt": "~0.4.2",

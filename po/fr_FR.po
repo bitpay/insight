@@ -1,0 +1,464 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Insight\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: public/views/transaction/tx.html
+msgid "(Input unconfirmed)"
+msgstr "(Entrée non confirmé)"
+
+#: public/views/404.html
+msgid "404 Page not found :("
+msgstr "404 Page introuvable :("
+
+#: public/views/index.html
+msgid ""
+"<strong>insight</strong>  is an <a href=\"http://live.insight.is/\" target=\"_blank"
+"\">open-source Dash blockchain explorer</a> with complete REST and websocket APIs "
+"that can be used for writing web wallets and other apps  that need more advanced "
+"blockchain queries than provided by dashd RPC.  Check out the <a href=\"https://"
+"github.com/dashpay/insight-ui-dash\" target=\"_blank\">source code</a>."
+msgstr ""
+"<strong>insight</strong>  est un <a href=\"http://live.insight.is/\" target=\"_blank"
+"\">explorateur open-source de blocs</a> avec un ensemble complet d'API REST et "
+"websockets qui peuvent être utilisées pour écrire portefeuille et autres "
+"applications nécéssitant des requêtes plus complète que celles proposés par les "
+"commandes RPC de dashd. Consultez le <a href=\"http://github.com/dashpay/insight\" "
+"target=\"_blank\">code source sur GitHub</a>."
+
+#: public/views/index.html
+msgid ""
+"<strong>insight</strong> is still in development, so be sure to report any bugs and "
+"provide feedback for improvement at our <a href=\"https://github.com/dashpay/insight/"
+"issues\" target=\"_blank\">github issue tracker</a>."
+msgstr ""
+"<strong>insight</strong> est toujours en développement, hésitez pas à remonter tout "
+"bugs et proposer des améliorations sur notre <a href=\"https://github.com/dashpay/"
+"insight-ui-dash/issues\" target=\"_blank\">Github issue tracker</a>."
+
+#: public/views/index.html
+msgid "About"
+msgstr "À propos"
+
+#: public/views/address.html
+msgid "Address"
+msgstr "Adresse"
+
+#: public/views/index.html
+msgid "Age"
+msgstr "Âge"
+
+#: public/views/status.html
+msgid "Application Status"
+msgstr "Status de l'application"
+
+#: public/views/status.html
+msgid "Best Block"
+msgstr "Meilleur Bloc"
+
+#: public/views/status.html
+msgid "Dash node information"
+msgstr "Information sur le noeud Dash"
+
+#: public/views/block.html
+msgid "Block"
+msgstr "Bloc"
+
+#: public/views/block.html
+msgid "Block Reward"
+msgstr "Recompense de bloc"
+
+#: public/views/block_list.html public/views/dummy-translations.html
+#: public/views/status.html
+msgid "Blocks"
+msgstr "Blocs"
+
+#: public/views/status.html
+msgid "Bytes Serialized"
+msgstr "Octets sérialisés"
+
+#: public/views/includes/connection.html
+msgid ""
+"Can't connect to dashd to get live updates from the p2p network. (Tried connecting "
+"to dashd at {{host}}:{{port}} and failed.)"
+msgstr ""
+"Impossible de se connecter à dashd pour récupérer les dernières informations du "
+"réseau p2p. (Tentative de connexion à dashd ({{host}}:{{port}}) échouée.)"
+
+#: public/views/includes/connection.html
+msgid "Can't connect to insight server. Attempting to reconnect..."
+msgstr "Impossible de se connecter au serveur Insight. Tentative de reconnexion..."
+
+#: public/views/includes/connection.html
+msgid "Can't connect to internet. Please, check your connection."
+msgstr "Impossible de se connecter à internet. S'il vous plait, réessayer."
+
+#: public/views/status.html
+msgid "Complete"
+msgstr "Achevés"
+
+#: public/views/transaction.html public/views/transaction/tx.html
+msgid "Confirmations"
+msgstr "Confirmations"
+
+#: public/views/includes/header.html
+msgid "Conn"
+msgstr "Conn"
+
+#: public/views/status.html
+msgid "Connections to other nodes"
+msgstr "Connexion aux autre noeuds"
+
+#: public/views/status.html
+msgid "Current Blockchain Tip (insight)"
+msgstr "Tip Actuel de la Blockchain (insight)"
+
+#: public/views/status.html
+msgid "Current Sync Status"
+msgstr "Status actuel de synchronisation"
+
+#: public/views/transaction.html
+msgid "Details"
+msgstr "Détails"
+
+#: public/views/block.html
+msgid "Difficulty"
+msgstr "Difficultée"
+
+#: public/views/transaction/tx.html
+msgid "Double spent attempt detected. From tx:"
+msgstr "Tentative de double dépense détectée. Dans la tx:"
+
+#: public/views/includes/connection.html
+msgid "Error!"
+msgstr "Erreur!"
+
+#: public/views/transaction/tx.html
+msgid "Fee"
+msgstr "Frais"
+
+#: public/views/address.html
+msgid "Final Balance"
+msgstr "Solde final"
+
+#: public/views/status.html
+msgid "Finish Date"
+msgstr "Date de fin"
+
+#: public/views/404.html
+msgid "Go to home"
+msgstr "Retour à l'accueil"
+
+#: public/views/status.html
+msgid "Hash Serialized"
+msgstr "Hash Serialisé"
+
+#: public/views/block.html public/views/block_list.html public/views/index.html
+#: public/views/status.html public/views/includes/header.html
+msgid "Height"
+msgstr "Hauteur"
+
+#: public/views/transaction.html public/views/transaction/tx.html
+msgid "Included in Block"
+msgstr "Inclus dans le bloc"
+
+#: public/views/transaction/tx.html
+msgid "Incoherence in levelDB detected:"
+msgstr "Incohérence dans levelDB détectée:"
+
+#: public/views/status.html
+msgid "Info Errors"
+msgstr "Erreurs d'informations"
+
+#: public/views/status.html
+msgid "Initial Block Chain Height"
+msgstr "Hauteur de la chaîne initiale"
+
+#: public/views/transaction.html
+msgid "Input"
+msgstr "Entrée"
+
+#: public/views/status.html
+msgid "Last Block"
+msgstr "Dernier bloc"
+
+#: public/views/status.html
+msgid "Last Block Hash (dashd)"
+msgstr "Hash du dernier bloc  (dashd)"
+
+#: public/views/index.html
+msgid "Latest Blocks"
+msgstr "Derniers Blocs"
+
+#: public/views/index.html
+msgid "Latest Transactions"
+msgstr "Dernières transactions"
+
+#: public/views/address.html
+msgid "Loading Address Information"
+msgstr "Chargement des informations de l'adresse"
+
+#: public/views/block.html
+msgid "Loading Block Information"
+msgstr "Chagement des information du bloc"
+
+#: public/views/block_list.html
+msgid "Loading Selected Date..."
+msgstr "Chargement de la date sélectionnée..."
+
+#: public/views/transaction.html
+msgid "Loading Transaction Details"
+msgstr "Chargement des détails de la transaction"
+
+#: public/views/transaction/list.html
+msgid "Loading Transactions..."
+msgstr "Chagement des Transactions..."
+
+#: public/views/includes/infoStatus.html
+msgid "Loading..."
+msgstr "Chargement..."
+
+#: public/views/transaction.html
+msgid "Mined Time"
+msgstr "Heure de minage"
+
+#: public/views/block.html public/views/block_list.html public/views/index.html
+msgid "Mined by"
+msgstr "Miné par"
+
+#: public/views/status.html
+msgid "Mining Difficulty"
+msgstr "Difficultée de minage"
+
+#: public/views/block.html
+msgid "Next Block"
+msgstr "Bloc suivant"
+
+#: public/views/transaction/tx.html
+msgid "No Inputs (Newly Generated Coins)"
+msgstr "Pas d'entrées (nouvellement générées)"
+
+#: public/views/block_list.html
+msgid "No blocks yet."
+msgstr "Aucun blocs pour l'instant."
+
+#: public/views/includes/header.html public/views/includes/search.html
+msgid "No matching records found!"
+msgstr "Aucun enregistremements correspondants trouvés!"
+
+#: public/views/address.html
+msgid "No. Transactions"
+msgstr "Transactions N°"
+
+#: public/views/block.html
+msgid "Number Of Transactions"
+msgstr "Nombre de transaction"
+
+#: public/views/transaction.html
+msgid "Output"
+msgstr "Sortie"
+
+#: public/views/index.html
+msgid "Powered by"
+msgstr "Propulsé par"
+
+#: public/views/block.html
+msgid "Previous Block"
+msgstr "Bloc précédent"
+
+#: public/views/status.html
+msgid "Protocol version"
+msgstr "Version du protocol"
+
+#: public/views/status.html
+msgid "Proxy setting"
+msgstr "Paramètre de proxy"
+
+#: public/views/transaction.html
+msgid "Received Time"
+msgstr "Heure de réception"
+
+#: public/views/redirect.html
+msgid "Redirecting..."
+msgstr "Redirection..."
+
+#: public/views/includes/header.html
+msgid "Search for block, transaction or address"
+msgstr "Rechercher des blocs, transactions ou adresses"
+
+#: public/views/index.html
+msgid "See all blocks"
+msgstr "Voir tous les blocs"
+
+#: public/views/status.html
+msgid "Show Transaction Output data"
+msgstr "Afficher les données de sortie de transaction"
+
+#: public/views/transaction/tx.html
+msgid "Show all"
+msgstr "Tout afficher"
+
+#: public/views/transaction/tx.html
+msgid "Show input"
+msgstr "Afficher l'entrée"
+
+#: public/views/transaction/tx.html
+msgid "Show less"
+msgstr "Voir moins"
+
+#: public/views/transaction/tx.html
+msgid "Show more"
+msgstr "Voir plus"
+
+#: public/views/block_list.html public/views/index.html public/views/transaction.html
+msgid "Size"
+msgstr "Taille"
+
+#: public/views/block.html
+msgid "Size (bytes)"
+msgstr "Taille (octets)"
+
+#: public/views/status.html
+msgid "Skipped Blocks (previously synced)"
+msgstr "Blocs ignorés (préalablement synchronisés)"
+
+#: public/views/status.html
+msgid "Start Date"
+msgstr "Date de début"
+
+#: public/views/dummy-translations.html
+msgid "Status"
+msgstr "Status"
+
+#: public/views/block.html public/views/transaction.html
+msgid "Summary"
+msgstr "Résumé"
+
+#: public/views/address.html
+msgid "Summary <small>confirmed</small>"
+msgstr "Résume <small>confirmé</small>"
+
+#: public/views/status.html
+msgid "Sync Progress"
+msgstr "Progression de la synchronication"
+
+#: public/views/status.html
+msgid "Sync Status"
+msgstr "Status de la synchronisation"
+
+#: public/views/status.html
+msgid "Sync Type"
+msgstr "Type de la synchronisation"
+
+#: public/views/status.html
+msgid "Synced Blocks"
+msgstr "Blocs synchronisés"
+
+#: public/views/status.html
+msgid "Testnet"
+msgstr "Réseau de test"
+
+#: public/views/transaction/list.html
+msgid "There are no transactions involving this address."
+msgstr "Il n'y a pas de transactions impliquant cette adresse."
+
+#: public/views/status.html
+msgid "Time Offset"
+msgstr "Décalage horaire"
+
+#: public/views/block.html
+msgid "Timestamp"
+msgstr "Date et heure"
+
+#: public/views/block_list.html
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#: public/views/status.html
+msgid "Total Amount"
+msgstr "Montant Total"
+
+#: public/views/address.html
+msgid "Total Received"
+msgstr "Total Reçu"
+
+#: public/views/address.html
+msgid "Total Sent"
+msgstr "Total Envoyés"
+
+#: public/views/transaction.html
+msgid "Transaction"
+msgstr "Transaction"
+
+#: public/views/status.html
+msgid "Transaction Output Set Information"
+msgstr "Informations sur l'ensemble des sorties de transaction"
+
+#: public/views/status.html
+msgid "Transaction Outputs"
+msgstr "Sorties de transaction"
+
+#: public/views/address.html public/views/block.html public/views/block_list.html
+#: public/views/index.html public/views/status.html
+msgid "Transactions"
+msgstr "Transactions"
+
+#: public/views/transaction/tx.html
+msgid "Type"
+msgstr "Type"
+
+#: public/views/address.html
+msgid "Unconfirmed"
+msgstr "Non confirmée"
+
+#: public/views/transaction.html public/views/transaction/tx.html
+msgid "Unconfirmed Transaction!"
+msgstr "Transaction non confirmée!"
+
+#: public/views/address.html
+msgid "Unconfirmed Txs Balance"
+msgstr "Solde non confirmé"
+
+#: public/views/index.html
+msgid "Value Out"
+msgstr "Valeur de sortie"
+
+#: public/views/block.html public/views/status.html
+msgid "Version"
+msgstr "Version"
+
+#: public/views/block_list.html public/views/index.html
+msgid "Waiting for blocks..."
+msgstr "En attente de blocs..."
+
+#: public/views/index.html
+msgid "Waiting for transactions..."
+msgstr "En attente de transactions..."
+
+#: public/views/block_list.html
+msgid "by date."
+msgstr "par date."
+
+#: public/views/transaction/tx.html
+msgid "first seen at"
+msgstr "aperçu la première fois le"
+
+#: public/views/transaction/tx.html
+msgid "mined"
+msgstr "miné"
+
+#: public/views/block_list.html
+msgid "mined on:"
+msgstr "miné le:"
+
+#~ msgid "Waiting for blocks"
+#~ msgstr "Esperando bloques"

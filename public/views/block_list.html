@@ -11,7 +11,7 @@
       </div>
       <p class="lead text-center m20v">
       {{pagination.current}} UTC
-      <a href="#" class="btn btn-primary btn-xs" datepicker-popup show-button-bar="false" data-ng-click="openCalendar($event)" data-ng-model="dt" is-open="opened" data-ng-required="true"><span class="glyphicon glyphicon-calendar"></span></a>
+      <div class="lead text-center m20v"><a href="#" class="btn btn-primary btn-xs" uib-datepicker-popup show-button-bar="false" data-ng-click="openCalendar($event)" data-ng-model="dt" is-open="opened" data-ng-model-options="{timezone: 'utc'}" data-ng-required="true" popup-placement="bottom"><span class="glyphicon glyphicon-calendar"></span></a></div>
       </p>
       <div class="m20v text-center text-muted" data-ng-if="!pagination.current">
         <span translate>Loading Selected Date...</span>
@@ -50,7 +50,7 @@
         </tr>
         <tr class="fader" data-ng-repeat='b in blocks'>
           <td><a href="block/{{b.hash}}">{{b.height}}</a></td>
-          <td>{{b.time * 1000 | date:'medium'}}</td>
+          <td>{{millisToUTCDate(b.time) | date:'medium'}} UTC</td>
           <td class="text-right">{{b.txlength}}</td>
           <td class="text-right hidden-xs"><a href="{{b.poolInfo.url}}" title="{{b.poolInfo.poolName}}" target="_blank" data-ng-show="b.poolInfo">{{b.poolInfo.poolName}}</a></td>
           <td class="text-right">{{b.size}}</td>
@@ -58,8 +58,8 @@
         </tbody>
       </table>
       <div data-ng-if="pagination.more">
-        <a class="btn btn-primary" href="blocks-date/{{pagination.current}}" data-ng-show="{{before}}">Lastest block from date</a>
-        <a class="btn btn-primary" href="blocks-date/{{pagination.current}}/{{pagination.moreTs}}">Older blocks from this date</a>
+        <a class="btn btn-primary" href="blocks-date/{{pagination.current}}" data-ng-show="before">Lastest block from date</a>
+        <a class="btn btn-primary" href="blocks-date/{{pagination.current}}/{{pagination.olderBlocks}}">Older blocks from this date</a>
       </div>
     </div>
   </div>

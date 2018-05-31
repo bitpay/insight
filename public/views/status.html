@@ -13,11 +13,11 @@
             <td translate>Sync Progress</td>
             <td>
               <div class="progress">
-                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ sync.syncPercentage}}%">
+                <uib-progressbar class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ sync.syncPercentage}}%">
                   <span data-ng-show="sync.syncPercentage>0">{{sync.syncPercentage}}%
                     <span translate>Complete</span>
                   </span>
-                </div>
+                </uib-progressbar>
               </div>
             </td>
           </tr>

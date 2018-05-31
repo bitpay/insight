@@ -1,22 +1,22 @@
-# Insight UI Dash
+# Insight UI
 
-A Dash blockchain explorer web application service for [Bitcore Node Dash](https://github.com/dashpay/bitcore-node-dash) using [Insight API Dash](https://github.com/dashpay/insight-api-dash).
+A Dash blockchain explorer web application service for [Dashcore Node](https://github.com/dashevo/dashcore-node) using [Insight API](https://github.com/dashevo/insight-api).
 
 ## Quick Start
 
-Please see the guide at [https://bitcore.io/guides/full-node](https://bitcore.io/guides/full-node) for information about getting a block explorer running. This is only the front-end component of the block explorer, and is packaged together with all of the necessary components in [Bitcore](https://github.com/dashpay/bitcore-dash).
+Please see the guide at [https://bitcore.io/guides/full-node](https://bitcore.io/guides/full-node) for information about getting a block explorer running. This is only the front-end component of the block explorer, and is packaged together with all of the necessary components in [Dashcore](https://github.com/dashevo/dashcore).
 
 ## Getting Started
 
 To manually install all of the necessary components, you can run these commands:
 
 ```bash
-npm install -g bitcore-node-dash
-bitcore-node-dash create mynode
+npm install -g dashcore-node
+dashcore-node create mynode
 cd mynode
-bitcore-node-dash install insight-api-dash
-bitcore-node-dash install insight-ui-dash
-bitcore-node-dash start
+dashcore-node install @dashcore/insight-api
+dashcore-node install @dashcore/insight-ui
+dashcore-node start
 ```
 
 Open a web browser to `http://localhost:3001/insight/`
@@ -70,11 +70,11 @@ compile***.
 
 ## Note
 
-For more details about the [Insight API](https://github.com/dashpay/insight-api-dash) configuration and end-points, go to [Insight API GitHub repository](https://github.com/dashpay/insight-api-dash).
+For more details about the [Insight API](https://github.com/dashevo/insight-api) configuration and end-points, go to [Insight API GitHub repository](https://github.com/dashevo/insight-api).
 
 ## Contribute
 
-Contributions and suggestions are welcomed at the [Insight UI Dash GitHub repository](https://github.com/dashpay/insight-ui-dash).
+Contributions and suggestions are welcomed at the [Insight UI Dash GitHub repository](https://github.com/dashevo/insight-ui).
 
 
 ## License

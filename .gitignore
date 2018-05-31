@@ -13,7 +13,7 @@ pids
 logs
 results
 build
-
+.idea
 node_modules
 
 # extras
@@ -47,3 +47,4 @@ public/css/main.css
 README.html
 po/*
 !po/*.po
+.idea
