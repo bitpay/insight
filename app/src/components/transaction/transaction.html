@@ -32,7 +32,7 @@
       </ion-list>
 
       <ion-list [hidden]="tx.isCoinBase">
-        <ion-item *ngFor="let vin of aggregateItems(tx.vin); let i = index" [ngClass]="[i === txIndex && txDirection === '<' ? 'item--state-highlight' : 'item--state-nolight']">
+        <ion-item *ngFor="let vin of aggregateItems(tx.vin); let i = index" [ngClass]="{'item--state-highlight' : i === txIndex && txDirection === '<'}">
           <div>
             <div class="ellipsis">
               <p>
@@ -73,7 +73,7 @@
 
     <ion-col col-12 col-md-6>
       <ion-list>
-        <ion-item *ngFor="let vout of tx.vout; let i = index" [ngClass]="[i === txIndex && txDirection === '>' ? 'item--state-highlight' : 'item--state-nolight']">
+        <ion-item *ngFor="let vout of tx.vout; let i = index" [ngClass]="{'item--state-highlight' : i === txIndex && txDirection === '>'}">
           <div>
             <div class="ellipsis">
               <p>
