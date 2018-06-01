@@ -32,14 +32,14 @@
       </ion-list>
 
       <ion-list [hidden]="tx.isCoinBase">
-        <ion-item *ngFor="let vin of aggregateItems(tx.vin); let i = index" [ngClass]="[i === dx ? 'itemHighlight' : 'itemNoLight']">
+        <ion-item *ngFor="let vin of aggregateItems(tx.vin); let i = index" [ngClass]="[i === dx && dr === '<' ? 'itemHighlight' : 'itemNoLight']">
           <div>
             <div class="ellipsis">
-              <span *ngIf="vin.items[dx] !== undefined && vin.items[dx].txid" [hidden]="!expanded">
-                <a (click)="goToOutput(vin.items[dx].txid, dx)">
+              <!-- <span *ngIf="vin.items[dx] !== undefined && vin.items[dx].txid" [hidden]="!expanded">
+                <a (click)="goToOutput(vin.items[dx].txid, vin.items[dx].vout)">
                   <ion-icon name="arrow-dropleft-circle"></ion-icon>
                 </a>
-              </span>
+              </span> -->
               <span>
                 {{ printer(vin) }}
               </span>
@@ -56,11 +56,18 @@
               </p>
               <div *ngFor="let item of vin.items">
                 <div *ngIf="item.scriptSig">
-                  <div *ngFor="let scriptSig of item.scriptSig.asm | split:' '">
+
+                  <!-- <div *ngFor="let scriptSig of item.scriptSig.asm"> -->
+
                     <div class="unlocking-script">
-                      <p>{{ scriptSig }}</p>
+                        <a (click)="goToOutput(item.txid, item.vout)">
+                            <ion-icon name="arrow-dropleft-circle"></ion-icon>
+                          </a>
+                      <p>{{ item.scriptSig.asm }}</p>
                     </div>
-                  </div>
+
+                  <!-- </div> -->
+                  
                 </div>
               </div>
             </div>
@@ -80,7 +87,7 @@
 
     <ion-col col-12 col-md-6>
       <ion-list>
-        <ion-item *ngFor="let vout of tx.vout">
+        <ion-item *ngFor="let vout of tx.vout; let i = index" [ngClass]="[i === dx && dr === '>' ? 'itemHighlight' : 'itemNoLight']">
           <div>
             <div class="ellipsis">
               <p>

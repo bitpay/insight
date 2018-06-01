@@ -19,6 +19,7 @@ export class TransactionComponent {
 
   public expanded: boolean = false;
   @Input() public tx: any = {};
+  @Input() public dr?: string;
   @Input() public dx?: number;
 
   constructor(private navCtrl: NavController, public currency: CurrencyProvider) {
@@ -39,15 +40,17 @@ export class TransactionComponent {
   }
 
   public goToInput(txId: string, dxNm: number): void {
-    this.navCtrl.push('input', {
+    this.navCtrl.push('input-output', {
       'txId': txId,
+      'dir': '<',
       'dxNm': dxNm
     });
   }
 
   public goToOutput(txId: string, dxNm: number): void {
-    this.navCtrl.push('output', {
+    this.navCtrl.push('input-output', {
       'txId': txId,
+      'dir': '>',
       'dxNm': dxNm
     });
   }
@@ -68,7 +71,6 @@ export class TransactionComponent {
 
   public aggregateItems(items: Array<any>): Array<any> {
 
-    console.log(this.dx);
 
     if (!items) return [];
 
