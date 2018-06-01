@@ -71,7 +71,6 @@ export class TransactionComponent {
 
   public aggregateItems(items: Array<any>): Array<any> {
 
-
     if (!items) return [];
 
     let l: number = items.length;

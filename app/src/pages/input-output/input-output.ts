@@ -15,7 +15,7 @@ import { ApiProvider } from '../../providers/api/api';
 })
 @Component({
   selector: 'page-input-output',
-  templateUrl: 'input-output.html',
+  templateUrl: 'input-output.html'
 })
 export class InputOutputPage {
 

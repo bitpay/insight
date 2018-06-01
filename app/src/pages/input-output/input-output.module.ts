@@ -6,7 +6,7 @@ import { HeadNavComponentModule } from '../../components/head-nav/head-nav.modul
 
 @NgModule({
   declarations: [
-    InputOutputPage,
+    InputOutputPage
   ],
   imports: [
     IonicPageModule.forChild(InputOutputPage),
