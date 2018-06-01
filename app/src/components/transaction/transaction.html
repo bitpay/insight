@@ -35,14 +35,6 @@
         <ion-item *ngFor="let vin of aggregateItems(tx.vin); let i = index" [ngClass]="[i === dx && dr === '<' ? 'itemHighlight' : 'itemNoLight']">
           <div>
             <div class="ellipsis">
-              <!-- <span *ngIf="vin.items[dx] !== undefined && vin.items[dx].txid" [hidden]="!expanded">
-                <a (click)="goToOutput(vin.items[dx].txid, vin.items[dx].vout)">
-                  <ion-icon name="arrow-dropleft-circle"></ion-icon>
-                </a>
-              </span> -->
-              <span>
-                {{ printer(vin) }}
-              </span>
               <p>
                 <a (click)="goToAddress(vin.addr)">{{ vin.addr }}</a>
               </p>
@@ -110,9 +102,7 @@
 
           <div item-end>
             {{ currency.getConvertedNumber(vout.value) | number:'1.0-8' }} {{ currency.currencySymbol }}
-            <!-- <span [hidden]="!vout.spentTxId">(S)</span> -->
             <span [hidden]="!vout.spentTxId">
-              <!-- <a (click)="goToInput(vout.spentTxId, vout.spentIndex)">(S)</a> -->
               (S)
               <a (click)="goToInput(vout.spentTxId, vout.spentIndex)" [hidden]="!expanded">
                   <ion-icon name="arrow-dropright-circle"></ion-icon>

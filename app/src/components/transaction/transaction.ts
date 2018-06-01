@@ -55,10 +55,6 @@ export class TransactionComponent {
     });
   }
 
-  public printer(obj: any): void {
-    console.log(obj);
-  }
-
   public goToAddress(addrStr: string): void {
     this.navCtrl.push('address', {
       'addrStr': addrStr
