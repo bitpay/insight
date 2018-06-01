@@ -32,7 +32,7 @@
       </ion-list>
 
       <ion-list [hidden]="tx.isCoinBase">
-        <ion-item *ngFor="let vin of aggregateItems(tx.vin); let i = index" [ngClass]="[i === dx && dr === '<' ? 'itemHighlight' : 'itemNoLight']">
+        <ion-item *ngFor="let vin of aggregateItems(tx.vin); let i = index" [ngClass]="[i === txIndex && txDirection === '<' ? 'item--state-highlight' : 'item--state-nolight']">
           <div>
             <div class="ellipsis">
               <p>
@@ -48,18 +48,12 @@
               </p>
               <div *ngFor="let item of vin.items">
                 <div *ngIf="item.scriptSig">
-
-                  <!-- <div *ngFor="let scriptSig of item.scriptSig.asm"> -->
-
                     <div class="unlocking-script">
-                        <a (click)="goToOutput(item.txid, item.vout)">
+                        <a (click)="goToOutpoint(item.txid,'>', item.vout)">
                             <ion-icon name="arrow-dropleft-circle"></ion-icon>
                           </a>
                       <p>{{ item.scriptSig.asm }}</p>
                     </div>
-
-                  <!-- </div> -->
-                  
                 </div>
               </div>
             </div>
@@ -79,7 +73,7 @@
 
     <ion-col col-12 col-md-6>
       <ion-list>
-        <ion-item *ngFor="let vout of tx.vout; let i = index" [ngClass]="[i === dx && dr === '>' ? 'itemHighlight' : 'itemNoLight']">
+        <ion-item *ngFor="let vout of tx.vout; let i = index" [ngClass]="[i === txIndex && txDirection === '>' ? 'item--state-highlight' : 'item--state-nolight']">
           <div>
             <div class="ellipsis">
               <p>
@@ -104,7 +98,7 @@
             {{ currency.getConvertedNumber(vout.value) | number:'1.0-8' }} {{ currency.currencySymbol }}
             <span [hidden]="!vout.spentTxId">
               (S)
-              <a (click)="goToInput(vout.spentTxId, vout.spentIndex)" [hidden]="!expanded">
+              <a (click)="goToOutpoint(vout.spentTxId, '<', vout.spentIndex)" [hidden]="!expanded">
                   <ion-icon name="arrow-dropright-circle"></ion-icon>
               </a>
             </span>

@@ -10,25 +10,25 @@ import { ApiProvider } from '../../providers/api/api';
  * on Ionic pages and navigation.
  */
 @IonicPage({
-  name: 'input-output',
-  segment: 'tx/:txId/:dir/:dxNm'
+  name: 'outpoint',
+  segment: 'tx/:txId/:txDirection/:txIndex'
 })
 @Component({
-  selector: 'page-input-output',
-  templateUrl: 'input-output.html'
+  selector: 'page-outpoint',
+  templateUrl: 'outpoint.html'
 })
-export class InputOutputPage {
+export class OutpointPage {
 
   public loading: boolean = true;
   private txId: string;
-  public dxNm: number;
-  public dir: string;
+  public txIndex: number;
+  public txDirection: string;
   public tx: any = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, private api: ApiProvider) {
     this.txId = navParams.get('txId');
-    this.dxNm = Number(navParams.get('dxNm'));
-    this.dir = navParams.get('dir');
+    this.txIndex = Number(navParams.get('txIndex'));
+    this.txDirection = navParams.get('txDirection');
   }
 
   public ionViewDidLoad(): void {

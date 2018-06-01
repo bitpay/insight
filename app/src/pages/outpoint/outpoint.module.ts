@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { InputOutputPage } from './input-output';
+import { OutpointPage } from './outpoint';
 import { TransactionComponentModule } from '../../components/transaction/transaction.module';
 import { HeadNavComponentModule } from '../../components/head-nav/head-nav.module';
 
 @NgModule({
   declarations: [
-    InputOutputPage
+    OutpointPage
   ],
   imports: [
-    IonicPageModule.forChild(InputOutputPage),
+    IonicPageModule.forChild(OutpointPage),
     TransactionComponentModule,
     HeadNavComponentModule
   ],
   exports: [
-    InputOutputPage
+    OutpointPage
   ]
 })
-export class InputOutputPageModule {}
+export class OutpointPageModule {}

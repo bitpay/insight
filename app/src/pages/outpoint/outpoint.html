@@ -9,8 +9,11 @@
     </div>
   
     <div *ngIf="!loading" class="page-content">
-      <h1 [hidden]=" dxNm !== null && dir !== '>' ">Output Transaction | Index #{{ dxNm }}</h1>
-      <h1 [hidden]=" dxNm !== null && dir !== '<' ">Input Transaction | Index #{{ dxNm }}</h1>
+      <h1> 
+        <span [hidden]=" txIndex !== null && txDirection !== '<' ">Input</span>
+        <span [hidden]=" txIndex !== null && txDirection !== '>' ">Output</span>
+        Transaction | Index #{{ txIndex }}
+      </h1>
       <p class="item-hash">
         <b>Transaction Hash</b> {{ tx.txid }}
       </p>
@@ -52,7 +55,7 @@
       <br>
       <h2>Details</h2>
   
-      <transaction [tx]="tx" [dx]="dxNm" [dr]="dir"></transaction>
+      <transaction [tx]="tx" [txIndex]="txIndex" [txDirection]="txDirection"></transaction>
     </div>
   
   </ion-content>

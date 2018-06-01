@@ -19,8 +19,8 @@ export class TransactionComponent {
 
   public expanded: boolean = false;
   @Input() public tx: any = {};
-  @Input() public dr?: string;
-  @Input() public dx?: number;
+  @Input() public txDirection?: string;
+  @Input() public txIndex?: number;
 
   constructor(private navCtrl: NavController, public currency: CurrencyProvider) {
   }
@@ -39,20 +39,23 @@ export class TransactionComponent {
     });
   }
 
-  public goToInput(txId: string, dxNm: number): void {
-    this.navCtrl.push('input-output', {
-      'txId': txId,
-      'dir': '<',
-      'dxNm': dxNm
-    });
-  }
-
-  public goToOutput(txId: string, dxNm: number): void {
-    this.navCtrl.push('input-output', {
-      'txId': txId,
-      'dir': '>',
-      'dxNm': dxNm
-    });
+  public goToOutpoint(txId: string, txDirection: string, txIndex: number): void {
+    // output page
+    if (txDirection === '>') {
+      this.navCtrl.push('outpoint', {
+        'txId': txId,
+        'txDirection': '>',
+        'txIndex': txIndex
+      }); 
+    }
+    // input page
+    if (txDirection === '<') {
+      this.navCtrl.push('outpoint', {
+        'txId': txId,
+        'txDirection': '<',
+        'txIndex': txIndex
+      });
+    }
   }
 
   public goToAddress(addrStr: string): void {
