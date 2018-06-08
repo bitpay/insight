@@ -103,7 +103,7 @@ margin-left: 0;
 }
 
 .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
-  background-color: #cfe3f4;
+  background-color: #e6e8ec;
   /*cfe3f4*/
 }
 .navbar { min-height: 64px; }
@@ -116,7 +116,7 @@ margin-left: 0;
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {background-color: #373D42;}
 
 .navbar-default {
-  background-color: #1d71b8;
+  background-color: #012060;
   margin: 0;
   border: 0;
 }
@@ -167,7 +167,7 @@ margin-left: 0;
 }
 
 .navbar-form .form-control {
-  background-color: #1d71b8;
+  background-color: #012060;
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -217,7 +217,7 @@ margin-left: 0;
 .status {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  background-color: #345672;
+  background-color: #ffffff12;
   border-radius: 3px;
   margin: 15px 0;
   padding: 8px 10px;
@@ -270,8 +270,11 @@ margin-left: 0;
 }
 
 .block-id {
-  background-color: #373D42;
+  background-color: #012060;
   border: 3px solid #FFFFFF;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
   margin: 0 auto;
   width: 165px;
   color: #fff;
@@ -279,8 +282,9 @@ margin-left: 0;
 }
 
 .block-id span {
-  font-size: 40px;
-  margin: 30px 0;
+  color: #FFFFFF;
+  font-size: 18px;
+  margin: 10px 0;
 }
 
 .block-id h2 {
@@ -296,6 +300,7 @@ margin-left: 0;
   color: #FFFFFF;
   font-size: 35px;
   margin-top:  10px;
+  margin-bottom:  10px;
 }
 
 .icon-block h3 {
@@ -317,8 +322,8 @@ margin-left: 0;
   border-radius: 2px;
 }
 .btn-primary {
-  background-color: #1d71b8;
-  border: 2px solid #1d71b8;
+  background-color: #008de4;
+  border: 2px solid #ffffff;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active,
@@ -364,7 +369,7 @@ margin-left: 0;
 }
 
 .txvalues-primary {
-  background-color: #1d71b8;
+  background-color: #8a8a8a;
 }
 
 .txvalues-default {
@@ -373,7 +378,7 @@ margin-left: 0;
 }
 
 .txvalues-success {
-  background-color: #2FA4D7;
+  background-color: #01215f;
 }
 
 .txvalues-danger {
@@ -387,11 +392,11 @@ margin-left: 0;
   font-size: 14px;
   font-weight: normal;
 }
-.progress-bar-info { background-color: #1d71b8; }
+.progress-bar-info { background-color: #008de4; }
 
 /* Set the fixed height of the footer here */
 #footer {
-  background-color: #373D42;
+  background-color: #111921;
   color: #fff;
   height: 51px;
   overflow: hidden;
@@ -407,7 +412,11 @@ margin-left: 0;
   color: #fffffe;
 }
 
-#footer a.insight small { font-size: 11px; }
+#footer a.insight small { 
+  font-size: 11px; 
+  margin-right: 2px;
+}
+
 .line-footer { border-top: 2px dashed #ccc; }
 
 #footer .links {
@@ -739,7 +748,7 @@ a.v_highlight_more {
     margin: 15px 0;
   }
   .block-id span {
-    font-size: 24px;
+    font-size: 18px;
     margin: 10px 0;
   }
   .icon-block {
@@ -762,8 +771,8 @@ a.v_highlight_more {
     font-size: 40px;
   }
   .navbar-default .navbar-nav>li>a {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 13px;
+    padding-right: 13px;
   }
 }
 
@@ -855,4 +864,51 @@ a.v_highlight_more {
 /*fix for ui-bootstrap-tpls datepicker*/
 .uib-day button, .uib-month button, .uib-year button {
   min-width: 100%;
+}
+
+/* Dash rebrand, 2018-05-28 */
+a {
+  color: #008de4;
+}
+
+.btn-info {
+  background-color: #008de4;
+  border-color: #ffffff
+}
+
+.btn-info:hover {
+  background-color: #0478c3;
+  border-color: #ffffff
+}
+
+.btn-info.disabled.focus,
+.btn-info.disabled:focus,
+.btn-info.disabled:hover,
+.btn-info[disabled].focus,
+.btn-info[disabled]:focus,
+.btn-info[disabled]:hover,
+fieldset[disabled] .btn-info.focus,
+fieldset[disabled] .btn-info:focus,
+fieldset[disabled] .btn-info:hover {
+    background-color: #008de4;
+    border-color: #46b8da;
+}
+
+.btn-info .badge {
+    color: #008de4;
+    background-color: #ffffff;
+}
+
+.label-info {
+    background-color: #008de4;
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #333;
+    background-color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:active {
+    color: #cfe3f4;
+    background-color: transparent;
 }
