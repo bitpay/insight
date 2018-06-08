@@ -40,22 +40,11 @@ export class TransactionComponent {
   }
 
   public goToOutpoint(txId: string, txDirection: string, txIndex: number): void {
-    // output page
-    if (txDirection === '>') {
-      this.navCtrl.push('outpoint', {
+    this.navCtrl.push('outpoint', {
         'txId': txId,
-        'txDirection': '>',
+        'txDirection': txDirection,
         'txIndex': txIndex
-      }); 
-    }
-    // input page
-    if (txDirection === '<') {
-      this.navCtrl.push('outpoint', {
-        'txId': txId,
-        'txDirection': '<',
-        'txIndex': txIndex
-      });
-    }
+    });
   }
 
   public goToAddress(addrStr: string): void {
