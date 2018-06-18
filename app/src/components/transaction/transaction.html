@@ -32,7 +32,7 @@
       </ion-list>
 
       <ion-list [hidden]="tx.isCoinBase">
-        <ion-item *ngFor="let vin of aggregateItems(tx.vin)">
+        <ion-item *ngFor="let vin of aggregateItems(tx.vin); let i = index" [ngClass]="{'item--state-highlight' : i === txIndex && txDirection === '<'}">
           <div>
             <div class="ellipsis">
               <p>
@@ -41,14 +41,18 @@
             </div>
             <div [hidden]="!expanded">
               <p *ngIf="vin.confirmations">
-                <b>Confirmations</b> {{vin.confirmations}}</p>
+                <b>Confirmations</b> {{vin.confirmations}}
+              </p>
               <p>
                 <b>Unlocking Script</b>
               </p>
               <div *ngFor="let item of vin.items">
                 <div *ngIf="item.scriptSig">
                   <div class="unlocking-script">
-                    <p>{{ item.scriptSig.asm }}
+                    <a (click)="goToOutpoint(item.txid,'>', item.vout)">
+                      <ion-icon name="arrow-dropleft-circle"></ion-icon>
+                    </a>
+                    <p>{{ item.scriptSig.asm }}</p>
                   </div>
                 </div>
               </div>
@@ -69,7 +73,7 @@
 
     <ion-col col-12 col-md-6>
       <ion-list>
-        <ion-item *ngFor="let vout of tx.vout">
+        <ion-item *ngFor="let vout of tx.vout; let i = index" [ngClass]="{'item--state-highlight' : i === txIndex && txDirection === '>'}">
           <div>
             <div class="ellipsis">
               <p>
@@ -92,7 +96,12 @@
 
           <div item-end>
             {{ currency.getConvertedNumber(vout.value) | number:'1.0-8' }} {{ currency.currencySymbol }}
-            <span [hidden]="!vout.spentTxId">(S)</span>
+            <span [hidden]="!vout.spentTxId">
+              (S)
+              <a (click)="goToOutpoint(vout.spentTxId, '<', vout.spentIndex)" [hidden]="!expanded">
+                  <ion-icon name="arrow-dropright-circle"></ion-icon>
+              </a>
+            </span>
             <span [hidden]="vout.spentTxId">(U)</span>
           </div>
         </ion-item>
