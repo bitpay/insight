@@ -45,13 +45,15 @@ InsightUI.prototype.getRoutePrefix = function() {
 InsightUI.prototype.setupRoutes = function(app, express) {
   var self = this;
   app.use(express.static(__dirname + '/../app/www'));
-  // if not in found, fall back to indexFile (404 is handled client-side)
-  /*
-  app.use(function(req, res) {
-    res.setHeader('Content-Type', 'text/html');
-    res.send(self.indexFile);
+  app.use((req, resp, next) => {
+    const url = req.originalUrl;
+    if (!url.includes("#") && !url.includes(".")) {
+      const redirectTo = `/#${url}`;
+      resp.redirect(redirectTo);
+    } else {
+      next();
+    }
   });
-  */
 };
 
 InsightUI.prototype.filterIndexHTML = function(data) {
