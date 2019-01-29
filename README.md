@@ -25,22 +25,22 @@ Open a web browser to `http://localhost:3001/insight/`
 
 To run Insight UI Dash locally in development mode:
 
-Install bower dependencies:
+Install dependencies:
 
 ```
-$ bower install
+$ npm install
 ```
 
-To compile and minify the web application's assets:
+To download bower dependencies, compile and minify the web application's assets:
 
 ```
-$ grunt compile
+$ npm run build
 ```
 
 There is a convenient Gruntfile.js for automation during editing the code
 
 ```
-$ grunt
+$ npm run watch
 ```
 
 ## Multilanguage support
@@ -50,7 +50,7 @@ Insight UI Dash uses [angular-gettext](http://angular-gettext.rocketeer.be) for 
 To enable a text to be translated, add the ***translate*** directive to html tags. See more details [here](http://angular-gettext.rocketeer.be/dev-guide/annotate/). Then, run:
 
 ```
-grunt compile
+npm run build
 ```
 
 This action will create a template.pot file in ***po/*** folder. You can open it with some PO editor ([Poedit](http://poedit.net)). Read this [guide](http://angular-gettext.rocketeer.be/dev-guide/translate/) to learn how to edit/update/import PO files from a generated POT file. PO file will be generated inside po/ folder.
