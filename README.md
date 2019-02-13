@@ -11,11 +11,11 @@ Please see the guide at [https://bitcore.io/guides/full-node](https://bitcore.io
 To manually install all of the necessary components, you can run these commands:
 
 ```bash
-npm install -g dashcore-node
+npm install -g @dashevo/dashcore-node
 dashcore-node create mynode
 cd mynode
-dashcore-node install @dashcore/insight-api
-dashcore-node install @dashcore/insight-ui
+dashcore-node install @dashevo/insight-api
+dashcore-node install @dashevo/insight-ui
 dashcore-node start
 ```
 
