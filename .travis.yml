@@ -1,0 +1,39 @@
+sudo: false
+dist: trusty
+language: node_js
+
+node_js:
+  - '6'
+  - '8'
+  - '10'
+
+services:
+  - docker
+
+addons:
+  apt:
+    packages:
+      - docker-ce
+
+branches:
+  only:
+    - master
+    # Allow builds for version tags (e.g. v1.0.0)
+    - /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/
+
+before_install:
+  # Login to NPM registry
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+  # Use latest supported NPM in order to speedup build and support `npm ci`
+  - npm i -g npm@6
+
+install:
+  - npm ci
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: bash scripts/travis-deploy.sh
+    on:
+      repo: dashevo/insight-ui
+      tags: true
