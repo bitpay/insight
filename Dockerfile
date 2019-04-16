@@ -30,7 +30,7 @@ FROM node:8-alpine
 LABEL maintainer="Dash Developers <dev@dash.org>"
 LABEL description="Dockerised Insight-Dash"
 
-COPY --from=0 /insight /
+COPY --from=0 /insight/ /insight
 
 EXPOSE 3001
 
