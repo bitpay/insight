@@ -23,7 +23,7 @@ branches:
 
 before_install:
   # Login to NPM registry
-  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+  - npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
   # Use latest supported NPM in order to speedup build and support `npm ci`
   - npm i -g npm@6
 
