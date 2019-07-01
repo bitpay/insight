@@ -1,0 +1,10 @@
+{
+  "env": {
+    "node": true,
+    "jasmine": true,
+    "protractor": true
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": "off"
+  }
+}

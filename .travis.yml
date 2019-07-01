@@ -3,17 +3,23 @@ dist: trusty
 language: node_js
 
 node_js:
-  - '6'
   - '8'
   - '10'
 
 services:
   - docker
+  - xvfb
 
+env:
+  - MOZ_HEADLESS=1
 addons:
   apt:
+    sources:
+      - google-chrome
     packages:
       - docker-ce
+      - google-chrome-stable
+  firefox: latest
 
 branches:
   only:
@@ -26,9 +32,15 @@ before_install:
   - npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
   # Use latest supported NPM in order to speedup build and support `npm ci`
   - npm i -g npm@6
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
 
 install:
   - npm ci
+
+script:
+  - npm run lint || travis_terminate 1
+  - npm run test
 
 deploy:
   - provider: script

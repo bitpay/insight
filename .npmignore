@@ -12,6 +12,8 @@ pids
 logs
 results
 build
+lib/test
+test
 
 node_modules
 
