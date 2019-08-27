@@ -22,21 +22,27 @@ angular.module('insight.messages').controller('VerifyMessageController',
   $scope.verify = function() {
     $scope.verification.status = 'loading';
     $scope.verification.address = $scope.message.address;
-    $http.post(window.apiPrefix + '/messages/verify', $scope.message)
-      .success(function(data, status, headers, config) {
-        if(typeof(data.result) != 'boolean') {
-          // API returned 200 but result was not true or false
-          $scope.verification.status = 'error';
-          $scope.verification.error = null;
-          return;
-        }
 
-        $scope.verification.status = 'verified';
-        $scope.verification.result = data.result;
-      })
-      .error(function(data, status, headers, config) {
+    var verify = function(data){
+      if(typeof(data.data.result) === 'boolean') {
+        if(data.data.result){
+          $scope.verification.status = 'verified';
+          $scope.verification.result = data.data.result;
+        }else{
+          $scope.verification.status = 'verified';
+          $scope.verification.result = false;
+        }
+      }else {
+        // API returned 200 but result was not true or false
         $scope.verification.status = 'error';
-        $scope.verification.error = data;
+        $scope.verification.error = null;
+      }
+    };
+
+    $http.post(window.apiPrefix + '/messages/verify', $scope.message)
+      .then(verify)
+      .catch(function(data){
+        console.log('c',data);
       });
   };
 
