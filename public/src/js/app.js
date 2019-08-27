@@ -15,6 +15,7 @@ angular.module('insight',[
   'angularMoment',
   'insight.system',
   'insight.socket',
+  'insight.hash',
   'insight.blocks',
   'insight.transactions',
   'insight.address',
@@ -27,6 +28,7 @@ angular.module('insight',[
 
 angular.module('insight.system', []);
 angular.module('insight.socket', []);
+angular.module('insight.hash', []);
 angular.module('insight.blocks', []);
 angular.module('insight.transactions', []);
 angular.module('insight.address', []);
