@@ -37,6 +37,17 @@ angular.module('insight.search')
           $scope.loading = false;
           _badQuery();
         };
+
+
+        var fetchAndRedirectTransactionSearch = function(){
+          return Transaction.get({
+            txId: q
+          }, function () {
+            _resetSearch();
+            $location.path('/tx/' + q);
+          }, badQueryLoadHandler);
+        };
+
         if (isBlockHeight) {
           BlockByHeight.get({
             blockHeight: q
@@ -51,21 +62,17 @@ angular.module('insight.search')
             _resetSearch();
             $location.path('address/' + q);
           }, badQueryLoadHandler);
-
         } else if (isBlockHash) {
+          // Block hashes are identified by expecting 10 trailing zeroes as prefix (see difficulty)
+          // If we are in the 1/Inf case of a txhash starting with ten zeroes, we will fallback on tx
           Block.get({
             blockHash: q
           }, function () {
             _resetSearch();
             $location.path('/block/' + q);
-          }, badQueryLoadHandler);
+          }, fetchAndRedirectTransactionSearch);
         } else if (isTransactionHash) {
-          Transaction.get({
-            txId: q
-          }, function () {
-            _resetSearch();
-            $location.path('/tx/' + q);
-          }, badQueryLoadHandler);
+          fetchAndRedirectTransactionSearch();
         } else {
           console.log('Query not identified');
           console.log(q);
