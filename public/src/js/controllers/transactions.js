@@ -113,8 +113,10 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     Transaction.get({
       txId: txid
     }, function(tx) {
-        $rootScope.titleDetail = tx.txid.substring(0,7) + '...';
-      $rootScope.flashMessage = null;
+        if(tx.txid){
+          $rootScope.titleDetail = tx.txid.substring(0,7) + '...';
+        }
+        $rootScope.flashMessage = null;
         $scope.tx = tx;
         _processTX(tx);
         $scope.txs.unshift(tx);

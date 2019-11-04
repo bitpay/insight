@@ -65,7 +65,10 @@ angular.module('insight.search')
           // If we are in the 1/Inf case of a txhash starting with ten zeroes, we will fallback on tx
           return Block.get({
             blockHash: q
-          }, function () {
+          }, function (res) {
+            if(res.status === 404){
+              return fetchAndRedirectTransactionSearch();
+            }
             _resetSearch();
             $location.path('/block/' + q);
           }, fetchAndRedirectTransactionSearch);
