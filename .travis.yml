@@ -13,13 +13,8 @@ services:
 env:
   - MOZ_HEADLESS=1
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - docker-ce
-      - google-chrome-stable
   firefox: latest
+  chrome: stable
 
 branches:
   only:
@@ -33,7 +28,6 @@ before_install:
   # Use latest supported NPM in order to speedup build and support `npm ci`
   - npm i -g npm@6
   - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
 
 install:
   - npm ci
