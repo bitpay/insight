@@ -29,8 +29,10 @@ angular.module('insight.blocks')
     function (HashValidator) {
       return {
         test: function (blockHashStr) {
-          return HashValidator.test64(blockHashStr) && blockHashStr.startsWith('0000') ||
-            (HashValidator.test66(blockHashStr) && blockHashStr.startsWith('0x0000'));
+          // Cir. 2014, difficulty implies at least 10 trailing zeroes. See https://github.com/dashevo/insight-ui/pull/52
+          var expectedBlockHashTrailingZeroes = '0000000000';
+          return HashValidator.test64(blockHashStr) && blockHashStr.startsWith(expectedBlockHashTrailingZeroes) ||
+            (HashValidator.test66(blockHashStr) && blockHashStr.startsWith('0x'+expectedBlockHashTrailingZeroes));
         }
       };
     })
