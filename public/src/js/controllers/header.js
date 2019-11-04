@@ -1,8 +1,15 @@
 'use strict';
 
 angular.module('insight.system').controller('HeaderController',
-  function($scope, $rootScope, $uibModal, getSocket, Global, Block) {
+  function($scope, $rootScope, $uibModal, getSocket, Global, Block, Status) {
     $scope.global = Global;
+
+    // This allow us to do crafted logic by the network, such can be seen in BlockHash.test().
+    $rootScope.network = 'testnet';
+    Status.get({},
+      function(status) {
+        $rootScope.network = status.info && status.info.network || 'testnet';
+    });
 
     $rootScope.currency = {
       factor: 1,
