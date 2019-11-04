@@ -23,8 +23,6 @@ angular.module('insight.search')
 
       $scope.search = function () {
         var q = $scope.q;
-        console.log('$scope.search - scope.q', $scope.q);
-        console.log('$scope.search - scope', $scope);
         $scope.badQuery = false;
         $scope.loading = true;
 
@@ -38,7 +36,6 @@ angular.module('insight.search')
           _badQuery();
         };
 
-
         var fetchAndRedirectTransactionSearch = function(){
           return Transaction.get({
             txId: q
@@ -48,34 +45,42 @@ angular.module('insight.search')
           }, badQueryLoadHandler);
         };
 
-        if (isBlockHeight) {
-          BlockByHeight.get({
+        var fetchAndRedirectBlockHeightSearch = function () {
+          return BlockByHeight.get({
             blockHeight: q
           }, function (hash) {
             _resetSearch();
             $location.path('/block/' + hash.blockHash);
           }, badQueryLoadHandler);
-        } else if (isAddress) {
-          Address.get({
+        }
+        var fetchAndRedirectAddressSearch = function () {
+          return Address.get({
             addrStr: q
           }, function () {
             _resetSearch();
             $location.path('address/' + q);
           }, badQueryLoadHandler);
-        } else if (isBlockHash) {
+        }
+        var fetchAndRedirectBlockSearch = function () {
           // Block hashes are identified by expecting 10 trailing zeroes as prefix (see difficulty)
           // If we are in the 1/Inf case of a txhash starting with ten zeroes, we will fallback on tx
-          Block.get({
+          return Block.get({
             blockHash: q
           }, function () {
             _resetSearch();
             $location.path('/block/' + q);
           }, fetchAndRedirectTransactionSearch);
+        };
+
+        if (isBlockHeight) {
+          fetchAndRedirectBlockHeightSearch();
+        } else if (isAddress) {
+          fetchAndRedirectAddressSearch();
+        } else if (isBlockHash) {
+          fetchAndRedirectBlockSearch();
         } else if (isTransactionHash) {
           fetchAndRedirectTransactionSearch();
         } else {
-          console.log('Query not identified');
-          console.log(q);
           badQueryLoadHandler();
         }
       };
