@@ -26,14 +26,15 @@ angular.module('insight.status').controller('StatusController',
       $scope.sync = sync;
     };
 
+    var socket = getSocket($scope);
+
     var _startSocket = function () {
       socket.emit('subscribe', 'sync');
       socket.on('status', function(sync) {
         _onSyncUpdate(sync);
       });
     };
-    
-    var socket = getSocket($scope);
+
     socket.on('connect', function() {
       _startSocket();
     });

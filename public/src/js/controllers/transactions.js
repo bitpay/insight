@@ -113,12 +113,13 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     Transaction.get({
       txId: txid
     }, function(tx) {
-      $rootScope.titleDetail = tx.txid.substring(0,7) + '...';
+        $rootScope.titleDetail = tx.txid.substring(0,7) + '...';
       $rootScope.flashMessage = null;
-      $scope.tx = tx;
-      _processTX(tx);
-      $scope.txs.unshift(tx);
+        $scope.tx = tx;
+        _processTX(tx);
+        $scope.txs.unshift(tx);
     }, function(e) {
+      // FIXME : Do we even enter here ? status 4** do not throw exceptions
       if (e.status === 400) {
         $rootScope.flashMessage = 'Invalid Transaction ID: ' + $routeParams.txId;
       }
@@ -164,7 +165,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     $scope.v_index = parseInt($routeParams.v_index);
     $scope.itemsExpanded = true;
   }
-  
+
   //Init without txs
   $scope.txs = [];
 

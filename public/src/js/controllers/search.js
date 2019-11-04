@@ -1,12 +1,12 @@
 'use strict';
-// var isValidBlockHash = require('../utils/isValidBlockHash');
-// var isValidAddress = require('../utils/isValidAddress');
-// var isValidTransactionHash = require('../utils/isValidTransactionHash');
+
 angular.module('insight.search')
   .controller('SearchController',
-    function ($scope, $routeParams, $location, $timeout, Global, Block, Transaction, Address, BlockHashValidator, TransactionHashValidator, AddressValidator, BlockByHeight) {
+    function ($scope, $rootScope, $routeParams, $location, $timeout, Global, Block, Transaction, Address, BlockHashValidator, TransactionHashValidator, AddressValidator, BlockByHeight) {
       $scope.global = Global;
       $scope.loading = false;
+
+      var currentNetwork = $rootScope.network;
 
       var _badQuery = function () {
         $scope.badQuery = true;
@@ -25,9 +25,8 @@ angular.module('insight.search')
         var q = $scope.q;
         $scope.badQuery = false;
         $scope.loading = true;
-
         var isBlockHeight = isFinite(q);
-        var isBlockHash = BlockHashValidator.test(q);
+        var isBlockHash = BlockHashValidator.test(q, currentNetwork);
         var isTransactionHash = TransactionHashValidator.test(q);
         var isAddress = AddressValidator.test(q);
 
@@ -52,7 +51,7 @@ angular.module('insight.search')
             _resetSearch();
             $location.path('/block/' + hash.blockHash);
           }, badQueryLoadHandler);
-        }
+        };
         var fetchAndRedirectAddressSearch = function () {
           return Address.get({
             addrStr: q
@@ -60,7 +59,7 @@ angular.module('insight.search')
             _resetSearch();
             $location.path('address/' + q);
           }, badQueryLoadHandler);
-        }
+        };
         var fetchAndRedirectBlockSearch = function () {
           // Block hashes are identified by expecting 10 trailing zeroes as prefix (see difficulty)
           // If we are in the 1/Inf case of a txhash starting with ten zeroes, we will fallback on tx
