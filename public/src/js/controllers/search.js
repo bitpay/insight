@@ -52,6 +52,7 @@ angular.module('insight.search')
             $location.path('/block/' + hash.blockHash);
           }, badQueryLoadHandler);
         };
+        
         var fetchAndRedirectAddressSearch = function () {
           return Address.get({
             addrStr: q
@@ -60,9 +61,8 @@ angular.module('insight.search')
             $location.path('address/' + q);
           }, badQueryLoadHandler);
         };
+
         var fetchAndRedirectBlockSearch = function () {
-          // Block hashes are identified by expecting 10 trailing zeroes as prefix (see difficulty)
-          // If we are in the 1/Inf case of a txhash starting with ten zeroes, we will fallback on tx
           return Block.get({
             blockHash: q
           }, function (res) {
@@ -71,7 +71,7 @@ angular.module('insight.search')
             }
             _resetSearch();
             $location.path('/block/' + q);
-          }, fetchAndRedirectTransactionSearch);
+          }, badQueryLoadHandler);
         };
 
         if (isBlockHeight) {

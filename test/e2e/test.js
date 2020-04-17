@@ -133,17 +133,33 @@ describe('basic UI tests', () => {
       const infoErrors = await statusPage.getInfoErrors();
       expect(infoErrors).equal('');
     });
-
-    it('should be able search by block number', async () => {
+    it('should be able to route to block number', async () => {
       const blockIdToSearch = '12';
 
-      topPanel.search(blockIdToSearch);
+      await browser.get(`${url}block/${blockIdToSearch}`);
+
       const currentUrl = await browser.getCurrentUrl();
       expect(currentUrl).equal(`${url}block/${blockIdToSearch}`);
 
       const blockId = (await blockPage.getBlockId()).replace('Block #', '');
       expect(blockId).equal(blockIdToSearch);
       blockHash = await blockPage.getBlockHash();
+
+      const nextBlock = await blockPage.getNextBlock();
+
+      expect(nextBlock).equal(`${parseInt(blockId, 10) + 1}`);
+    });
+    it('should be able search by block number', async () => {
+      const blockIdToSearch = '12';
+
+      topPanel.search(blockIdToSearch);
+      const currentUrl = await browser.getCurrentUrl();
+
+      const blockId = (await blockPage.getBlockId()).replace('Block #', '');
+      expect(blockId).equal(blockIdToSearch);
+      blockHash = await blockPage.getBlockHash();
+      // When search from insight search pane, it will redirect to blockHash in url
+      expect(currentUrl).equal(`${url}block/${blockHash}`);
 
       const numberOfTrxs = await blockPage.getNumberOfTrxs();
       expect(numberOfTrxs).equal('1');

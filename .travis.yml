@@ -28,6 +28,8 @@ before_install:
   # Use latest supported NPM in order to speedup build and support `npm ci`
   - npm i -g npm@6
   - export DISPLAY=:99.0
+  # Mitigate "Failed: (HTTP code 404) no such container - No such image: dashpay/insight:latest"
+  - docker pull dashpay/insight:latest
 
 install:
   - npm ci
