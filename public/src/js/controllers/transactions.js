@@ -193,7 +193,8 @@ angular.module('insight.transactions').controller('SendRawTransactionController'
     };
     $scope.status = 'loading';
     $http.post(window.apiPrefix + '/tx/send', postData)
-      .success(function(data, status, headers, config) {
+      .then(function(response) {
+        const { data, status, headers, config } = response;
         if(typeof(data.txid) != 'string') {
           // API returned 200 but the format is not known
           $scope.status = 'error';
@@ -204,7 +205,8 @@ angular.module('insight.transactions').controller('SendRawTransactionController'
         $scope.status = 'sent';
         $scope.txid = data.txid;
       })
-      .error(function(data, status, headers, config) {
+      .catch(function(response) {
+        const { data, status, headers, config } = response;
         $scope.status = 'error';
         if(data) {
           $scope.error = data;
