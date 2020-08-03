@@ -1,0 +1,25 @@
+version: "3.6"
+services:
+
+  reddcoin-reddcoind:
+    container_name: reddcoin-reddcoind
+    image: reddcoind:latest
+    build: ./core
+    ports:
+      - "45443:45443"
+      - "45444:45444"
+    volumes:
+      - "./.reddcoin:/home/reddcoin/.reddcoin"
+
+  reddcoin-insight:
+    container_name: reddcoin-insight
+    image: insight:latest
+    build: ./reddsight
+    ports:
+      - 3000:3000/tcp
+    environment:
+      - BITCOIND_HOST=192.168.0.112
+    volumes:
+      - "./.reddsight:/home/reddcoin/.reddsight"
+      - "./.reddcoin:/home/reddcoin/.reddcoin"
+
