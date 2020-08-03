@@ -1,3 +1,4 @@
+![all](https://github.com/reddcoin-project/reddsight/workflows/all/badge.svg)
 # *reddsight*
 
 *Reddsight* is an open-source Reddcoin blockchain explorer with complete REST and websocket APIs.
