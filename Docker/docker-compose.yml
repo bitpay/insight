@@ -3,7 +3,7 @@ services:
 
   reddcoin-reddcoind:
     container_name: reddcoin-reddcoind
-    image: reddcoind:latest
+    image: reddcoincore/reddcoind:latest
     build: ./core
     ports:
       - "45443:45443"
@@ -13,7 +13,7 @@ services:
 
   reddcoin-insight:
     container_name: reddcoin-insight
-    image: insight:latest
+    image: reddcoincore/insight:latest
     build: ./reddsight
     ports:
       - 3000:3000/tcp
