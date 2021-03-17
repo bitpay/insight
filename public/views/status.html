@@ -23,7 +23,7 @@
           </tr>
           <tr>
             <td translate>Current Sync Status</td>
-            <td class="text-right"> 
+            <td class="text-right">
             <span  data-ng-show="!sync.error">{{sync.status}}</span>
             <span class="text-danger" data-ng-show="sync.error">
               <span  class="glyphicon glyphicon-warning-sign"></span>
@@ -69,6 +69,27 @@
           <tr>
             <td translate>Current Blockchain Tip (insight)</td>
             <td class="text-right ellipsis"><a href="block/{{syncTipHash}}">{{syncTipHash}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 translate>Best ChainLock</h2>
+      <table class="table" style="table-layout: fixed" data-ng-controller="StatusController" data-ng-init="getStatus('BestChainLock')">
+        <thead data-ng-include src="'views/includes/infoStatus.html'"></thead>
+        <tbody data-ng-if="!error">
+          <tr>
+            <td translate>ChainLock block hash</td>
+            <td class="text-right ellipsis">
+              <a data-ng-if="bestchainlock.known_block" href="block/{{bestchainlock.blockhash}}">{{bestchainlock.blockhash}}</a>
+              <span data-ng-if="!bestchainlock.known_block" title="This block isn't known by this node yet">{{bestchainlock.blockhash}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td translate>ChainLock block height</td>
+            <td class="text-right ellipsis">
+              <a data-ng-if="bestchainlock.known_block" href="block-index/{{bestchainlock.height}}">{{bestchainlock.height}}</a>
+              <span data-ng-if="!bestchainlock.known_block" title="This block isn't known by this node yet">{{bestchainlock.blockhash}}</span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -121,4 +142,3 @@
     </div> <!-- END OF COL-GRAY -->
   </div>
 </section>
-
