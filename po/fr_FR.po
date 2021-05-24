@@ -32,7 +32,7 @@ msgstr ""
 "\">explorateur open-source de blocs</a> avec un ensemble complet d'API REST et "
 "websockets qui peuvent être utilisées pour écrire portefeuille et autres "
 "applications nécéssitant des requêtes plus complète que celles proposés par les "
-"commandes RPC de dashd. Consultez le <a href=\"http://github.com/dashpay/insight\" "
+"commandes RPC de dashd. Consultez le <a href=\"http://github.com/dashevo/insight-ui\" "
 "target=\"_blank\">code source sur GitHub</a>."
 
 #: public/views/index.html
@@ -42,8 +42,8 @@ msgid ""
 "issues\" target=\"_blank\">github issue tracker</a>."
 msgstr ""
 "<strong>insight</strong> est toujours en développement, hésitez pas à remonter tout "
-"bugs et proposer des améliorations sur notre <a href=\"https://github.com/dashpay/"
-"insight-ui-dash/issues\" target=\"_blank\">Github issue tracker</a>."
+"bugs et proposer des améliorations sur notre <a href=\"https://github.com/dashevo/"
+"insight-ui/issues\" target=\"_blank\">GitHub issue tracker</a>."
 
 #: public/views/index.html
 msgid "About"
