@@ -18,7 +18,7 @@ services:
     ports:
       - 3000:3000/tcp
     environment:
-      - BITCOIND_HOST=172.18.0.2
+      - BITCOIND_HOST=reddcoin-reddcoind
       - BITCOIND_DATADIR=/home/reddcoin/.reddcoin
     volumes:
       - "./.reddsight:/home/reddcoin/.reddsight"
