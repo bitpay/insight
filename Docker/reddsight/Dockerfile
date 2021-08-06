@@ -41,6 +41,6 @@ ENV INSIGHT_DB /home/reddcoin/.reddsight
 VOLUME ["/home/reddcoin/.reddcoin"]
 VOLUME ["/home/reddcoin/.reddsight"]
 
-EXPOSE 3000/tcp
+EXPOSE 3001/tcp
 
 CMD [ "/root/setup.sh" ]
