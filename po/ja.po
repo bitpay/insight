@@ -32,7 +32,7 @@ msgstr ""
 "チェインへの問い合わせを必要とするウェブウォレットやその他のアプリを書くのに"
 "使える、完全なRESTおよびwebsocket APIを備えた<a href=\"http://live.insight."
 "is/\" target=\"_blank\">オープンソースのビットコインブロックエクスプローラ</"
-"a>です。<a href=\"https://github.com/dashpay/insight-ui-dash\" target=\"_blank\">ソース"
+"a>です。<a href=\"https://github.com/dashevo/insight-ui\" target=\"_blank\">ソース"
 "コード</a>を確認"
 
 #: public/views/index.html
@@ -42,7 +42,7 @@ msgid ""
 "com/dashpay/insight/issues\" target=\"_blank\">github issue tracker</a>."
 msgstr ""
 "<strong>insight</strong>は現在開発中です。<a href=\"https://github.com/"
-"dashpay/insight/issues\" target=\"_blank\">githubのissueトラッカ</a>にてバグの"
+"dashevo/insight-ui/issues\" target=\"_blank\">githubのissueトラッカ</a>にてバグの"
 "報告や改善案の提案をお願いします。"
 
 #: public/views/index.html

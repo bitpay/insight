@@ -29,18 +29,18 @@ msgstr ""
 "\">explorador de blocos Bitcoin de código aberto</a> com um conjunto "
 "completo de APIs de websocket e REST que podem ser usadas para programar "
 "carteiras online e outros aplicativos que necessitam consultar um explorador "
-"de blocos. Confira o <a href=\"https://github.com/bitpay/insight-ui\" target="
+"de blocos. Confira o <a href=\"https://github.com/dashevo/insight-ui\" target="
 "\"_blank\">código-fonte</a>."
 
 #: public/views/index.html
 msgid ""
 "<strong>insight</strong> is still in development, so be sure to report any "
 "bugs and provide feedback for improvement at our <a href=\"https://github."
-"com/bitpay/insight-ui/issues\" target=\"_blank\">github issue tracker</a>."
+"com/bitpay/insight-ui/issues\" target=\"_blank\">GitHub issue tracker</a>."
 msgstr ""
 "<Strong>insight</Strong> ainda está em desenvolvimento, portanto agradecemos "
 "que postem erros e sugestões para melhorias em nosso <a href=\"https://"
-"github.com/bitpay/insight-ui/issues\" target=\"_blank\">rastreador de "
+"github.com/dashevo/insight-ui/issues\" target=\"_blank\">rastreador de "
 "problemas no GitHub</a>."
 
 #: public/views/404.html

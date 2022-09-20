@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Insight\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Sascha Dückers <s.dueckers@gmail.com>\n"
+"Last-Translator: Pander <pander@users.sourceforge.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,11 +14,11 @@ msgstr ""
 
 #: public/views/transaction/tx.html
 msgid "(Input unconfirmed)"
-msgstr "(Eingabe unbestätigt)"
+msgstr "(Input onbevestigd)"
 
 #: public/views/404.html
 msgid "404 Page not found :("
-msgstr "404 Seite nicht gefunden :("
+msgstr "404 Pagina niet gevonden :("
 
 #: public/views/index.html
 msgid ""
@@ -29,13 +29,13 @@ msgid ""
 "Check out the <a href=\"https://github.com/dashpay/insight-ui-dash\" target=\"_blank"
 "\">source code</a>."
 msgstr ""
-"<strong>insight</strong> ist ein <a href=\"http://live.insight.is/\" target="
-"\"_blank\">Open Source Dash Blockchain Explorer</a> mit vollständigen "
-"REST und Websocket APIs um eigene Wallets oder Applikationen zu "
-"implementieren. Hierbei werden fortschrittlichere Abfragen der Blockchain "
-"ermöglicht, bei denen die RPC des dashd nicht mehr ausreichen. Der "
-"aktuelle <a href=\"https://github.com/dashevo/insight-ui\" target=\"_blank"
-"\">Quellcode</a> ist auf GitHub zu finden."
+"<strong>insight</strong> is een <a href=\"http://live.insight.is/\" target="
+"\"_blank\">opensource Dash-blokketenexplorer</a> met volledige "
+"REST- en websocket-API's om eigen webportomonnee's en andere apps te "
+"implementeren. Hierdoor zijn meer geavanceerde query's op de blokketen "
+"mogelijk, dan die door RPC worden aangeboden. De actuele "
+"<a href=\"https://github.com/dashevo/insight-ui\" target=\"_blank"
+"\">broncode</a> is op GitHub te vinden."
 
 #: public/views/index.html
 msgid ""
@@ -43,94 +43,94 @@ msgid ""
 "bugs and provide feedback for improvement at our <a href=\"https://github."
 "com/dashpay/insight/issues\" target=\"_blank\">github issue tracker</a>."
 msgstr ""
-"<strong>insight</strong> befindet sich aktuell noch in der Entwicklung. "
-"Bitte sende alle gefundenen Fehler (Bugs) und Feedback zur weiteren "
-"Verbesserung an unseren <a href=\"https://github.com/dashevo/insight-ui/issues"
-"\" target=\"_blank\">GitHub Issue Tracker</a>."
+"<strong>insight</strong> is nog steeds in ontwikkeling. Dus rapporteer "
+"fouten (bugs) en geef terugkoppeling voor verbeteringen via onze "
+"<a href=\"https://github.com/dashevo/insight-ui/issues"
+"\" target=\"_blank\">issuetracker op GitHub</a>."
 
 #: public/views/index.html
 msgid "About"
-msgstr "Über insight"
+msgstr "Over"
 
 #: public/views/address.html
 msgid "Address"
-msgstr "Adresse"
+msgstr "Adres"
 
 #: public/views/index.html
 msgid "Age"
-msgstr "Alter"
+msgstr "Leeftijd"
 
 #: public/views/status.html
 msgid "Application Status"
-msgstr "Programmstatus"
+msgstr "Programmastatus"
 
 #: public/views/status.html
 msgid "Best Block"
-msgstr "Bester Block"
+msgstr "Beste blok"
 
 #: public/views/status.html
 msgid "Dash node information"
-msgstr "Dash-Node Info"
+msgstr "Dash-knooppuntinformatie"
 
 #: public/views/block.html
 msgid "Block"
-msgstr "Block"
+msgstr "Blok"
 
 #: public/views/block.html
 msgid "Block Reward"
-msgstr "Belohnung"
+msgstr "Blokbeloning"
 
 #: public/views/block_list.html public/views/dummy-translations.html
 #: public/views/status.html
 msgid "Blocks"
-msgstr "Blöcke"
+msgstr "Blokken"
 
 #: public/views/status.html
 msgid "Bytes Serialized"
-msgstr "Serialisierte Bytes"
+msgstr "Geserialiseerde bytes"
 
 #: public/views/includes/connection.html
 msgid ""
 "Can't connect to dashd to get live updates from the p2p network. (Tried "
 "connecting to dashd at {{host}}:{{port}} and failed.)"
 msgstr ""
-"Es ist nicht möglich mit dashd zu verbinden um live Aktualisierungen vom "
-"P2P Netzwerk zu erhalten. (Verbindungsversuch zu dashd an {{host}}:"
-"{{port}} ist fehlgeschlagen.)"
+"Kan geen verbinding maken net dashd om liveupdates van het P2P-netwerk te "
+"ontvangen. (Geprobeerd verbinding te maken met dashd op {{host}}:"
+"{{port}} en is mislukt.)"
 
 #: public/views/includes/connection.html
 msgid "Can't connect to insight server. Attempting to reconnect..."
 msgstr ""
-"Keine Verbindung zum insight-Server möglich. Es wird versucht die "
-"Verbindung neu aufzubauen..."
+"Kan geen verbinding maken met de insight-server. Het wordt nog eens "
+"geprobeerd..."
 
 #: public/views/includes/connection.html
 msgid "Can't connect to internet. Please, check your connection."
-msgstr "Keine Verbindung zum Internet möglich, bitte Zugangsdaten prüfen."
+msgstr "Kan geen verbinding maken met het internet. Controleer je verbinding."
 
 #: public/views/status.html
 msgid "Complete"
-msgstr "Vollständig"
+msgstr "Compleet"
 
 #: public/views/transaction.html public/views/transaction/tx.html
 msgid "Confirmations"
-msgstr "Bestätigungen"
+msgstr "Bevestigingen"
 
 #: public/views/includes/header.html
 msgid "Conn"
-msgstr "Verbindungen"
+msgstr "Verbindingen"
 
 #: public/views/status.html
 msgid "Connections to other nodes"
-msgstr "Verbindungen zu Nodes"
+msgstr "Verbindingen met andere knooppunten"
 
 #: public/views/status.html
 msgid "Current Blockchain Tip (insight)"
-msgstr "Aktueller Blockchain Tip (insight)"
+msgstr "Huidige blokketentop (insight)"
 
 #: public/views/status.html
 msgid "Current Sync Status"
-msgstr "Aktueller Status"
+msgstr "Huidige synchronisatiestatus"
 
 #: public/views/transaction.html
 msgid "Details"
@@ -138,207 +138,207 @@ msgstr "Details"
 
 #: public/views/block.html
 msgid "Difficulty"
-msgstr "Schwierigkeit"
+msgstr "Moeilijkheid"
 
 #: public/views/transaction/tx.html
 msgid "Double spent attempt detected. From tx:"
-msgstr "Es wurde ein \"double Spend\" Versuch erkannt. Von tx:"
+msgstr "Er is een \"dubbele uitgave\" gedetecteerd. Van tx:"
 
 #: public/views/includes/connection.html
 msgid "Error!"
-msgstr "Fehler!"
+msgstr "Fout!"
 
 #: public/views/transaction/tx.html
 msgid "Fee"
-msgstr "Gebühr"
+msgstr "Transactiekosten"
 
 #: public/views/address.html
 msgid "Final Balance"
-msgstr "Schlussbilanz"
+msgstr "Totaalsaldo"
 
 #: public/views/status.html
 msgid "Finish Date"
-msgstr "Fertigstellung"
+msgstr "Einddatum"
 
 #: public/views/404.html
 msgid "Go to home"
-msgstr "Zur Startseite"
+msgstr "Ga naar home"
 
 #: public/views/status.html
 msgid "Hash Serialized"
-msgstr "Hash Serialisiert"
+msgstr "Geserialiseerde hash"
 
 #: public/views/block.html public/views/block_list.html
 #: public/views/index.html public/views/status.html
 #: public/views/includes/header.html
 msgid "Height"
-msgstr "Höhe"
+msgstr "Hoogte"
 
 #: public/views/transaction.html public/views/transaction/tx.html
 msgid "Included in Block"
-msgstr "Eingefügt in Block"
+msgstr "Inbegrepen in blok"
 
 #: public/views/transaction/tx.html
 msgid "Incoherence in levelDB detected:"
-msgstr "Es wurde eine Zusammenhangslosigkeit in der LevelDB festgestellt:"
+msgstr "Incoherentie is gedetecteerd in levelDB:"
 
 #: public/views/status.html
 msgid "Info Errors"
-msgstr "Fehlerbeschreibung"
+msgstr "Foutbeschrijving"
 
 #: public/views/status.html
 msgid "Initial Block Chain Height"
-msgstr "Ursprüngliche Blockchain Höhe"
+msgstr "Oorspronkelijke blokketenhoogte"
 
 #: public/views/transaction.html
 msgid "Input"
-msgstr "Eingänge"
+msgstr "Input"
 
 #: public/views/status.html
 msgid "Last Block"
-msgstr "Letzter Block"
+msgstr "Laatste blok"
 
 #: public/views/status.html
 msgid "Last Block Hash (dashd)"
-msgstr "Letzter Hash (dashd)"
+msgstr "Laatste blokhash (dashd)"
 
 #: public/views/index.html
 msgid "Latest Blocks"
-msgstr "Letzte Blöcke"
+msgstr "Recentste blok"
 
 #: public/views/index.html
 msgid "Latest Transactions"
-msgstr "Letzte Transaktionen"
+msgstr "Recentste transacties"
 
 #: public/views/address.html
 msgid "Loading Address Information"
-msgstr "Lade Adressinformationen"
+msgstr "Adresinformatie aan het laden"
 
 #: public/views/block.html
 msgid "Loading Block Information"
-msgstr "Lade Blockinformation"
+msgstr "Blokinformatie aan het laden"
 
 #: public/views/block_list.html
 msgid "Loading Selected Date..."
-msgstr "Lade gewähltes Datum..."
+msgstr "Geselecteerde datum aan het laden..."
 
 #: public/views/transaction.html
 msgid "Loading Transaction Details"
-msgstr "Lade Transaktionsdetails"
+msgstr "Transactiedetails aan het laden"
 
 #: public/views/transaction/list.html
 msgid "Loading Transactions..."
-msgstr "Lade Transaktionen..."
+msgstr "Transacties aan het laden..."
 
 #: public/views/includes/infoStatus.html
 msgid "Loading..."
-msgstr "Lade..."
+msgstr "Aan het laden..."
 
 #: public/views/transaction.html
 msgid "Mined Time"
-msgstr "Block gefunden (Mining)"
+msgstr "Miningtijdstip"
 
 #: public/views/block.html public/views/block_list.html
 #: public/views/index.html
 msgid "Mined by"
-msgstr "Gefunden von"
+msgstr "Gemined door"
 
 #: public/views/status.html
 msgid "Mining Difficulty"
-msgstr "Schwierigkeitgrad"
+msgstr "Miningmoeilijkheid"
 
 #: public/views/block.html
 msgid "Next Block"
-msgstr "Nächster Block"
+msgstr "Volgende blok"
 
 #: public/views/transaction/tx.html
 msgid "No Inputs (Newly Generated Coins)"
-msgstr "Keine Eingänge (Neu generierte Coins)"
+msgstr "Geen inputs (nieuw aangemaakte munten)"
 
 #: public/views/block_list.html
 msgid "No blocks yet."
-msgstr "Keine Blöcke bisher."
+msgstr "Nog geen blokken."
 
 #: public/views/includes/header.html public/views/includes/search.html
 msgid "No matching records found!"
-msgstr "Keine passenden Einträge gefunden!"
+msgstr "Geen passende records gevonden!"
 
 #: public/views/address.html
 msgid "No. Transactions"
-msgstr "Anzahl Transaktionen"
+msgstr "Aantal transacties"
 
 #: public/views/block.html
 msgid "Number Of Transactions"
-msgstr "Anzahl der Transaktionen"
+msgstr "Aantal transacties"
 
 #: public/views/transaction.html
 msgid "Output"
-msgstr "Ausgänge"
+msgstr "Output"
 
 #: public/views/index.html
 msgid "Powered by"
-msgstr "Powered by"
+msgstr "Aangedreven door"
 
 #: public/views/block.html
 msgid "Previous Block"
-msgstr "Letzter Block"
+msgstr "Vorig blok"
 
 #: public/views/status.html
 msgid "Protocol version"
-msgstr "Protokollversion"
+msgstr "Protocolversie"
 
 #: public/views/status.html
 msgid "Proxy setting"
-msgstr "Proxyeinstellung"
+msgstr "Proxy-instellingen"
 
 #: public/views/transaction.html
 msgid "Received Time"
-msgstr "Eingangszeitpunkt"
+msgstr "Onvangsttijdstip"
 
 #: public/views/redirect.html
 msgid "Redirecting..."
-msgstr "Umleitung..."
+msgstr "Aan het omleiden..."
 
 #: public/views/includes/header.html
 msgid "Search for block, transaction or address"
-msgstr "Suche Block, Transaktion oder Adresse"
+msgstr "Zoek op blok, transactie of adres"
 
 #: public/views/index.html
 msgid "See all blocks"
-msgstr "Alle Blöcke anzeigen"
+msgstr "Bekijk alle blokken"
 
 #: public/views/status.html
 msgid "Show Transaction Output data"
-msgstr "Zeige Abgänge"
+msgstr "Toon transactieoutputgegevens"
 
 #: public/views/transaction/tx.html
 msgid "Show all"
-msgstr "Zeige Alles"
+msgstr "Toon alles"
 
 #: public/views/transaction/tx.html
 msgid "Show input"
-msgstr "Zeige Eingänge"
+msgstr "Toon input"
 
 #: public/views/transaction/tx.html
 msgid "Show less"
-msgstr "Weniger anzeigen"
+msgstr "Toon minder"
 
 #: public/views/transaction/tx.html
 msgid "Show more"
-msgstr "Mehr anzeigen"
+msgstr "Toon meer"
 
 #: public/views/block_list.html public/views/index.html
 #: public/views/transaction.html
 msgid "Size"
-msgstr "Größe"
+msgstr "Grootte"
 
 #: public/views/block.html
 msgid "Size (bytes)"
-msgstr "Größe (bytes)"
+msgstr "Grootte (bytes)"
 
 #: public/views/status.html
 msgid "Skipped Blocks (previously synced)"
-msgstr "Verworfene Blöcke (bereits syncronisiert)"
+msgstr "Overgeslagen blokken (voorheen gesynchroniseerd)"
 
 #: public/views/status.html
 msgid "Start Date"
@@ -350,125 +350,125 @@ msgstr "Status"
 
 #: public/views/block.html public/views/transaction.html
 msgid "Summary"
-msgstr "Zusammenfassung"
+msgstr "Samenvatting"
 
 #: public/views/address.html
 msgid "Summary <small>confirmed</small>"
-msgstr "Zusammenfassung <small>bestätigt</small>"
+msgstr "Samenvatting <small>bevestigd</small>"
 
 #: public/views/status.html
 msgid "Sync Progress"
-msgstr "Fortschritt"
+msgstr "Synchronisatievoortgang"
 
 #: public/views/status.html
 msgid "Sync Status"
-msgstr "Syncronisation"
+msgstr "Synchronisatiestatus"
 
 #: public/views/status.html
 msgid "Sync Type"
-msgstr "Art der Syncronisation"
+msgstr "Synchronisatietype"
 
 #: public/views/status.html
 msgid "Synced Blocks"
-msgstr "Syncronisierte Blöcke"
+msgstr "Gesynchroniseerde blokken"
 
 #: public/views/status.html
 msgid "Testnet"
-msgstr "Testnet aktiv"
+msgstr "Testnet actief"
 
 #: public/views/transaction/list.html
 msgid "There are no transactions involving this address."
-msgstr "Es gibt keine Transaktionen zu dieser Adressse"
+msgstr "Er zijn geen transacties gerelateerd aan dit adres."
 
 #: public/views/status.html
 msgid "Time Offset"
-msgstr "Zeitoffset zu UTC"
+msgstr "Tijdsoffset tot UTC"
 
 #: public/views/block.html
 msgid "Timestamp"
-msgstr "Zeitstempel"
+msgstr "Tijdsstempel"
 
 #: public/views/block_list.html
 msgid "Today"
-msgstr "Heute"
+msgstr "Vandaag"
 
 #: public/views/status.html
 msgid "Total Amount"
-msgstr "Gesamtsumme"
+msgstr "Totaalbedrag"
 
 #: public/views/address.html
 msgid "Total Received"
-msgstr "Insgesamt empfangen"
+msgstr "Totaal ontvangen"
 
 #: public/views/address.html
 msgid "Total Sent"
-msgstr "Insgesamt gesendet"
+msgstr "Totaal verstuurd"
 
 #: public/views/transaction.html
 msgid "Transaction"
-msgstr "Transaktion"
+msgstr "Transactie"
 
 #: public/views/status.html
 msgid "Transaction Output Set Information"
-msgstr "Transaktions Abgänge"
+msgstr "Transactieoutputsetinformatie"
 
 #: public/views/status.html
 msgid "Transaction Outputs"
-msgstr "Abgänge"
+msgstr "Transactieoutputs"
 
 #: public/views/address.html public/views/block.html
 #: public/views/block_list.html public/views/index.html
 #: public/views/status.html
 msgid "Transactions"
-msgstr "Transaktionen"
+msgstr "Transacties"
 
 #: public/views/transaction/tx.html
 msgid "Type"
-msgstr "Typ"
+msgstr "Type"
 
 #: public/views/address.html
 msgid "Unconfirmed"
-msgstr "Unbestätigt"
+msgstr "Onbevestigd"
 
 #: public/views/transaction.html public/views/transaction/tx.html
 msgid "Unconfirmed Transaction!"
-msgstr "Unbestätigte Transaktion!"
+msgstr "Onbevestigde transacties!"
 
 #: public/views/address.html
 msgid "Unconfirmed Txs Balance"
-msgstr "Unbestätigtes Guthaben"
+msgstr "Onbevestigde transactiesaldo"
 
 #: public/views/index.html
 msgid "Value Out"
-msgstr "Wert"
+msgstr "Waarde"
 
 #: public/views/block.html public/views/status.html
 msgid "Version"
-msgstr "Version"
+msgstr "Versie"
 
 #: public/views/block_list.html public/views/index.html
 msgid "Waiting for blocks..."
-msgstr "Warte auf Blöcke..."
+msgstr "Op blokken aan het wachten..."
 
 #: public/views/index.html
 msgid "Waiting for transactions..."
-msgstr "Warte auf Transaktionen..."
+msgstr "Op transacties aan het wachten..."
 
 #: public/views/block_list.html
 msgid "by date."
-msgstr "nach Datum."
+msgstr "op datum."
 
 #: public/views/transaction/tx.html
 msgid "first seen at"
-msgstr "zuerst gesehen am"
+msgstr "voor het eerst gezien op"
 
 #: public/views/transaction/tx.html
 msgid "mined"
-msgstr "gefunden"
+msgstr "gemined"
 
 #: public/views/block_list.html
 msgid "mined on:"
-msgstr "vom:"
+msgstr "gemined op:"
 
 msgid "Waiting for blocks"
-msgstr "Warte auf Blöcke"
+msgstr "Op blokken aan het wachten"

@@ -51,7 +51,8 @@ describe('basic UI tests', () => {
       .map(i => i.remove()));
   });
 
-  beforeEach(() => {
+  beforeEach(async () => {
+    await browser.waitForAngularEnabled(false);
     originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 250000;
   });
@@ -63,6 +64,7 @@ describe('basic UI tests', () => {
   describe('Home Page', () => {
     it('should be able to open main page', async () => {
       await browser.get(url);
+      await wait(10000);
       const title = await browser.getTitle();
       expect(title).equal('Home | Insight');
     });
@@ -137,6 +139,7 @@ describe('basic UI tests', () => {
       const blockIdToSearch = '12';
 
       await browser.get(`${url}block/${blockIdToSearch}`);
+      await wait(10000);
 
       const currentUrl = await browser.getCurrentUrl();
       expect(currentUrl).equal(`${url}block/${blockIdToSearch}`);
@@ -154,7 +157,6 @@ describe('basic UI tests', () => {
 
       topPanel.search(blockIdToSearch);
       const currentUrl = await browser.getCurrentUrl();
-
       const blockId = (await blockPage.getBlockId()).replace('Block #', '');
       expect(blockId).equal(blockIdToSearch);
       blockHash = await blockPage.getBlockHash();

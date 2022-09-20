@@ -34,7 +34,7 @@ msgstr ""
 "conjunto de REST y APIs de websockets que pueden ser usadas para escribir "
 "monederos de Dashs y otras aplicaciones que requieran consultar un "
 "explorador de bloques.  Obtén el código en <a href=\"http://github.com/"
-"dashpay/insight\" target=\"_blank\">el repositorio abierto de Github</a>."
+"dashevo/insight-ui\" target=\"_blank\">el repositorio abierto de GitHub</a>."
 
 #: public/views/index.html
 msgid ""
@@ -44,7 +44,7 @@ msgid ""
 msgstr ""
 "<strong>insight</strong> esta en desarrollo aún, por ello agradecemos que "
 "nos reporten errores o sugerencias para mejorar el software. <a href="
-"\"https://github.com/dashpay/insight-ui-dash/issues\" target=\"_blank\">Github issue "
+"\"https://github.com/dashevo/insight-ui/issues\" target=\"_blank\">GitHub issue "
 "tracker</a>."
 
 #: public/views/index.html
