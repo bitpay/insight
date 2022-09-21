@@ -44,6 +44,9 @@ jobs:
       - name: Run ESLinter
         run: npm run lint
 
+      - name: Use https instead of git protocol fo git
+        run: git config --global url."https://".insteadOf git://
+
       - name: Build project
         run: npm run build
 
