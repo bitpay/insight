@@ -5,7 +5,6 @@ exports.config = {
     defaultTimeoutInterval: 250000,
   },
   specs: ['test.js'],
-
   multiCapabilities: [
     {
       browserName: 'firefox',

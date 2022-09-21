@@ -1,50 +1,52 @@
 const { expect } = require('chai');
-const startInsightUI = require('../../lib/test/startInsightUI');
+
+const path = require('path');
+
+const startInsightNode = require('../../lib/test/startInsightNode');
 const wait = require('../../lib/test/util/wait');
 
 const topPanel = require('../../lib/test/pages/TopPanel');
 const blockPage = require('../../lib/test/pages/BlockPage');
 const statusPage = require('../../lib/test/pages/StatusPage');
 
-const InsightUIOptions = require('../../lib/test/service-ctl/InsightUIOptions');
-
 let originalTimeout;
 
 describe('basic UI tests', () => {
-  let masterNode;
+  let insightNode;
 
   let url;
   let blockHash;
   let trxHash;
 
   beforeAll(async () => {
-    const rootPath = process.cwd();
-
-    const insightUIContainerOptions = {
-      volumes: [
-        `${rootPath}/dashcore-node:/insight/node_modules/@dashevo/insight-ui/dashcore-node`,
-        `${rootPath}/po:/insight/node_modules/@dashevo/insight-ui/po`,
-        `${rootPath}/public:/insight/node_modules/@dashevo/insight-ui/public`,
-      ],
-    };
+    const rootPath = path.resolve(path.join(__dirname, '..', '..'));
 
     const insighUIOptions = {
-      container: insightUIContainerOptions,
+      container: {
+        volumes: [
+          `${rootPath}/dashcore-node:/insight/node_modules/@dashevo/insight-ui/dashcore-node`,
+          `${rootPath}/po:/insight/node_modules/@dashevo/insight-ui/po`,
+          `${rootPath}/public:/insight/node_modules/@dashevo/insight-ui/public`,
+        ],
+      },
     };
 
-    InsightUIOptions.setDefaultCustomOptions(insighUIOptions);
+    insightNode = await startInsightNode({
+      insightUI: insighUIOptions,
+    });
 
+    url = `http://127.0.0.1:${insightNode.insightUI.options.getUiPort()}/insight/`;
 
-    [masterNode] = await startInsightUI.many(1);
+    const dashCoreRpcClient = insightNode.dashCore.getApi();
 
-    url = `http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight/`;
+    const { result: address } = await dashCoreRpcClient.getNewAddress();
 
-    await masterNode.dashCore.getApi().generate(15);
+    await dashCoreRpcClient.generateToAddress(15, address);
   });
 
   afterAll(async () => {
     const instances = [
-      masterNode,
+      insightNode,
     ];
 
     await Promise.all(instances.filter(i => i)
@@ -156,12 +158,16 @@ describe('basic UI tests', () => {
       const blockIdToSearch = '12';
 
       topPanel.search(blockIdToSearch);
+
+      await wait(10000);
+
+      // When search from insight search pane, it will redirect to blockHash in url
       const currentUrl = await browser.getCurrentUrl();
+      expect(currentUrl).equal(`${url}block/${blockHash}`);
+
       const blockId = (await blockPage.getBlockId()).replace('Block #', '');
       expect(blockId).equal(blockIdToSearch);
       blockHash = await blockPage.getBlockHash();
-      // When search from insight search pane, it will redirect to blockHash in url
-      expect(currentUrl).equal(`${url}block/${blockHash}`);
 
       const numberOfTrxs = await blockPage.getNumberOfTrxs();
       expect(numberOfTrxs).equal('1');
