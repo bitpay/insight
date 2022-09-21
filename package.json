@@ -1,7 +1,7 @@
 {
   "name": "@dashevo/insight-ui",
   "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the Dash network and build your own services with it.",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "repository": "git://github.com/dashevo/insight-ui.git",
   "contributors": [
     {
@@ -48,8 +48,9 @@
     "build": "bower install && grunt compile",
     "watch": "grunt",
     "lint": "eslint .",
-    "postinstall": "webdriver-manager update --standalone",
-    "test": "(webdriver-manager start > webdriver.log 2>&1 &) && sleep 30 && protractor ./test/e2e/conf.js",
+    "pretest": "webdriver-manager update && webdriver-manager start --detach --quiet",
+    "test": "protractor ./test/e2e/conf.js",
+    "posttest": "webdriver-manager shutdown",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
