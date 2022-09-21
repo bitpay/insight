@@ -44,6 +44,9 @@ jobs:
       - name: Run ESLinter
         run: npm run lint
 
+      - name: Build project
+        run: npm run build
+
       - name: Run tests
         run: npm run test
 
@@ -80,6 +83,9 @@ jobs:
             const tag = context.payload.release.tag_name;
             const [, major, minor] = tag.match(/^v([0-9]+)\.([0-9]+)/);
             return (tag.includes('dev') ? `${major}.${minor}-dev` : 'latest');
+
+      - name: Use https instead of git protocol fo git
+        run: git config --global url."https://".insteadOf git://
 
       - name: Publish NPM package
         uses: JS-DevTools/npm-publish@v1
@@ -155,7 +161,7 @@ jobs:
           cache-to: type=gha,mode=max
           platforms: linux/amd64,linux/arm64
           build-args: |
-            VERSION=${{ github.event.release.tag_name }}  
+            VERSION=${{ github.event.release.tag_name }}
             MAJOR_VERSION=${{ steps.tag.outputs.result }}
 
       - name: Output Docker image digest
