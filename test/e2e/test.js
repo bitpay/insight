@@ -39,6 +39,8 @@ describe('basic UI tests', () => {
 
     const dashCoreRpcClient = insightNode.dashCore.getApi();
 
+    await dashCoreRpcClient.createwallet('test');
+
     const { result: address } = await dashCoreRpcClient.getNewAddress();
 
     await dashCoreRpcClient.generateToAddress(15, address);

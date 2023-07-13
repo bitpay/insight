@@ -54,7 +54,7 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@dashevo/dp-services-ctl": "~0.15.0",
+    "@dashevo/dp-services-ctl": "dashpay/js-dp-services-ctl#v0.15.1",
     "bower": "~1.8.8",
     "chai": "^4.2.0",
     "eslint": "^5.6.1",
